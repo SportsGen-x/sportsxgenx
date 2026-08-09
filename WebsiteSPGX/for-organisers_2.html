@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Tournament Organisers — SportsGenX</title>
+<meta name="description" content="Run your sports tournament like a pro. Online registration, automated draws, live scoring, player auctions, and e-certificates — all in one platform. First tournament free." />
+<meta property="og:title" content="For Tournament Organisers — SportsGenX" />
+<meta property="og:description" content="Replace WhatsApp groups and Excel sheets with SportsGenX. First tournament completely free." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="https://sportsgenx.com/for-organisers" />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* Hero right — stats panel */
+.hero-stats{position:relative;z-index:1;width:100%;display:flex;flex-direction:column;gap:16px}
+.hero-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hero-stat-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:20px 18px;text-align:center;transition:background .2s}
+.hero-stat-card:hover{background:rgba(255,255,255,.2)}
+.hero-stat-num{font-family:var(--font-display);font-size:34px;font-weight:700;color:var(--white);line-height:1;margin-bottom:4px}
+.hero-stat-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.hero-stat-wide{background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px 22px;display:flex;align-items:center;gap:14px}
+.hero-stat-wide-icon{font-size:28px;flex-shrink:0}
+.hero-stat-wide-val{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--white);text-transform:uppercase}
+.hero-stat-wide-sub{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px}
+
+/* BEFORE/AFTER */
+.transform-section{background:var(--white);padding:90px 40px}
+.transform-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;border-radius:16px;overflow:hidden;border:2px solid #f0f0f0}
+.transform-col{padding:40px 36px}
+.transform-col.before{background:#fafafa;border-right:1px solid #f0f0f0}
+.transform-col.after{background:var(--red)}
+.transform-divider{display:flex;align-items:center;justify-content:center;background:var(--white);padding:0 4px;border-right:1px solid #f0f0f0}
+.transform-divider-inner{width:40px;height:40px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--white);font-weight:700;flex-shrink:0}
+.transform-label{font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid}
+.transform-col.before .transform-label{color:#999;border-color:#eee}
+.transform-col.after .transform-label{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.2)}
+.transform-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.transform-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5}
+.transform-col.before .transform-list li{color:#888}
+.transform-col.after .transform-list li{color:rgba(255,255,255,.88)}
+.transform-list li .t-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+
+/* STEPS */
+.steps-section{background:var(--off-white);padding:90px 40px;position:relative}
+.steps-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#e0e0e0;border-radius:14px;overflow:hidden;border:2px solid #e0e0e0}
+.step-card{background:var(--white);padding:40px 32px;position:relative;transition:background .2s}
+.step-card:hover{background:var(--off-white)}
+.step-card::before{content:'';position:absolute;top:0;left:0;width:0;height:0;border-style:solid;border-width:44px 44px 0 0;border-color:var(--red) transparent transparent transparent;opacity:.07;transition:opacity .25s}
+.step-card:hover::before{opacity:.15}
+.step-num{font-family:var(--font-display);font-size:56px;font-weight:700;color:rgba(200,0,26,.07);line-height:1;margin-bottom:6px}
+.step-icon{font-size:28px;margin-bottom:14px;display:block}
+.step-h3{font-family:var(--font-display);font-size:19px;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:12px;padding-bottom:12px;border-bottom:3px solid var(--red);line-height:1.2}
+.step-copy{font-size:13.5px;color:#555;line-height:1.75}
+.step-copy strong{color:var(--black);font-weight:600}
+
+/* FEATURES */
+.features-section{background:var(--red);padding:90px 40px;position:relative;overflow:hidden}
+.features-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,.25),transparent)}
+.feat-header{max-width:1200px;margin:0 auto 52px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.feat-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);padding-left:20px;position:relative;display:block;margin-bottom:10px}
+.feat-eyebrow::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:12px;height:2px;background:rgba(255,255,255,.7)}
+.feat-h2{font-family:var(--font-display);font-size:clamp(28px,3.5vw,44px);font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.05}
+.feat-h2 span{color:rgba(255,255,255,.6)}
+.feat-header-right{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;max-width:300px}
+.features-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18);border-radius:12px;overflow:hidden}
+.feat-card{background:var(--white);padding:34px 28px;position:relative;transition:background .2s;overflow:hidden}
+.feat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.feat-card:hover{background:#fff5f5}
+.feat-card:hover::after{transform:scaleX(1)}
+.feat-icon{font-size:26px;margin-bottom:14px;display:block}
+.feat-h3{font-family:var(--font-display);font-size:16px;font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.2;margin-bottom:10px}
+.feat-copy{font-size:13px;line-height:1.75;color:#666}
+
+/* SUPPORT */
+.support-section{background:var(--white);padding:90px 40px}
+.support-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.support-h2{font-family:var(--font-display);font-size:clamp(28px,3.5vw,44px);font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.1;margin-top:12px;margin-bottom:20px}
+.support-h2 span{color:var(--red)}
+.support-copy{font-size:15px;line-height:1.8;color:#555;margin-bottom:32px}
+.support-copy strong{color:var(--black);font-weight:600}
+.support-highlight{background:var(--red);border-radius:10px;padding:24px 28px;margin-top:28px}
+.support-highlight p{font-family:var(--font-display);font-size:18px;font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.4}
+.support-highlight p span{color:rgba(255,255,255,.7);font-size:14px;font-family:var(--font-body);text-transform:none;font-weight:500;display:block;margin-top:6px}
+.support-cards{display:flex;flex-direction:column;gap:16px}
+.support-card{display:flex;align-items:flex-start;gap:16px;background:var(--off-white);border-radius:10px;padding:22px 20px;border-left:4px solid var(--red);transition:box-shadow .2s}
+.support-card:hover{box-shadow:0 6px 24px rgba(200,0,26,.1)}
+.support-card-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+.support-card-h3{font-family:var(--font-display);font-size:15px;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:6px}
+.support-card-copy{font-size:13px;color:#666;line-height:1.65}
+
+/* SPORTS */
+.sports-section{background:var(--red);padding:90px 40px;position:relative;overflow:hidden}
+.sports-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,.25),transparent)}
+.sports-inner{max-width:1200px;margin:0 auto}
+.sports-header{text-align:center;margin-bottom:56px}
+.sports-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;position:relative;padding-left:20px;margin-bottom:14px;color:rgba(255,255,255,.7)}
+.sports-eyebrow::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:12px;height:2px;background:rgba(255,255,255,.7)}
+.sports-h2{font-family:var(--font-display);font-size:clamp(28px,3.5vw,44px);font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.05;margin-top:8px}
+.sports-h2 span{color:rgba(255,255,255,.6)}
+.sports-sub{font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;margin-top:12px;max-width:520px;margin-left:auto;margin-right:auto}
+.sports-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:40px}
+.sport-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:24px 16px;text-align:center;transition:background .2s,transform .2s}
+.sport-card:hover{background:rgba(255,255,255,.2);transform:translateY(-4px)}
+.sport-emoji{font-size:36px;margin-bottom:12px;display:block}
+.sport-name{font-family:var(--font-display);font-size:14px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.04em;margin-bottom:4px}
+.sport-note{font-size:11px;color:rgba(255,255,255,.5)}
+.sports-more{text-align:center;font-size:13px;color:rgba(255,255,255,.5);font-style:italic}
+.sports-more strong{color:rgba(255,255,255,.8);font-style:normal}
+
+/* FORMATS */
+.formats-section{background:var(--white);padding:90px 40px;position:relative}
+.formats-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
+.formats-inner{max-width:1200px;margin:0 auto}
+.formats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.format-card{border:2px solid #f0f0f0;border-radius:14px;padding:32px 26px;transition:border-color .2s,box-shadow .2s;position:relative;overflow:hidden}
+.format-card:hover{border-color:var(--red);box-shadow:0 8px 28px rgba(200,0,26,.1)}
+.format-card::before{content:'';position:absolute;top:0;left:0;width:0;height:0;border-style:solid;border-width:40px 40px 0 0;border-color:var(--red) transparent transparent transparent;opacity:.07;transition:opacity .25s}
+.format-card:hover::before{opacity:.15}
+.format-icon{font-size:32px;margin-bottom:14px;display:block}
+.format-label{font-family:var(--font-display);font-size:18px;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:10px;padding-bottom:10px;border-bottom:2px solid var(--red)}
+.format-desc{font-size:13.5px;color:#555;line-height:1.7;margin-bottom:14px}
+.format-tags{display:flex;gap:6px;flex-wrap:wrap}
+.format-tag{background:rgba(200,0,26,.07);border:1px solid rgba(200,0,26,.18);border-radius:100px;padding:3px 10px;font-size:10px;font-weight:600;color:var(--red);letter-spacing:.04em}
+
+/* PRICING */
+.pricing-narrative{background:var(--off-white);padding:90px 40px;position:relative}
+.pricing-narrative::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
+.pricing-narrative-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.pricing-narrative-h2{font-family:var(--font-display);font-size:clamp(28px,3.5vw,44px);font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.1;margin-top:12px;margin-bottom:20px}
+.pricing-narrative-h2 span{color:var(--red)}
+.pricing-narrative-copy{font-size:15px;line-height:1.8;color:#555;margin-bottom:20px}
+.pricing-narrative-copy strong{color:var(--black);font-weight:600}
+.pricing-promise{background:var(--red);border-radius:10px;padding:24px 28px;margin-top:28px}
+.pricing-promise p{font-family:var(--font-display);font-size:20px;font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.4}
+.pricing-promise p span{color:rgba(255,255,255,.75);font-size:14px;font-family:var(--font-body);text-transform:none;font-weight:500;display:block;margin-top:8px;line-height:1.7}
+.pricing-pillars{display:flex;flex-direction:column;gap:16px}
+.pricing-pillar{display:flex;align-items:flex-start;gap:16px;background:var(--white);border-radius:10px;padding:22px 20px;border-left:4px solid var(--red);transition:box-shadow .2s}
+.pricing-pillar:hover{box-shadow:0 4px 20px rgba(200,0,26,.1)}
+.pricing-pillar-icon{font-size:26px;flex-shrink:0;margin-top:2px}
+.pricing-pillar-h3{font-family:var(--font-display);font-size:15px;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:5px}
+.pricing-pillar-copy{font-size:13px;color:#666;line-height:1.6}
+
+/* WHITE LABEL */
+.wl-section{background:var(--white);padding:90px 40px}
+.wl-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.wl-h2{font-family:var(--font-display);font-size:clamp(28px,3.5vw,44px);font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.1;margin-top:12px;margin-bottom:20px}
+.wl-h2 span{color:var(--red)}
+.wl-copy{font-size:15px;line-height:1.8;color:#555;margin-bottom:28px}
+.wl-copy strong{color:var(--black);font-weight:600}
+.wl-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
+.wl-pill{background:rgba(200,0,26,.07);border:1px solid rgba(200,0,26,.2);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:600;color:var(--red);letter-spacing:.04em}
+.wl-card{background:var(--black);border-radius:16px;padding:40px 36px;position:relative;overflow:hidden}
+.wl-card::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(200,0,26,.08) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+.wl-card-banner{background:var(--red);border-radius:10px;padding:20px 22px;margin-bottom:24px;position:relative;z-index:1;text-align:center}
+.wl-card-banner-title{font-family:var(--font-display);font-size:22px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.04em}
+.wl-card-banner-sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;letter-spacing:.06em;text-transform:uppercase}
+.wl-includes{list-style:none;display:flex;flex-direction:column;gap:12px;position:relative;z-index:1}
+.wl-includes li{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,.8)}
+.wl-includes li .wi-icon{font-size:18px;flex-shrink:0;width:32px;height:32px;background:rgba(200,0,26,.15);border:1px solid rgba(200,0,26,.25);border-radius:6px;display:flex;align-items:center;justify-content:center}
+.wl-card-tagline{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-family:var(--font-display);font-size:14px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,.4);letter-spacing:.08em;position:relative;z-index:1}
+
+/* TESTI */
+.testi-section{background:var(--off-white);padding:90px 40px;position:relative}
+.testi-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:0}
+.testi-card{background:var(--white);border:1px solid #eee;border-radius:12px;padding:36px 32px;transition:border-color .2s,box-shadow .2s}
+.testi-card:hover{border-color:rgba(200,0,26,.3);box-shadow:0 6px 24px rgba(200,0,26,.08)}
+.testi-quote{font-family:Georgia,serif;font-size:64px;line-height:.6;color:rgba(200,0,26,.15);margin-bottom:16px;display:block}
+.testi-body{font-size:14.5px;line-height:1.8;color:#555;margin-bottom:10px}
+.testi-highlight{font-size:14.5px;line-height:1.8;color:#777;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:14px;margin-top:22px;padding-top:18px;border-top:1px solid #f0f0f0}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:var(--red);color:var(--white);font-family:var(--font-display);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.testi-name{font-family:var(--font-display);font-size:14px;font-weight:700;text-transform:uppercase;color:var(--black);letter-spacing:.04em}
+.testi-org{font-size:12px;color:#999;margin-top:2px}
+.testi-stars{color:#F5A623;font-size:13px;letter-spacing:2px;margin-top:8px}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .transform-grid{grid-template-columns:1fr;grid-template-rows:auto auto auto}
+  .transform-divider{padding:12px 0;border-right:none;border-bottom:1px solid #eee;border-top:1px solid #eee}
+  .steps-grid{grid-template-columns:1fr 1fr}
+  .features-grid{grid-template-columns:1fr 1fr}
+  .support-inner,.wl-inner,.pricing-narrative-inner{grid-template-columns:1fr}
+  .sports-grid{grid-template-columns:repeat(3,1fr)}
+  .formats-grid{grid-template-columns:1fr 1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .feat-header{flex-direction:column;align-items:flex-start}
+  .transform-section,.steps-section,.features-section,.support-section,.sports-section,.formats-section,.pricing-narrative,.wl-section,.testi-section{padding-left:24px;padding-right:24px}
+}
+@media(max-width:580px){
+  .steps-grid{grid-template-columns:1fr}
+  .features-grid{grid-template-columns:1fr}
+  .sports-grid{grid-template-columns:repeat(2,1fr)}
+  .formats-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="sportsgenx-homepage_19.html" class="nav-logo">
+    <img src="sportsgenxlogored.png" alt="SportsGenX"/>
+  </a>
+  <ul class="nav-links">
+    <li><a href="sportsgenx-homepage_19.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="#">Tournament Management <span class="chevron" aria-hidden="true"></span></a>
+      <div class="dropdown-menu">
+        <a href="knockout-tournament.html"><span class="dd-icon" aria-hidden="true">🏆</span> Knockout Tournaments</a>
+        <a href="premier-league.html"><span class="dd-icon" aria-hidden="true">🥇</span> Premier Leagues</a>
+        <div class="dropdown-divider"></div>
+        <a href="draw-making.html"><span class="dd-icon" aria-hidden="true">📊</span> Draw Making</a>
+        <a href="live-auction.html"><span class="dd-icon" aria-hidden="true">🔨</span> Live Auction</a>
+      </div>
+    </li>
+    <li><a href="for-organisers_2.html" class="active" aria-current="page">For Organisers</a></li>
+    <li><a href="for-academies.html">For Academies/Clubs</a></li>
+    <li class="nav-cta-li"><a href="sportsgenx-homepage_19.html#contact">📅 Book Demo</a></li>
+  </ul>
+  <button class="nav-hamburger" type="button"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero" id="main-content">
+  <div class="page-hero-left">
+    <div class="page-hero-left-inner">
+      <div class="hero-breadcrumb">
+        <a href="sportsgenx-homepage_19.html">Home</a>
+        <span class="sep">›</span>
+        <span>For Organisers</span>
+      </div>
+      <div class="page-hero-eyebrow">🏟️ Tournament Organisers</div>
+      <h1 class="page-hero-h1">Run Your Tournament <span>Like a Pro</span> — Without the Chaos</h1>
+      <p class="page-hero-sub">SportsGenX replaces WhatsApp groups, Excel sheets, and manual headaches with a single, powerful tournament management platform. Online registration, automated draws, live scoring, player auctions, and e-certificates — all in one app.</p>
+      <div class="hero-ctas">
+        <a href="sportsgenx-homepage_19.html#contact" class="btn-primary">📅 Book a Free Demo</a>
+        <a href="#how-it-works" class="btn-outline-red">See How It Works ↓</a>
+      </div>
+      <div class="hero-trust">
+        <span class="trust-pill">✅ 100+ Tournaments</span>
+        <span class="trust-pill">⭐ 5.0 Organiser Rating</span>
+        <span class="trust-pill">🆓 First Tournament Free</span>
+      </div>
+    </div>
+  </div>
+  <div class="page-hero-right">
+    <div class="hero-stats">
+      <div class="hero-stat-row">
+        <div class="hero-stat-card"><div class="hero-stat-num">100+</div><div class="hero-stat-label">Tournaments Run</div></div>
+        <div class="hero-stat-card"><div class="hero-stat-num">10+</div><div class="hero-stat-label">Sports Covered</div></div>
+      </div>
+      <div class="hero-stat-row">
+        <div class="hero-stat-card"><div class="hero-stat-num">5 AM</div><div class="hero-stat-label">Support Start Time</div></div>
+        <div class="hero-stat-card"><div class="hero-stat-num">60s</div><div class="hero-stat-label">To Go Live</div></div>
+      </div>
+      <div class="hero-stat-wide">
+        <div class="hero-stat-wide-icon" aria-hidden="true">🆓</div>
+        <div>
+          <div class="hero-stat-wide-val">First Tournament Free</div>
+          <div class="hero-stat-wide-sub">No platform fee. No commission. Start today.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="transform-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">The SportsGenX Difference</span>
+      <h2 class="section-h2">From Chaos to <span>Complete Control</span></h2>
+      <p class="section-sub">Every organiser who switches to SportsGenX says the same thing — they wish they'd found it sooner.</p>
+    </div>
+    <div class="transform-grid">
+      <div class="transform-col before">
+        <div class="transform-label">❌ Before SportsGenX</div>
+        <ul class="transform-list">
+          <li><span class="t-icon" aria-hidden="true">😩</span>Registration via WhatsApp messages and Google Forms</li>
+          <li><span class="t-icon" aria-hidden="true">📋</span>Manually building draws in Excel — hours of work</li>
+          <li><span class="t-icon" aria-hidden="true">💸</span>Chasing players for entry fees via bank transfers and screenshots</li>
+          <li><span class="t-icon" aria-hidden="true">📣</span>Announcing scores on WhatsApp groups — constant manual updates</li>
+          <li><span class="t-icon" aria-hidden="true">🖨️</span>Printing, signing, and posting paper certificates</li>
+          <li><span class="t-icon" aria-hidden="true">😰</span>Tournament day chaos — no central view of what's happening</li>
+          <li><span class="t-icon" aria-hidden="true">📞</span>Phone calls to umpires for score updates</li>
+          <li><span class="t-icon" aria-hidden="true">💤</span>No player data, no analytics, no records for next year</li>
+        </ul>
+      </div>
+      <div class="transform-divider" aria-hidden="true"><div class="transform-divider-inner">→</div></div>
+      <div class="transform-col after">
+        <div class="transform-label">✅ After SportsGenX</div>
+        <ul class="transform-list">
+          <li><span class="t-icon" aria-hidden="true">🔗</span>Share one link — players register in the app instantly</li>
+          <li><span class="t-icon" aria-hidden="true">⚡</span>One click generates your complete draw in seconds</li>
+          <li><span class="t-icon" aria-hidden="true">💳</span>UPI, cards, net banking — fees collected and tracked automatically</li>
+          <li><span class="t-icon" aria-hidden="true">📺</span>Live scores on venue screens and in-app — zero manual updates</li>
+          <li><span class="t-icon" aria-hidden="true">🎓</span>Personalised e-certificates auto-generated and distributed instantly</li>
+          <li><span class="t-icon" aria-hidden="true">📊</span>Single dashboard — see every match, score, and result live</li>
+          <li><span class="t-icon" aria-hidden="true">📱</span>Umpires score on their phone — updates everywhere in real time</li>
+          <li><span class="t-icon" aria-hidden="true">📈</span>Full player database, rankings, and analytics saved forever</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps-section" id="how-it-works">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="section-h2">Run Your Entire Tournament <span>in 6 Steps</span></h2>
+      <p class="section-sub">From publishing to prize-giving — SportsGenX walks you through every step, with expert support at each stage.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><span class="step-icon" aria-hidden="true">📢</span><h3 class="step-h3">Publish Your Tournament</h3><p class="step-copy">List your event on SportsGenX in under 60 seconds. <strong>Your tournament goes live instantly</strong> — visible to thousands of players in your city and sport.</p></div>
+      <div class="step-card"><div class="step-num">02</div><span class="step-icon" aria-hidden="true">📋</span><h3 class="step-h3">Online Registration &amp; Payments</h3><p class="step-copy">Players register and pay online — UPI, cards, and net banking. <strong>Entries auto-populate, duplicates are flagged</strong>, and you see everything on your dashboard in real time.</p></div>
+      <div class="step-card"><div class="step-num">03</div><span class="step-icon" aria-hidden="true">🎲</span><h3 class="step-h3">Auto-Generate Draws &amp; Fixtures</h3><p class="step-copy">One click generates your complete draw. <strong>Knockout, Round Robin, Premier League, Lucky Doubles</strong> — any format. BYEs, scheduling, and court assignments handled automatically.</p></div>
+      <div class="step-card"><div class="step-num">04</div><span class="step-icon" aria-hidden="true">📡</span><h3 class="step-h3">Live Scoring &amp; Venue Display</h3><p class="step-copy">Umpires score matches directly from their phone. <strong>Live scores appear on venue screens, in the app, and on the draw</strong> — simultaneously. No phone calls, no score sheets.</p></div>
+      <div class="step-card"><div class="step-num">05</div><span class="step-icon" aria-hidden="true">🔨</span><h3 class="step-h3">Player Auction (for Leagues)</h3><p class="step-copy">Running a Premier League? Conduct a <strong>live IPL-style player auction</strong> on your venue screen — real-time bidding, team budgets, lucky wheel tie-breakers, and instant team allocation.</p></div>
+      <div class="step-card"><div class="step-num">06</div><span class="step-icon" aria-hidden="true">🎓</span><h3 class="step-h3">Winners, Results &amp; e-Certificates</h3><p class="step-copy">Declare winners with one click. <strong>Personalised e-certificates for winners, runners-up, and all participants</strong> are generated and distributed instantly.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="features-section" id="features">
+  <div class="feat-header">
+    <div>
+      <span class="feat-eyebrow">Platform Features</span>
+      <h2 class="feat-h2">Everything an Organiser <span>Could Need</span></h2>
+    </div>
+    <p class="feat-header-right">A complete toolkit built specifically for sports tournament organisers — from first-timers to national-level events.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true">🌐</span><h3 class="feat-h3">Tournament Listing &amp; Discovery</h3><p class="feat-copy">Your tournament appears in the SportsGenX directory — searchable by sport, city, and date. Reach players who are actively looking for events to join.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true">📱</span><h3 class="feat-h3">WhatsApp Registration Bot</h3><p class="feat-copy">Players can register via WhatsApp without downloading the app. Entries are captured automatically — no manual data entry for the organiser.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true">💳</span><h3 class="feat-h3">Secure Payment Collection</h3><p class="feat-copy">UPI, cards, and net banking. Every rupee tracked automatically. Full audit trail, next-day settlement, and zero chasing of payment screenshots.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true">🧩</span><h3 class="feat-h3">Multi-Format Support</h3><p class="feat-copy">Knockout, Round Robin, League, Premier League, Lucky Doubles, Knockout League — SportsGenX supports more formats than any other platform.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true">👥</span><h3 class="feat-h3">Category &amp; Age Group Management</h3><p class="feat-copy">Create unlimited categories — U13, U15, U17, Open, Mixed, Veteran. Each with independent draws, schedules, and results.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true">📊</span><h3 class="feat-h3">Organiser Dashboard</h3><p class="feat-copy">Real-time view of registrations, payments, match progress, scores, and results — everything in one place. No switching between tabs or apps.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true">📺</span><h3 class="feat-h3">Venue Display Integration</h3><p class="feat-copy">Connect any TV or projector to display live scores, draws, and match schedules at the venue. Players and spectators always know what's happening.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true">🔴</span><h3 class="feat-h3">Live Streaming Score Ticker</h3><p class="feat-copy">Streaming your matches live? Add a professional score ticker overlay — like broadcast TV — with a single integration. No separate software needed.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true">📸</span><h3 class="feat-h3">Tournament Gallery</h3><p class="feat-copy">Upload photos and videos from your event — shared directly with all participants through the app. Build lasting memories and promote your next event.</p></div>
+  </div>
+</section>
+
+<section class="support-section" id="support">
+  <div class="support-inner">
+    <div class="support-left">
+      <span class="eyebrow">Expert Support</span>
+      <h2 class="support-h2">A Professional Team <span>Behind Every Tournament</span></h2>
+      <p class="support-copy">SportsGenX isn't just software — it's a team of sports technology professionals who've been there on tournament day. Whether it's your first 20-player local knockout or a 500-player national-level open, our team is with you from setup to the final e-certificate.</p>
+      <div class="support-highlight">
+        <p>Available from 5 AM on tournament morning — not chatbots, real humans.<span>Our support team has been up at 5:45 AM to follow up before tournaments that start at 6 AM. That's the SportsGenX promise.</span></p>
+      </div>
+    </div>
+    <div class="support-right">
+      <div class="support-cards">
+        <div class="support-card"><div class="support-card-icon" aria-hidden="true">🚀</div><div><div class="support-card-h3">Onboarding &amp; Setup Support</div><div class="support-card-copy">Our team sets up your first tournament with you — categories, draw formats, payment setup, and venue display configuration. You're never figuring it out alone.</div></div></div>
+        <div class="support-card"><div class="support-card-icon" aria-hidden="true">📅</div><div><div class="support-card-h3">Tournament Day Live Support</div><div class="support-card-copy">From 5 AM on your tournament morning, the SportsGenX team is on standby via WhatsApp. Draw issues, scoring problems, payment queries — resolved in minutes, not hours.</div></div></div>
+        <div class="support-card"><div class="support-card-icon" aria-hidden="true">📞</div><div><div class="support-card-h3">Dedicated Account Manager</div><div class="support-card-copy">Regular organisers get a dedicated point of contact who understands your event format, preferences, and venue — so every tournament runs smoother than the last.</div></div></div>
+        <div class="support-card"><div class="support-card-icon" aria-hidden="true">🎓</div><div><div class="support-card-h3">Training &amp; Documentation</div><div class="support-card-copy">Video walkthroughs, step-by-step guides, and live training sessions available for you and your team. Get tournament-ready in under an hour.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sports-section" id="sports">
+  <div class="sports-inner">
+    <div class="sports-header">
+      <span class="sports-eyebrow">Sports Coverage</span>
+      <h2 class="sports-h2">Supports Every <span>Sport You Play</span></h2>
+      <p class="sports-sub">From racket sports to team sports — SportsGenX works for any sport that runs structured competitions and tournaments.</p>
+    </div>
+    <div class="sports-grid">
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🏸</span><div class="sport-name">Badminton</div><div class="sport-note">Singles · Doubles · Mixed</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🏏</span><div class="sport-name">Cricket</div><div class="sport-note">T20 · Box · League</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">⚽</span><div class="sport-name">Football</div><div class="sport-note">7-a-side · 11-a-side</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🎾</span><div class="sport-name">Tennis</div><div class="sport-note">ITF · Club · Open</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🏓</span><div class="sport-name">Table Tennis</div><div class="sport-note">Ranking · Club</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🥒</span><div class="sport-name">Pickleball</div><div class="sport-note">Singles · Doubles</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🎱</span><div class="sport-name">Squash</div><div class="sport-note">Singles · Team</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🏀</span><div class="sport-name">Basketball</div><div class="sport-note">3x3 · 5-a-side</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🏐</span><div class="sport-name">Volleyball</div><div class="sport-note">Indoor · Beach</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🏊</span><div class="sport-name">Swimming</div><div class="sport-note">Age Group · Open</div></div>
+    </div>
+    <p class="sports-more"><strong>And many more.</strong> If your sport runs structured tournaments, SportsGenX can manage it.</p>
+  </div>
+</section>
+
+<section class="formats-section" id="formats">
+  <div class="formats-inner">
+    <div class="section-header">
+      <span class="eyebrow">Tournament Formats</span>
+      <h2 class="section-h2">Every Format You'll <span>Ever Need</span></h2>
+      <p class="section-sub">SportsGenX supports more tournament formats than any other platform — choose the right format and the platform builds everything automatically.</p>
+    </div>
+    <div class="formats-grid">
+      <div class="format-card"><span class="format-icon" aria-hidden="true">⚔️</span><div class="format-label">Knockout</div><div class="format-desc">Classic single-elimination bracket. Seeded or random draws. BYEs handled automatically.</div><div class="format-tags"><span class="format-tag">Singles</span><span class="format-tag">Doubles</span><span class="format-tag">Seeded</span><span class="format-tag">Random</span></div></div>
+      <div class="format-card"><span class="format-icon" aria-hidden="true">🔄</span><div class="format-label">Round Robin / League</div><div class="format-desc">Every player or team faces every other. Points table, standings, and head-to-head records updated live after every match.</div><div class="format-tags"><span class="format-tag">Points Table</span><span class="format-tag">Head-to-Head</span><span class="format-tag">Auto Standings</span></div></div>
+      <div class="format-card"><span class="format-icon" aria-hidden="true">🥇</span><div class="format-label">Premier League</div><div class="format-desc">Full team-based league with player auction, skill-based categorization, custom match formats, pool management, and semi-finals.</div><div class="format-tags"><span class="format-tag">Live Auction</span><span class="format-tag">Team Pools</span><span class="format-tag">Trump Matches</span></div></div>
+      <div class="format-card"><span class="format-icon" aria-hidden="true">🏊</span><div class="format-label">Group + Knockout</div><div class="format-desc">Pool/group stage followed by knockout rounds. Top teams auto-qualify based on pool standings.</div><div class="format-tags"><span class="format-tag">Pool Stage</span><span class="format-tag">Auto Qualify</span><span class="format-tag">Knockout Finals</span></div></div>
+      <div class="format-card"><span class="format-icon" aria-hidden="true">🍀</span><div class="format-label">Lucky Doubles</div><div class="format-desc">Players register individually and are randomly paired into doubles teams on the day. Great for social and fun events.</div><div class="format-tags"><span class="format-tag">Random Pairing</span><span class="format-tag">Doubles</span><span class="format-tag">Social Events</span></div></div>
+      <div class="format-card"><span class="format-icon" aria-hidden="true">🎲</span><div class="format-label">Knockout League</div><div class="format-desc">Hybrid format combining league-stage group play with a knockout elimination bracket. Teams play multiple matches before the knockout rounds begin.</div><div class="format-tags"><span class="format-tag">Hybrid</span><span class="format-tag">More Matches</span><span class="format-tag">Group + Bracket</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-narrative" id="pricing">
+  <div class="pricing-narrative-inner">
+    <div>
+      <span class="eyebrow">Economical Pricing</span>
+      <h2 class="pricing-narrative-h2">Priced for <span>Every Organiser</span></h2>
+      <p class="pricing-narrative-copy">SportsGenX is <strong>one of the most economical tournament management platforms available</strong> — with transparent, event-based pricing that scales with you, not against you. <strong>Your first tournament is completely free</strong> — no registration fees, no platform commission, no hidden charges.</p>
+      <div class="pricing-promise"><p>Your first tournament is FREE.<span>No platform fee. No entry commission. No setup cost. List your first event, run it end-to-end, and only decide if it's worth paying for after you've experienced it yourself.</span></p></div>
+    </div>
+    <div class="pricing-pillars">
+      <div class="pricing-pillar"><div class="pricing-pillar-icon" aria-hidden="true">🆓</div><div><div class="pricing-pillar-h3">First Tournament Free</div><div class="pricing-pillar-copy">Run your entire first tournament at zero cost — full features, full support, no strings attached.</div></div></div>
+      <div class="pricing-pillar"><div class="pricing-pillar-icon" aria-hidden="true">📋</div><div><div class="pricing-pillar-h3">Per-Event Pricing</div><div class="pricing-pillar-copy">Pay only when you run an event. No monthly subscriptions, no annual lock-ins.</div></div></div>
+      <div class="pricing-pillar"><div class="pricing-pillar-icon" aria-hidden="true">🚫</div><div><div class="pricing-pillar-h3">No Commission on Entry Fees</div><div class="pricing-pillar-copy">Every rupee your players pay goes to you. SportsGenX does not take a cut of your entry fee revenue — ever.</div></div></div>
+      <div class="pricing-pillar"><div class="pricing-pillar-icon" aria-hidden="true">📊</div><div><div class="pricing-pillar-h3">Volume Discounts Available</div><div class="pricing-pillar-copy">Running multiple events per year? Associations and regular organisers get preferential rates.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="wl-section" id="whitelabel">
+  <div class="wl-inner">
+    <div class="wl-left">
+      <div class="wl-card">
+        <div class="wl-card-banner"><div class="wl-card-banner-title">Your Brand. Your Platform.</div><div class="wl-card-banner-sub">Powered by SportsGenX</div></div>
+        <ul class="wl-includes">
+          <li><div class="wi-icon" aria-hidden="true">📱</div>Android App — your branding</li>
+          <li><div class="wi-icon" aria-hidden="true">🍎</div>iOS App — your branding</li>
+          <li><div class="wi-icon" aria-hidden="true">🌐</div>Web Portal — your custom domain</li>
+          <li><div class="wi-icon" aria-hidden="true">💳</div>Payment Gateway Integration</li>
+          <li><div class="wi-icon" aria-hidden="true">🎨</div>Custom Colors, Logo &amp; Identity</li>
+          <li><div class="wi-icon" aria-hidden="true">📊</div>Dedicated Dashboards for your users</li>
+          <li><div class="wi-icon" aria-hidden="true">🔄</div>All future updates included</li>
+        </ul>
+        <div class="wl-card-tagline">Launch in weeks · Zero dev cost</div>
+      </div>
+    </div>
+    <div class="wl-right">
+      <span class="eyebrow">White Label Solutions</span>
+      <h2 class="wl-h2">Launch Your Own <span>Sports Tech Platform</span></h2>
+      <p class="wl-copy">Are you a sports association, a large academy, or a league organiser who wants to offer a <strong>branded tournament management platform</strong> to your members? SportsGenX offers complete white-label solutions — your brand, your app, your platform.</p>
+      <div class="wl-pills">
+        <span class="wl-pill">Sports Associations</span>
+        <span class="wl-pill">Large Academies</span>
+        <span class="wl-pill">League Organisers</span>
+        <span class="wl-pill">Federations</span>
+        <span class="wl-pill">Sports Communities</span>
+      </div>
+      <a href="sportsgenx-homepage_19.html#contact" class="btn-primary">Talk to Us About White Label →</a>
+    </div>
+  </div>
+</section>
+
+<section class="testi-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Organiser Reviews</span>
+      <h2 class="section-h2">What Organisers <span>Say About Us</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card"><span class="testi-quote" aria-hidden="true">"</span><p class="testi-body">We have used SportsGenX for 3 tournaments — 2 badminton and 1 pickleball. All 3 were extremely smooth. SportsGenX has incorporated all aspects of gameplay and scoring with clear access control mechanisms.</p><p class="testi-highlight">Their team is available 24x7. We had tournaments beginning at 6 AM and were surprised to get follow-ups at 5:45 AM. Overall, it's a top experience!</p><div class="testi-author"><div class="testi-avatar" aria-hidden="true">MP</div><div><div class="testi-name">Manan Podar</div><div class="testi-org">Goregaon Sports Club, Mumbai</div></div></div><div class="testi-stars" aria-label="5 stars">★★★★★</div></div>
+      <div class="testi-card"><span class="testi-quote" aria-hidden="true">"</span><p class="testi-body">SportsGenX has been a game-changer for tournament organisers as well as participants. Real-time updates, player insights, tournament points and many more — I'm thrilled with the efficiency this app brings.</p><p class="testi-highlight">Any format you think of — league, knockout, round robin — they made it ready and customised for you. An excellent app that I highly recommend!</p><div class="testi-author"><div class="testi-avatar" aria-hidden="true">PG</div><div><div class="testi-name">Parag Gupta</div><div class="testi-org">SportsWhizz Foundation, Indore</div></div></div><div class="testi-stars" aria-label="5 stars">★★★★★</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-h2">Ready to Run Your Next Tournament <span>the Smart Way?</span></h2>
+    <p class="cta-sub">Join 100+ organisers across India who've ditched the spreadsheets and WhatsApp groups. Your first tournament is completely free.</p>
+    <div class="cta-btns">
+      <a href="sportsgenx-homepage_19.html#contact" class="btn-white">📅 Book a Free Demo</a>
+      <a href="#" class="btn-outline-white">📲 Download the App</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 SportsGenX / Dream Shuttlers LLP. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Use</a> &nbsp;|&nbsp; <a href="sportsgenx-homepage_19.html">← Back to Home</a></p>
+</footer>
+
+<script src="nav.js" defer></script>
+</body>
+</html>

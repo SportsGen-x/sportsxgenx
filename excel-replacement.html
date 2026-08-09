@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Stop Running Tournaments on Excel & WhatsApp — SportsGenX</title>
+<meta name="description" content="Ditch the manual spreadsheets and chaotic WhatsApp groups. Manage registrations, categories, draws, fixtures, and live standings from a single platform." />
+<meta property="og:title" content="Stop Running Tournaments on Excel & WhatsApp — SportsGenX" />
+<meta property="og:description" content="Replace manual Excel grids with 1-click draw makers and automated player self-registrations. Save hours of work." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="https://sportsgenx.com/excel-replacement" />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* Page-Specific Styles */
+
+/* Hide footer demo form band on this page since it is already in the hero */
+.footer-demo-band {
+  display: none !important;
+}
+
+/* Spacing between Hero CTAs and Trust badges */
+.hero-trust {
+  margin-top: 28px;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important; /* Force single row on mobile */
+  gap: 6px !important; /* Reduced from 8px to avoid clipping */
+  width: 100%;
+  max-width: 480px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hero-trust::-webkit-scrollbar {
+  display: none;
+}
+
+/* SVG Icon Styles */
+.badge-icon, .btn-icon, .trust-icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.badge-icon {
+  margin-right: 6px;
+  color: var(--red);
+}
+.btn-icon {
+  margin-right: 8px;
+}
+.btn-icon-right {
+  margin-left: 8px;
+  margin-right: 0;
+}
+.trust-icon {
+  margin-right: 0; /* Let gap handle spacing */
+  color: var(--red);
+}
+
+/* Trust Badges and Eyebrow flex alignment */
+.trust-pill {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
+  flex: 1 0 auto !important;
+  justify-content: center;
+  font-size: 10px !important; /* Tighter text on mobile */
+  padding: 4px 6px !important; /* Tightened from 5px 8px to avoid clipping */
+  white-space: nowrap !important;
+}
+
+@media(min-width: 600px) {
+  .trust-pill {
+    font-size: 11px !important;
+    padding: 5px 10px !important;
+  }
+}
+
+@media(min-width: 768px) {
+  .hero-trust {
+    width: auto;
+    max-width: none;
+    gap: 10px !important;
+  }
+  .trust-pill {
+    padding: 5px 12px !important;
+  }
+}
+.page-hero-eyebrow {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Fit buttons in a single row side-by-side on all screen sizes */
+.hero-ctas {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 12px !important;
+  width: 100%;
+}
+.hero-ctas .btn-primary,
+.hero-ctas .btn-outline-red {
+  flex: 1 !important;
+  width: auto !important;
+  justify-content: center !important;
+  font-size: 11.5px !important;
+  padding: 12px 8px !important;
+  white-space: nowrap !important;
+}
+
+@media(min-width: 480px) {
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-outline-red {
+    font-size: 12px !important;
+    padding: 14px 16px !important;
+  }
+}
+
+@media(min-width: 960px) {
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-outline-red {
+    font-size: 13px !important;
+    padding: 15px 22px !important;
+  }
+}
+
+/* Hero Form Card */
+.hero-form-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+  position: relative;
+  z-index: 5;
+}
+.hero-form-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.hero-form-sub {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.hero-form-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px !important;
+}
+.hero-form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--black);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.hero-form-input::placeholder {
+  color: #aaa;
+}
+.hero-form-input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(200, 0, 26, 0.15);
+}
+
+/* Specific elements span full width (2 columns) */
+.hero-form-input[name="role"],
+.hero-form-textarea,
+.hero-form-submit {
+  grid-column: 1 / -1;
+}
+
+/* Custom styled dropdown select buttons */
+select.hero-form-input {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 16px center !important;
+  background-size: 12px !important;
+  padding-right: 36px !important;
+  cursor: pointer;
+}
+
+/* Option tags inside select dropdowns */
+select.hero-form-input option {
+  background: var(--white);
+  color: var(--black);
+}
+
+.hero-form-textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+.hero-form-submit {
+  width: 100%;
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  padding: 14px;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 4px;
+}
+.hero-form-submit:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+}
+
+@media(max-width: 580px) {
+  .hero-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+}
+
+/* BEFORE/AFTER COMPARISON */
+.comparison-section {
+  background: var(--white);
+  padding: 90px 40px;
+  position: relative;
+}
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: stretch;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #f0f0f0;
+}
+.comp-col {
+  padding: 48px 40px;
+}
+.comp-col.excel {
+  background: #fafafa;
+  border-right: 1px solid #f0f0f0;
+}
+.comp-col.sgx {
+  background: var(--red);
+}
+.comp-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  padding: 0 6px;
+  border-right: 1px solid #f0f0f0;
+}
+.comp-divider-inner {
+  width: 44px;
+  height: 44px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--white);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.comp-label {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid;
+}
+.comp-col.excel .comp-label { color: #888; border-color: #eee; }
+.comp-col.sgx .comp-label { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }
+
+.comp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.comp-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.comp-col.excel .comp-list li { color: #666; }
+.comp-col.sgx .comp-list li { color: rgba(255,255,255,0.92); }
+.comp-list li .c-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* PAIN POINT SOLUTIONS */
+.pains-section {
+  background: var(--off-white);
+  padding: 90px 40px;
+  position: relative;
+}
+.pains-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--red);
+}
+.pains-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.pain-card {
+  background: var(--white);
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 32px 28px;
+  transition: transform .2s, box-shadow .2s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.pain-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(200, 0, 26, 0.08);
+}
+.pain-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s;
+}
+.pain-card:hover::before {
+  transform: scaleX(1);
+}
+.pain-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #c8001a;
+  background: rgba(200, 0, 26, 0.06);
+  padding: 4px 10px;
+  border-radius: 4px;
+  align-self: flex-start;
+  margin-bottom: 16px;
+}
+.pain-h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.pain-box {
+  background: #fdf2f2;
+  border-left: 3px solid #ff4d4d;
+  padding: 10px 12px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 16px;
+  font-size: 12.5px;
+  color: #721c24;
+}
+.pain-solution {
+  font-size: 13.5px;
+  color: #555;
+  line-height: 1.65;
+}
+.pain-solution strong {
+  color: var(--black);
+  font-weight: 600;
+}
+
+/* RESPONSIVE & MOBILE OPTIMIZATIONS */
+@media(max-width:960px){
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    border-radius: 12px;
+  }
+  .comp-col {
+    padding: 32px 24px;
+  }
+  .comp-col.excel {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+  .comp-divider {
+    padding: 14px 0;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+  }
+  .pains-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .comparison-section, .pains-section {
+    padding: 60px 20px;
+  }
+  .hero-form-card {
+    max-width: 100%;
+    padding: 28px 20px;
+  }
+}
+
+@media(max-width:580px){
+  .pains-grid {
+    grid-template-columns: 1fr;
+  }
+  .pain-card {
+    padding: 24px 20px;
+  }
+  .comp-col {
+    padding: 24px 16px;
+  }
+  .comp-list li {
+    font-size: 13.5px;
+  }
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Dynamically injected navigation -->
+<div id="site-nav"></div>
+
+<section class="page-hero" id="main-content">
+  <div class="page-hero-left">
+    <div class="page-hero-left-inner">
+      <div class="hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <span>Excel Alternative</span>
+      </div>
+      <div class="page-hero-eyebrow">
+        <svg class="badge-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+          <polyline points="17 6 23 6 23 12"></polyline>
+        </svg>
+        Time to Upgrade
+      </div>
+      <h1 class="page-hero-h1">Stop Running Tournaments on <span>Excel &amp; WhatsApp</span></h1>
+      <p class="page-hero-sub">Still managing your tournament on Excel? Manage registrations, players, categories, fixtures, matches, results and rankings from one platform.</p>
+      <div class="hero-ctas">
+        <a href="#hero-demo-form" class="btn-primary">
+          <svg class="btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Book a Free Demo
+        </a>
+        <a href="#comparison" class="btn-outline-red">
+          Compare Platform vs Excel
+          <svg class="btn-icon btn-icon-right" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </a>
+      </div>
+      <div class="hero-trust">
+        <span class="trust-pill">
+          <svg class="trust-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          Auto-Generated Brackets
+        </span>
+        <span class="trust-pill">
+          <svg class="trust-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+          Live Scoring App
+        </span>
+        <span class="trust-pill">
+          <svg class="trust-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          Safe &amp; Secure Platform
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="page-hero-right">
+    <div class="hero-form-card">
+      <h3 class="hero-form-title">Book Your Free Demo</h3>
+      <p class="hero-form-sub">Get a custom 30-minute walkthrough. Set up your first tournament today.</p>
+      <form id="hero-demo-form">
+        <div class="hero-form-row">
+          <input type="text" class="hero-form-input" name="name" placeholder="Full Name *" required />
+          <input type="tel" class="hero-form-input" name="phone" placeholder="Phone Number *" required />
+          <input type="email" class="hero-form-input" name="email" placeholder="Email Address" />
+          <select class="hero-form-input" name="sport" required>
+            <option value="" disabled selected>Select Your Sport *</option>
+            <option>Badminton</option>
+            <option>Cricket</option>
+            <option>Football</option>
+            <option>Tennis</option>
+            <option>Table Tennis</option>
+            <option>Pickleball</option>
+            <option>Basketball</option>
+            <option>Squash</option>
+            <option>Volleyball</option>
+            <option>Other</option>
+          </select>
+          <select class="hero-form-input" name="role" required>
+            <option value="" disabled selected>I Am A *</option>
+            <option>Tournament Organiser</option>
+            <option>Sports Association</option>
+            <option>Academy / Club</option>
+            <option>League Organiser</option>
+            <option>Sports Community</option>
+            <option>Franchisee Enquiry</option>
+          </select>
+          <textarea class="hero-form-input hero-form-textarea" name="message" placeholder="Optional: Tell us about your event format..."></textarea>
+          <button type="submit" class="hero-form-submit">Book My Free Demo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE / CARD GRID -->
+<section class="comparison-section" id="comparison">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Side-by-Side</span>
+      <h2 class="section-h2">Spreadsheet Chaos vs. <span>Single Platform</span></h2>
+      <p class="section-sub">Replacing disjointed spreadsheets and group chats saves hours of admin work and makes your event feel elite.</p>
+    </div>
+    <div class="comparison-grid">
+      <div class="comp-col excel">
+        <div class="comp-label">
+          <svg class="comp-header-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          Excel &amp; Chat Chaos
+        </div>
+        <ul class="comp-list">
+          <li>
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <div><strong>Manual Intake:</strong> Transcribing registrations from WhatsApp messages and PDF receipts.</div>
+          </li>
+          <li>
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <div><strong>Draw Mistakes:</strong> Messing up seeds, placing teammates against each other, or formatting errors.</div>
+          </li>
+          <li>
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <div><strong>Chasing Payments:</strong> Manually reviewing bank accounts and cross-checking transaction screenshots.</div>
+          </li>
+          <li>
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <div><strong>Buried Updates:</strong> Sending results on chat groups, which quickly get lost in dozens of replies.</div>
+          </li>
+          <li>
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <div><strong>Umpire Delays:</strong> Constant phone calls or sheets of paper going back and forth for score sheets.</div>
+          </li>
+        </ul>
+      </div>
+      <div class="comp-divider" aria-hidden="true">
+        <div class="comp-divider-inner">VS</div>
+      </div>
+      <div class="comp-col sgx">
+        <div class="comp-label">
+          <svg class="comp-header-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          SportsGenX Platform
+        </div>
+        <ul class="comp-list">
+          <li>
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div><strong>Self-Registration:</strong> Share a single link; players register and pay instantly in-app.</div>
+          </li>
+          <li>
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div><strong>1-Click Draw Engine:</strong> Automatically builds knockout, league, or pool draws with balanced seeds.</div>
+          </li>
+          <li>
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div><strong>Instant Payment Tracking:</strong> Unified collection through UPI, cards, or wallets with instant ledger updates.</div>
+          </li>
+          <li>
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div><strong>Real-Time Live Brackets:</strong> Everyone views dynamic scoreboards and bracket progressions live on web/app.</div>
+          </li>
+          <li>
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div><strong>Mobile Scoring Panel:</strong> Umpires submit live scores on court, updating dashboards and viewers instantly.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS LIST -->
+<section class="pains-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Ditch The Spreadsheet</span>
+      <h2 class="section-h2">Solve Your <span>6 Biggest Pain Points</span></h2>
+      <p class="section-sub">Here is how SportsGenX replaces every single manual workflow with dedicated digital features.</p>
+    </div>
+    <div class="pains-grid">
+      
+      <!-- Player Lists -->
+      <div class="pain-card">
+        <span class="pain-badge">Pain Point 1</span>
+        <h3 class="pain-h3">Player Lists</h3>
+        <div class="pain-box">
+          <svg class="pain-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 6px; margin-top: -2px;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          "Re-typing names, copy-pasting numbers, fixing typos in emails"
+        </div>
+        <p class="pain-solution"><strong>SportsGenX replaces this with self-registration.</strong> Players type their own details, verified by OTP. You get a clean, exportable list instantly.</p>
+      </div>
+
+      <!-- Categories -->
+      <div class="pain-card">
+        <span class="pain-badge">Pain Point 2</span>
+        <h3 class="pain-h3">Categories</h3>
+        <div class="pain-box">
+          <svg class="pain-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 6px; margin-top: -2px;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          "Checking age limits, separating skill levels, flagging illegal entries"
+        </div>
+        <p class="pain-solution"><strong>Set rules on the dashboard.</strong> The system automatically verifies ages based on birth year and restricts duplicate entries in conflicting categories.</p>
+      </div>
+
+      <!-- Fixtures -->
+      <div class="pain-card">
+        <span class="pain-badge">Pain Point 3</span>
+        <h3 class="pain-h3">Fixtures &amp; Draws</h3>
+        <div class="pain-box">
+          <svg class="pain-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 6px; margin-top: -2px;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          "Hours spent making draw sheets and trying to prevent early-round club matchups"
+        </div>
+        <p class="pain-solution"><strong>Generate draws in one click.</strong> Supports Knockout, Round Robin, Premier League, and custom draws with automated seed protection.</p>
+      </div>
+
+      <!-- Results -->
+      <div class="pain-card">
+        <span class="pain-badge">Pain Point 4</span>
+        <h3 class="pain-h3">Match Results</h3>
+        <div class="pain-box">
+          <svg class="pain-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 6px; margin-top: -2px;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          "Paper score slips getting lost, water-damaged, or misread on tournament day"
+        </div>
+        <p class="pain-solution"><strong>Umpire Interface.</strong> Scorekeepers update scores point-by-point or game-by-game on their phones. Brackets recalculate instantly.</p>
+      </div>
+
+      <!-- Standings -->
+      <div class="pain-card">
+        <span class="pain-badge">Pain Point 5</span>
+        <h3 class="pain-h3">Standings &amp; Tables</h3>
+        <div class="pain-box">
+          <svg class="pain-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 6px; margin-top: -2px;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          "Calculating Net Run Rate, point difference, or tie-breakers on Excel calculators"
+        </div>
+        <p class="pain-solution"><strong>Real-Time Leaderboards.</strong> Standing tables, qualification indicators, and point breakdowns update as soon as an umpire clicks submit.</p>
+      </div>
+
+      <!-- Manual Updates -->
+      <div class="pain-card">
+        <span class="pain-badge">Pain Point 6</span>
+        <h3 class="pain-h3">Manual Updates</h3>
+        <div class="pain-box">
+          <svg class="pain-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 6px; margin-top: -2px;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          "Answering 50 WhatsApp messages asking 'When is my next match?' or 'Did we qualify?'"
+        </div>
+        <p class="pain-solution"><strong>Automated scheduling.</strong> Matches are assigned to courts dynamically. Players see court numbers and estimated timings directly in their app.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Dynamically injected footer and demo form -->
+<div id="site-footer"></div>
+
+<script src="components.js"></script>
+</body>
+</html>

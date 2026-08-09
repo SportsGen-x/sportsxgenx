@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tournament Draw & Bracket Generator — SportsGenX</title>
+<meta name="description" content="Generate professional tournament draws and brackets in seconds. Seeded or random, knockout or league — SportsGenX auto-generates draws with easy editing and instant sharing."/>
+<meta property="og:title" content="Tournament Draw & Bracket Generator — SportsGenX"/>
+<meta property="og:description" content="Auto-generate professional tournament draws and brackets in seconds. Seeded or random, knockout or league formats supported."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="sportsgenxlogored.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="draw-making.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.bracket-visual{position:relative;z-index:1;width:100%;max-width:280px}
+.bracket-round{margin-bottom:0}
+.bracket-row{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.bracket-match{background:rgba(255,255,255,.9);border-radius:8px;padding:10px 14px;flex:1;transition:background .2s}
+.bracket-match:hover{background:var(--white)}
+.bracket-match-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(200,0,26,.6);margin-bottom:4px}
+.bracket-player{font-family:var(--font-display);font-size:12px;font-weight:700;color:var(--black);text-transform:uppercase;padding:3px 0;border-bottom:1px solid #f0f0f0}
+.bracket-player:last-child{border-bottom:none}
+.bracket-player.winner{color:var(--red)}
+.bracket-connector{width:16px;height:2px;background:rgba(255,255,255,.4);flex-shrink:0}
+.bracket-title{font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-align:center;margin-bottom:14px}
+.bracket-final{background:rgba(0,0,0,.25);border-radius:10px;padding:14px 18px;text-align:center;margin-top:8px;border:1px solid rgba(255,255,255,.2)}
+.bracket-final-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:6px}
+.bracket-final-winner{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--white);text-transform:uppercase}
+.bracket-trophy{font-size:20px;margin-bottom:4px}
+.how-section{background:var(--white);padding:90px 40px}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.how-card{border-radius:14px;overflow:hidden;border:2px solid #f0f0f0;transition:border-color .2s,box-shadow .2s}
+.how-card:hover{border-color:var(--red);box-shadow:0 8px 30px rgba(200,0,26,.1)}
+.how-card-img{background:var(--red);padding:32px 24px;display:flex;align-items:center;justify-content:center;min-height:160px;position:relative;overflow:hidden}
+.how-card-img::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.07) 1px,transparent 1px);background-size:20px 20px}
+.how-card-icon{font-size:52px;position:relative;z-index:1;filter:drop-shadow(0 4px 12px rgba(0,0,0,.2))}
+.how-card-body{padding:24px 22px;background:var(--white)}
+.how-card-num{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(200,0,26,.4);margin-bottom:8px}
+.how-card-h3{font-family:var(--font-display);font-size:18px;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:12px;line-height:1.2}
+.how-card-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.how-card-list li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#555;line-height:1.5}
+.how-card-list li::before{content:'';flex-shrink:0;width:5px;height:5px;border-radius:50%;background:var(--red);margin-top:6px}
+.features-section{background:var(--red);padding:90px 40px;position:relative;overflow:hidden}
+.features-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,.25),transparent)}
+.feat-header{max-width:1200px;margin:0 auto 52px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.feat-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);padding-left:20px;position:relative;display:block;margin-bottom:10px}
+.feat-eyebrow::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:12px;height:2px;background:rgba(255,255,255,.7)}
+.feat-h2{font-family:var(--font-display);font-size:clamp(28px,3.5vw,44px);font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.05}
+.feat-h2 span{color:rgba(255,255,255,.6)}
+.feat-header-right{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;max-width:300px}
+.features-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18);border-radius:12px;overflow:hidden}
+.feat-card{background:var(--white);padding:34px 28px;position:relative;transition:background .2s;overflow:hidden}
+.feat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.feat-card:hover{background:#fff5f5}
+.feat-card:hover::after{transform:scaleX(1)}
+.feat-icon{font-size:26px;margin-bottom:14px;display:block}
+.feat-h3{font-family:var(--font-display);font-size:16px;font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.2;margin-bottom:10px}
+.feat-copy{font-size:13px;line-height:1.75;color:#666}
+.formats-section{background:var(--off-white);padding:90px 40px;position:relative}
+.formats-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
+.formats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.format-card{border:2px solid #eee;border-radius:12px;padding:28px 20px;text-align:center;background:var(--white);transition:border-color .2s,box-shadow .2s}
+.format-card:hover{border-color:var(--red);box-shadow:0 6px 24px rgba(200,0,26,.1)}
+.format-icon{font-size:34px;margin-bottom:12px}
+.format-label{font-family:var(--font-display);font-size:15px;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:8px}
+.format-desc{font-size:12px;color:#666;line-height:1.6}
+@media(max-width:960px){
+  .bracket-visual{max-width:100%;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .how-grid{grid-template-columns:1fr}
+  .features-grid{grid-template-columns:1fr 1fr}
+  .formats-grid{grid-template-columns:1fr 1fr}
+  .how-section,.features-section,.formats-section{padding-left:24px;padding-right:24px}
+  .feat-header{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:580px){
+  .features-grid{grid-template-columns:1fr}
+  .formats-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav role="navigation" aria-label="Main navigation">
+  <a href="sportsgenx-homepage_19.html" class="nav-logo">
+    <img src="sportsgenxlogored.png" alt="SportsGenX"/>
+  </a>
+  <ul class="nav-links">
+    <li><a href="sportsgenx-homepage_19.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="#">Tournament Management <span class="chevron"></span></a>
+      <div class="dropdown-menu">
+        <a href="knockout-tournament.html"><span class="dd-icon">🏆</span> Knockout Tournaments</a>
+        <a href="premier-league.html"><span class="dd-icon">🥇</span> Premier Leagues</a>
+        <div class="dropdown-divider"></div>
+        <a href="draw-making.html" class="active"><span class="dd-icon">📊</span> Draw Making</a>
+        <a href="live-auction.html"><span class="dd-icon">🔨</span> Live Auction</a>
+      </div>
+    </li>
+    <li><a href="for-organisers_2.html">For Organisers</a></li>
+    <li class="nav-dropdown">
+      <a href="#">For Academies/Clubs <span class="chevron"></span></a>
+      <div class="dropdown-menu">
+        <a href="for-academies.html"><span class="dd-icon">🎓</span> Academies &amp; Clubs</a>
+        <a href="for-associations.html"><span class="dd-icon">🏛️</span> Associations</a>
+        <a href="for-communities.html"><span class="dd-icon">👥</span> Communities</a>
+      </div>
+    </li>
+    <li class="nav-cta-li"><a href="#">📅 Book Demo</a></li>
+  </ul>
+  <button class="nav-hamburger" type="button"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero" id="main-content">
+  <div class="page-hero-left">
+    <div class="page-hero-left-inner">
+      <div class="hero-breadcrumb">
+        <a href="sportsgenx-homepage_19.html">Home</a>
+        <span class="sep">›</span>
+        <span>Tournament Management</span>
+        <span class="sep">›</span>
+        <span>Draw Making</span>
+      </div>
+      <div class="page-hero-eyebrow">📊 Draw &amp; Bracket Generator</div>
+      <h1 class="page-hero-h1">Generate Draws &amp; <span>Brackets</span> in Seconds</h1>
+      <p class="page-hero-sub">Get rid of paper, Excel, and complex software. SportsGenX auto-generates professional tournament draws and brackets — seeded or random, knockout or league — in seconds. Edit anytime, share instantly.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn-primary">📅 Book a Free Demo</a>
+        <a href="#features" class="btn-outline-red">Explore Features ↓</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-hero-right">
+    <div class="bracket-visual">
+      <div class="bracket-title">Quarter-Finals → Semi-Finals → Final</div>
+      <div class="bracket-row">
+        <div class="bracket-match">
+          <div class="bracket-match-label">QF 1</div>
+          <div class="bracket-player winner">🥇 Player A</div>
+          <div class="bracket-player">Player B</div>
+        </div>
+        <div class="bracket-connector"></div>
+        <div class="bracket-match">
+          <div class="bracket-match-label">QF 2</div>
+          <div class="bracket-player winner">🥇 Player C</div>
+          <div class="bracket-player">Player D</div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;margin:6px 0">
+        <div class="bracket-match" style="max-width:140px">
+          <div class="bracket-match-label">SF 1</div>
+          <div class="bracket-player winner">🥇 Player A</div>
+          <div class="bracket-player">Player C</div>
+        </div>
+      </div>
+      <div class="bracket-row" style="margin-top:14px">
+        <div class="bracket-match">
+          <div class="bracket-match-label">QF 3</div>
+          <div class="bracket-player winner">🥇 Player E</div>
+          <div class="bracket-player">Player F</div>
+        </div>
+        <div class="bracket-connector"></div>
+        <div class="bracket-match">
+          <div class="bracket-match-label">QF 4</div>
+          <div class="bracket-player winner">🥇 Player G</div>
+          <div class="bracket-player">Player H</div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;margin:6px 0">
+        <div class="bracket-match" style="max-width:140px">
+          <div class="bracket-match-label">SF 2</div>
+          <div class="bracket-player winner">🥇 Player E</div>
+          <div class="bracket-player">Player G</div>
+        </div>
+      </div>
+      <div class="bracket-final">
+        <div class="bracket-trophy">🏆</div>
+        <div class="bracket-final-label">Final</div>
+        <div class="bracket-final-winner">Player A vs Player E</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how-section" id="how">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Three Ways to Generate</span>
+      <h2 class="section-h2">Draw Generation — <span>Your Way</span></h2>
+      <p class="section-sub">Whether you want full automation, ranking-based seeding, or manual control — SportsGenX gives you all three options in one platform.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-card-img"><span class="how-card-icon">🎯</span></div>
+        <div class="how-card-body">
+          <div class="how-card-num">01 — Ranking-Based</div>
+          <h3 class="how-card-h3">Generate Draws Based on Rankings</h3>
+          <ul class="how-card-list">
+            <li>Assign player or team seeding easily</li>
+            <li>Automatically generate tournament draws in seconds</li>
+            <li>Ensure balanced and fair match placements</li>
+            <li>Supports knockout, league, and hybrid formats</li>
+            <li>Edit or regenerate draws anytime if required</li>
+          </ul>
+        </div>
+      </div>
+      <div class="how-card">
+        <div class="how-card-img"><span class="how-card-icon">🧩</span></div>
+        <div class="how-card-body">
+          <div class="how-card-num">02 — Manual Control</div>
+          <h3 class="how-card-h3">Generate Draws Based on Your Choice</h3>
+          <ul class="how-card-list">
+            <li>Create draws using manual or automatic options</li>
+            <li>Choose formats like Knockout, League, or Hybrid</li>
+            <li>Control match placements as per your tournament needs</li>
+            <li>Modify or regenerate draws anytime</li>
+          </ul>
+        </div>
+      </div>
+      <div class="how-card">
+        <div class="how-card-img"><span class="how-card-icon">✏️</span></div>
+        <div class="how-card-body">
+          <div class="how-card-num">03 — Post-Draw Edits</div>
+          <h3 class="how-card-h3">Change Matches Even After Draw Is Generated</h3>
+          <ul class="how-card-list">
+            <li>Edit matches even after the draw is generated</li>
+            <li>Swap players or teams easily</li>
+            <li>Update schedules without recreating the draw</li>
+            <li>Make quick adjustments during the tournament</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-section" id="features">
+  <div class="feat-header">
+    <div>
+      <span class="feat-eyebrow">Advanced Features</span>
+      <h2 class="feat-h2">More Powerful <span>Draw Features</span></h2>
+    </div>
+    <p class="feat-header-right">Beyond the basics — SportsGenX handles every complexity of tournament draw management automatically.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card">
+      <span class="feat-icon">⚙️</span>
+      <h3 class="feat-h3">Multiple Tournament Formats</h3>
+      <p class="feat-copy">Supports Knockout, League (Round Robin), Group + Knockout, and custom hybrid formats — all within one platform.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🔗</span>
+      <h3 class="feat-h3">Online Player Registration</h3>
+      <p class="feat-copy">Share a registration link for players to join instantly via mobile or web — entries auto-populate into the draw system.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🧩</span>
+      <h3 class="feat-h3">Smart Bracket Builder</h3>
+      <p class="feat-copy">Visual bracket ladder with automatic round progression and BYE handling — no manual calculations needed.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">👥</span>
+      <h3 class="feat-h3">Group &amp; Pool Management</h3>
+      <p class="feat-copy">Create groups automatically with round robin scheduling inside each pool — ideal for multi-stage tournaments.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">📅</span>
+      <h3 class="feat-h3">Match Scheduling</h3>
+      <p class="feat-copy">Assign courts, dates, and time slots with conflict-free scheduling — the platform prevents double-booking automatically.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">📄</span>
+      <h3 class="feat-h3">Downloadable Draw PDFs</h3>
+      <p class="feat-copy">Instantly download and share professional draw PDFs with players and officials — or print them for on-ground use.</p>
+    </div>
+  </div>
+</section>
+
+<section class="formats-section" id="formats">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Supported Formats</span>
+      <h2 class="section-h2">Works Across <span>Every Format</span></h2>
+      <p class="section-sub">SportsGenX generates draws for every tournament format — from simple knockouts to complex multi-pool hybrid leagues.</p>
+    </div>
+    <div class="formats-grid">
+      <div class="format-card">
+        <div class="format-icon">⚔️</div>
+        <div class="format-label">Knockout</div>
+        <div class="format-desc">Single elimination brackets with seeded or random draws. BYEs handled automatically.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-icon">🔄</div>
+        <div class="format-label">Round Robin</div>
+        <div class="format-desc">Every team plays every other team. Fixtures auto-generated with full schedule management.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-icon">🏊</div>
+        <div class="format-label">Group + Knockout</div>
+        <div class="format-desc">Pool stage followed by knockout rounds. Top teams auto-qualify based on points.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-icon">🏆</div>
+        <div class="format-label">Premier League</div>
+        <div class="format-desc">Team-based league with custom match formats, pool management, and points tables.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-h2">Stop Making Draws <span>Manually</span></h2>
+    <p class="cta-sub">Generate professional tournament draws in seconds — seeded, random, or manual. Try SportsGenX free today.</p>
+    <div class="cta-btns">
+      <a href="#" class="btn-white">📅 Book a Free Demo</a>
+      <a href="https://webapp.sportsgenx.com" class="btn-outline-white" target="_blank">🖥️ Try the Web App</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 SportsGenX / Dream Shuttlers LLP. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Use</a> &nbsp;|&nbsp; <a href="sportsgenx-homepage_19.html">← Back to Home</a></p>
+</footer>
+<script src="nav.js" defer></script>
+</body>
+</html>

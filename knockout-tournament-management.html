@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Knockout Tournament Management — SportsGenX</title>
+<meta name="description" content="Manage knockout tournaments end-to-end. Online registration, seeded draws, automatic match progression, live scoring, and instant e-certificates — all from one platform."/>
+<meta property="og:title" content="Knockout Tournament Management — SportsGenX"/>
+<meta property="og:description" content="Run knockout tournaments with online registration, seeded draws, live scoring, and e-certificates. Setup in minutes."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="sportsgenxlogored.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="knockout-tournament-management.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.hero-flow{display:flex;flex-direction:column;align-items:center;gap:0;position:relative;z-index:1;width:100%;max-width:240px}
+.flow-step{background:rgba(255,255,255,.92);border:2px solid rgba(255,255,255,.5);border-radius:10px;padding:14px 24px;text-align:center;width:100%;transition:background .2s}
+.flow-step:hover{background:var(--white)}
+.flow-step-icon{font-size:20px;margin-bottom:4px}
+.flow-step-label{font-family:var(--font-display);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--black);letter-spacing:.03em}
+.flow-step-sub{font-size:10px;color:#777;margin-top:2px}
+.flow-arrow{width:2px;height:20px;background:rgba(255,255,255,.4);margin:0 auto;position:relative}
+.flow-arrow::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid rgba(255,255,255,.5)}
+.flow-step.champion{background:var(--black);border-color:var(--black)}
+.flow-step.champion .flow-step-label{color:var(--white)}
+.flow-step.champion .flow-step-sub{color:rgba(255,255,255,.6)}
+.features-section{background:var(--red);padding:90px 40px;position:relative;overflow:hidden}
+.features-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,.25),transparent)}
+.feat-header{max-width:1200px;margin:0 auto 56px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.feat-header-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);padding-left:20px;position:relative;display:block;margin-bottom:10px}
+.feat-header-eyebrow::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:12px;height:2px;background:rgba(255,255,255,.7)}
+.feat-h2{font-family:var(--font-display);font-size:clamp(28px,3.5vw,44px);font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.05}
+.feat-h2 span{color:rgba(255,255,255,.6)}
+.feat-header-right{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;max-width:300px}
+.features-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18);border-radius:12px;overflow:hidden}
+.feat-card{background:var(--white);padding:36px 30px;position:relative;transition:background .2s;overflow:hidden}
+.feat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.feat-card:hover{background:#fff5f5}
+.feat-card:hover::after{transform:scaleX(1)}
+.feat-icon{font-size:28px;margin-bottom:16px;display:block}
+.feat-h3{font-family:var(--font-display);font-size:17px;font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.2;margin-bottom:10px}
+.feat-copy{font-size:13px;line-height:1.75;color:#666}
+.formats-section{background:var(--white);padding:90px 40px}
+.formats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.format-card{border:2px solid #eee;border-radius:12px;padding:32px 24px;text-align:center;transition:border-color .2s,box-shadow .2s}
+.format-card:hover{border-color:var(--red);box-shadow:0 8px 30px rgba(200,0,26,.1)}
+.format-icon{font-size:36px;margin-bottom:14px}
+.format-label{font-family:var(--font-display);font-size:16px;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:8px}
+.format-desc{font-size:13px;color:#666;line-height:1.6}
+@media(max-width:960px){
+  .hero-flow{max-width:100%;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:8px}
+  .flow-arrow{display:none}
+  .flow-step{width:auto;padding:10px 16px}
+  .features-grid{grid-template-columns:1fr 1fr}
+  .formats-grid{grid-template-columns:1fr 1fr}
+  .features-section,.formats-section{padding-left:24px;padding-right:24px}
+  .feat-header{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:580px){
+  .features-grid{grid-template-columns:1fr}
+  .formats-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="site-nav"></div>
+
+<section class="page-hero" id="main-content">
+  <div class="page-hero-left">
+    <div class="page-hero-left-inner">
+      <div class="hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <span>Tournament Management</span>
+        <span class="sep">›</span>
+        <span>Knockout</span>
+      </div>
+      <div class="page-hero-eyebrow">🏆 Tournament Format</div>
+      <h1 class="page-hero-h1">Knockout <span>Tournament</span> Management</h1>
+      <p class="page-hero-sub">Players compete in single or doubles categories. Draws are generated based on rankings or randomly. Matches are scheduled in knockout format — winners advance, losers are eliminated, until the champion is decided.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn-primary">📅 Book a Free Demo</a>
+        <a href="#features" class="btn-outline-red">Explore Features ↓</a>
+      </div>
+    </div>
+  </div>
+  <div class="page-hero-right">
+    <div class="hero-flow">
+      <div class="flow-step">
+        <div class="flow-step-icon">📋</div>
+        <div class="flow-step-label">Categories</div>
+        <div class="flow-step-sub">Singles / Doubles</div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step">
+        <div class="flow-step-icon">👥</div>
+        <div class="flow-step-label">Participation</div>
+        <div class="flow-step-sub">Players join categories</div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🎲</div>
+        <div class="flow-step-label">Draw Generation</div>
+        <div class="flow-step-sub">Ranking or random</div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🗓️</div>
+        <div class="flow-step-label">Match Schedule</div>
+        <div class="flow-step-sub">Matches planned</div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step">
+        <div class="flow-step-icon">⚔️</div>
+        <div class="flow-step-label">Knockout Rounds</div>
+        <div class="flow-step-sub">Winner advances</div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step champion">
+        <div class="flow-step-icon">🏆</div>
+        <div class="flow-step-label">Champion</div>
+        <div class="flow-step-sub">Final winner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-section" id="features">
+  <div class="feat-header">
+    <div>
+      <span class="feat-header-eyebrow">App Features</span>
+      <h2 class="feat-h2">Everything You Need to Run a <span>Knockout Tournament</span></h2>
+    </div>
+    <p class="feat-header-right">15 powerful features built specifically for knockout tournament organisers — from registration to e-certificates.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card">
+      <span class="feat-icon">🎯</span>
+      <h3 class="feat-h3">Easy Online Player Registration</h3>
+      <p class="feat-copy">Players can register instantly using a participation link or through the mobile app — no paperwork, no hassle.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🏆</span>
+      <h3 class="feat-h3">Smart Category &amp; Age Group Management</h3>
+      <p class="feat-copy">Create unlimited age groups and categories such as Under-13, Under-14, Open, or custom formats to suit your tournament needs.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🎾</span>
+      <h3 class="feat-h3">Singles &amp; Doubles Support</h3>
+      <p class="feat-copy">Conduct both singles and doubles matches smoothly within the same tournament structure.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">💳</span>
+      <h3 class="feat-h3">Secure Online Fee Collection</h3>
+      <p class="feat-copy">Collect participation fees online using our trusted and secure payment gateway for a smooth checkout experience.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">📊</span>
+      <h3 class="feat-h3">Complete Fee Tracking &amp; Management</h3>
+      <p class="feat-copy">Monitor payments in real time. Instantly know who has paid and who hasn't — no manual follow-ups required.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🗓️</span>
+      <h3 class="feat-h3">Intelligent Match Scheduling</h3>
+      <p class="feat-copy">Plan and schedule matches effortlessly based on categories, rounds, and tournament flow.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">⚡</span>
+      <h3 class="feat-h3">Automatic Match Progression</h3>
+      <p class="feat-copy">The system automatically generates next-round matches after each game, right up to the finals — saving time and avoiding errors.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🧩</span>
+      <h3 class="feat-h3">One-Click Draw Creation (Seeded or Open)</h3>
+      <p class="feat-copy">Generate professional tournament draws in seconds. Choose seeded draws based on player rankings or create custom matchups manually.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">📄</span>
+      <h3 class="feat-h3">Professional Draw PDFs</h3>
+      <p class="feat-copy">Instantly download and share draw PDFs with players and officials, or print them for on-ground use.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🎥</span>
+      <h3 class="feat-h3">Online Scoring &amp; Live Match Integration</h3>
+      <p class="feat-copy">Empower umpires with an intuitive online scoring system. Matches are auto-listed and searchable for quick scoring updates.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">📺</span>
+      <h3 class="feat-h3">Live Score Display at Venue</h3>
+      <p class="feat-copy">Show real-time scores on TVs or projectors at the venue to keep players and spectators engaged throughout the day.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🔴</span>
+      <h3 class="feat-h3">Live Score Ticker for Streaming</h3>
+      <p class="feat-copy">Enhance your live match videos with an integrated score ticker for a professional broadcast experience.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🎓</span>
+      <h3 class="feat-h3">Instant e-Certificates</h3>
+      <p class="feat-copy">Generate and distribute digital participation and winner certificates without printing, signing, or manual effort.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🥇</span>
+      <h3 class="feat-h3">Quick Winner Declaration</h3>
+      <p class="feat-copy">Declare match and tournament winners instantly with a single click — results update live across the app and venue display.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">📸</span>
+      <h3 class="feat-h3">Tournament Gallery</h3>
+      <p class="feat-copy">Upload photos and videos to create a lasting digital memory of your tournament, shared directly with all participants.</p>
+    </div>
+  </div>
+</section>
+
+<section class="formats-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Supported Formats</span>
+      <h2 class="section-h2">Works Across <span>All Knockout Variants</span></h2>
+      <p class="section-sub">Whether it's a pure knockout, a seeded draw, or a doubles format — SportsGenX handles it all without manual intervention.</p>
+    </div>
+    <div class="formats-grid">
+      <div class="format-card">
+        <div class="format-icon">⚔️</div>
+        <div class="format-label">Single Knockout</div>
+        <div class="format-desc">Lose once and you're out. Classic elimination bracket from first round to final.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-icon">🎲</div>
+        <div class="format-label">Seeded Draw</div>
+        <div class="format-desc">Top players seeded by ranking — avoids top seeds meeting in early rounds.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-icon">🤝</div>
+        <div class="format-label">Doubles Knockout</div>
+        <div class="format-desc">Pair registration and doubles bracket generation handled automatically.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-icon">🏅</div>
+        <div class="format-label">Multi-Category</div>
+        <div class="format-desc">Run U13, U15, U17, Open simultaneously in one tournament — fully independent brackets.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-h2">Ready to Run Your Next <span>Knockout Tournament?</span></h2>
+    <p class="cta-sub">Join 100+ organisers across India who've digitized their tournaments on SportsGenX. Setup takes minutes. Your first tournament is free.</p>
+    <div class="cta-btns">
+      <a href="#demo-form" class="btn-white">📅 Book a Free Demo</a>
+      <a href="https://play.google.com/store/apps/details?id=com.dream_shuttlers" target="_blank" rel="noopener" class="btn-outline-white">▶ Android App</a>
+      <a href="https://apps.apple.com/us/app/sportsgenx/id6747614361" target="_blank" rel="noopener" class="btn-outline-white">🍎 iOS App</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="components.js"></script>
+</body>
+</html>

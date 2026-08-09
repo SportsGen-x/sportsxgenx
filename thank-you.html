@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Thank You — SportsGenX Demo Confirmed</title>
+<meta name="description" content="Your demo request has been received. Our team will contact you within 2 hours."/>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#C8001A;
+  --black:#0a0a0a;
+  --white:#ffffff;
+  --grey-light:#f7f7f7;
+  --font-display:'Oswald',sans-serif;
+  --font-body:'Inter',sans-serif;
+}
+body{
+  font-family:var(--font-body);
+  background:linear-gradient(135deg,#ffffff 0%,#fff5f5 100%);
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:24px;
+  color:var(--black);
+}
+
+/* ── Top bar ── */
+.topbar{
+  position:fixed;top:0;left:0;right:0;
+  background:#fff;
+  border-bottom:3px solid var(--red);
+  padding:12px 24px;
+  display:flex;align-items:center;
+  z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,.07);
+}
+.topbar-logo{
+  font-family:var(--font-display);
+  font-size:20px;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;
+  color:var(--black);text-decoration:none;
+}
+.topbar-logo span{color:var(--red)}
+
+/* ── Card ── */
+.ty-wrap{padding-top:80px;width:100%;max-width:640px}
+.ty-card{
+  background:#fff;
+  border:1px solid rgba(200,0,26,.12);
+  border-top:4px solid var(--red);
+  border-radius:14px;
+  padding:52px 44px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.08);
+  position:relative;overflow:hidden;
+}
+.ty-card::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(200,0,26,.04) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+.ty-check{
+  width:72px;height:72px;
+  background:linear-gradient(135deg,#00b850,#009940);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:32px;margin:0 auto 28px;
+  box-shadow:0 8px 24px rgba(0,180,80,.3);
+  animation:checkPop .55s cubic-bezier(.17,.67,.3,1.3) both;
+}
+@keyframes checkPop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+
+.ty-eyebrow{
+  display:inline-block;font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);padding-left:20px;position:relative;margin-bottom:14px;
+}
+.ty-eyebrow::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:12px;height:2px;background:var(--red)}
+
+.ty-h1{
+  font-family:var(--font-display);
+  font-size:clamp(26px,5vw,40px);
+  font-weight:700;text-transform:uppercase;
+  color:var(--black);line-height:1.1;margin-bottom:14px;
+}
+.ty-h1 span{color:var(--red)}
+
+.ty-sub{
+  font-size:15px;color:#555;line-height:1.75;margin-bottom:36px;
+}
+
+/* ── Steps ── */
+.ty-steps{
+  display:flex;flex-direction:column;gap:14px;
+  text-align:left;margin-bottom:40px;
+  background:var(--grey-light);
+  border-radius:10px;padding:24px 26px;
+}
+.ty-step{display:flex;align-items:flex-start;gap:14px}
+.ty-step-num{
+  width:28px;height:28px;flex-shrink:0;
+  background:var(--red);color:#fff;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;font-family:var(--font-display);
+  margin-top:1px;
+}
+.ty-step-text{font-size:13px;line-height:1.65;color:#555}
+.ty-step-text strong{color:var(--black);display:block;margin-bottom:2px}
+
+/* ── Actions ── */
+.ty-actions{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  margin-bottom:32px;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--red);color:#fff;
+  font-family:var(--font-display);font-size:14px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:13px 24px;border-radius:6px;
+  text-decoration:none;transition:background .2s,transform .15s;
+}
+.btn-primary:hover{background:#a80016;transform:translateY(-2px)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  border:2px solid var(--red);color:var(--red);
+  font-family:var(--font-display);font-size:14px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:11px 22px;border-radius:6px;
+  text-decoration:none;transition:background .2s,color .2s,transform .15s;
+}
+.btn-outline:hover{background:var(--red);color:#fff;transform:translateY(-2px)}
+
+/* ── WhatsApp bar ── */
+.ty-wa{
+  background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;
+  padding:16px 20px;font-size:14px;color:#166534;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.ty-wa a{color:#166534;font-weight:700;text-decoration:underline}
+
+/* ── Footer note ── */
+.ty-footer{margin-top:28px;font-size:12px;color:#aaa;text-align:center}
+.ty-footer a{color:var(--red);text-decoration:none}
+
+@media(max-width:580px){
+  .ty-card{padding:36px 20px}
+  .ty-actions{flex-direction:column}
+  .ty-actions a{text-align:center;justify-content:center}
+}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQVGJ0B1YE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HQVGJ0B1YE');
+</script>
+
+</head>
+<body>
+
+<header class="topbar">
+  <a href="https://www.sportsgenx.com" class="topbar-logo">Sports<span>Gen</span>X</a>
+</header>
+
+<div class="ty-wrap">
+  <div class="ty-card">
+    <div class="ty-check">✓</div>
+    <span class="ty-eyebrow">Request Received</span>
+    <h1 class="ty-h1">Thank You — <span>We're On It!</span></h1>
+    <p class="ty-sub">Our team will call you within <strong>2 hours</strong> to schedule your personalised demo of SportsGenX.</p>
+
+    <div class="ty-steps">
+      <div class="ty-step">
+        <div class="ty-step-num">1</div>
+        <div class="ty-step-text">
+          <strong>We'll call you within 2 hours</strong>
+          Our team reaches out on the phone number you provided to schedule a convenient time.
+        </div>
+      </div>
+      <div class="ty-step">
+        <div class="ty-step-num">2</div>
+        <div class="ty-step-text">
+          <strong>30-minute live walkthrough</strong>
+          We demo the platform live — registration, draws, scoring, live display, and e-certificates.
+        </div>
+      </div>
+      <div class="ty-step">
+        <div class="ty-step-num">3</div>
+        <div class="ty-step-text">
+          <strong>Run your first event free</strong>
+          Set up your first tournament or league on the same day, with our team guiding you every step.
+        </div>
+      </div>
+    </div>
+
+    <div class="ty-actions">
+      <a href="https://www.sportsgenx.com" class="btn-primary">← Back to SportsGenX</a>
+      <a href="https://play.google.com/store/apps/details?id=com.dream_shuttlers" target="_blank" rel="noopener" class="btn-outline">▶ Android App</a>
+      <a href="https://apps.apple.com/us/app/sportsgenx/id6747614361" target="_blank" rel="noopener" class="btn-outline">🍎 iOS App</a>
+    </div>
+
+    <div class="ty-wa">
+      <span>⚡ Need instant help?</span>
+      <a href="https://wa.me/919893009057" target="_blank" rel="noopener">Chat on WhatsApp →</a>
+    </div>
+  </div>
+
+  <p class="ty-footer">
+    Questions? Call us at <a href="tel:+919893009057">+91 98930 09057</a> &nbsp;·&nbsp;
+    <a href="https://www.sportsgenx.com">www.sportsgenx.com</a>
+  </p>
+</div>
+
+</body>
+</html>

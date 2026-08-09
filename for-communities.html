@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Sports Communities — SportsGenX</title>
+<meta name="description" content="Build and grow an exclusive, members-only sports community with SportsGenX. Flexible subscription models, verified memberships, exclusive tournaments, and engagement tools."/>
+<meta property="og:title" content="For Sports Communities — SportsGenX"/>
+<meta property="og:description" content="Create an exclusive, members-only sports community. Flexible subscription models, verified memberships, exclusive tournaments, and more."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="sportsgenxlogored.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="for-communities.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.ph1{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3.5vw,52px);line-height:1.05;color:var(--black);text-transform:uppercase;margin-bottom:18px}
+.ph1 span{color:var(--red)}
+.ph-sub{font-size:15px;line-height:1.75;color:#555;margin-bottom:32px}
+.plans-visual{position:relative;z-index:1;width:100%;max-width:280px;display:flex;flex-direction:column;gap:12px}
+.plan-card{border-radius:10px;padding:18px 20px;position:relative;overflow:hidden;cursor:default;transition:transform .2s}
+.plan-card:hover{transform:translateY(-3px)}
+.plan-card.monthly{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25)}
+.plan-card.quarterly{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
+.plan-card.annual{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.12)}
+.plan-badge{position:absolute;top:10px;right:12px;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.2);color:rgba(255,255,255,.6);padding:2px 8px;border-radius:100px}
+.plan-card.annual .plan-badge{background:rgba(255,215,0,.15);color:#ffc107}
+.plan-name{font-family:var(--font-display);font-size:16px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.04em;margin-bottom:4px}
+.plan-desc{font-size:11px;color:rgba(255,255,255,.55);line-height:1.5}
+.plan-perks{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.plan-perk{font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:3px 9px;color:rgba(255,255,255,.7)}
+.verified-note{background:rgba(0,0,0,.2);border-radius:8px;padding:12px 14px;text-align:center;border:1px solid rgba(255,255,255,.1)}
+.verified-note-icon{font-size:18px;margin-bottom:5px}
+.verified-note-text{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);line-height:1.5}
+.sec{padding:90px 40px;position:relative}
+.sec.red{background:var(--red)}.sec.red::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,.25),transparent)}
+.sec.white{background:var(--white)}.sec.offwhite{background:var(--off-white)}.sec.offwhite::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
+.inner{max-width:1200px;margin:0 auto}
+.sec-hdr{text-align:center;margin-bottom:52px}
+.eb{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;position:relative;padding-left:20px;margin-bottom:12px}
+.eb.r{color:var(--red)}.eb.r::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:12px;height:2px;background:var(--red)}
+.eb.w{color:rgba(255,255,255,.7)}.eb.w::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:12px;height:2px;background:rgba(255,255,255,.7)}
+.sh2{font-family:var(--font-display);font-size:clamp(26px,3vw,42px);font-weight:700;text-transform:uppercase;line-height:1.1;margin-top:8px}
+.sh2.bk{color:var(--black)}.sh2.wh{color:var(--white)}.sh2 .rs{color:var(--red)}.sh2 .fs{color:rgba(255,255,255,.6)}
+.ssub{font-size:14.5px;line-height:1.7;margin-top:12px;max-width:540px;margin-left:auto;margin-right:auto}
+.ssub.dk{color:#666}.ssub.lt{color:rgba(255,255,255,.65)}
+.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18);border-radius:12px;overflow:hidden}
+.fc{background:var(--white);padding:30px 26px;position:relative;transition:background .2s;overflow:hidden}
+.fc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.fc:hover{background:#fff5f5}.fc:hover::after{transform:scaleX(1)}
+.fc-icon{font-size:24px;margin-bottom:12px;display:block}
+.fc-h3{font-family:var(--font-display);font-size:15px;font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.2;margin-bottom:8px}
+.fc-copy{font-size:12.5px;line-height:1.7;color:#666}
+.models-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.model-card{border:2px solid #eee;border-radius:14px;padding:32px 26px;text-align:center;transition:border-color .2s,box-shadow .2s;position:relative;overflow:hidden}
+.model-card:hover{border-color:var(--red);box-shadow:0 8px 28px rgba(200,0,26,.1)}
+.model-card::before{content:'';position:absolute;top:0;left:0;width:0;height:0;border-style:solid;border-width:40px 40px 0 0;border-color:var(--red) transparent transparent transparent;opacity:.07;transition:opacity .25s}
+.model-card:hover::before{opacity:.15}
+.model-icon{font-size:40px;margin-bottom:16px}
+.model-label{font-family:var(--font-display);font-size:20px;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:10px;padding-bottom:10px;border-bottom:2px solid var(--red)}
+.model-desc{font-size:13px;color:#555;line-height:1.7;margin-bottom:18px}
+.model-tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.model-tag{background:rgba(200,0,26,.07);border:1px solid rgba(200,0,26,.18);border-radius:100px;padding:4px 12px;font-size:10px;font-weight:600;color:var(--red);letter-spacing:.04em}
+.split{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.dark-card{background:var(--black);border-radius:16px;padding:36px 32px;position:relative;overflow:hidden}
+.dark-card::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(200,0,26,.08) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.dark-banner{background:var(--red);border-radius:8px;padding:18px 20px;margin-bottom:20px;position:relative;z-index:1;text-align:center}
+.dark-banner-t{font-family:var(--font-display);font-size:18px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.04em}
+.dark-banner-s{font-size:10px;color:rgba(255,255,255,.6);margin-top:3px;letter-spacing:.06em;text-transform:uppercase}
+.dark-ul{list-style:none;display:flex;flex-direction:column;gap:11px;position:relative;z-index:1}
+.dark-ul li{display:flex;align-items:center;gap:11px;font-size:13.5px;color:rgba(255,255,255,.8)}
+.dark-ul li .di{font-size:15px;flex-shrink:0;width:28px;height:28px;background:rgba(200,0,26,.15);border:1px solid rgba(200,0,26,.25);border-radius:5px;display:flex;align-items:center;justify-content:center}
+.dark-foot{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-family:var(--font-display);font-size:12px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,.3);letter-spacing:.08em;position:relative;z-index:1}
+.split-text h2{font-family:var(--font-display);font-size:clamp(26px,3vw,40px);font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.1;margin-top:12px;margin-bottom:16px}
+.split-text h2 span{color:var(--red)}.split-text p{font-size:14px;line-height:1.8;color:#555;margin-bottom:14px}
+.split-text p strong{color:var(--black);font-weight:600}
+.exclusive-note{background:var(--red);border-radius:8px;padding:20px 24px;margin-top:20px;text-align:center}
+.exclusive-note p{font-size:14px;color:rgba(255,255,255,.9);line-height:1.7}
+.exclusive-note p strong{color:var(--white);font-size:15px;display:block;font-family:var(--font-display);text-transform:uppercase;margin-bottom:4px;letter-spacing:.04em}
+.cta-sec{background:var(--red);padding:80px 40px;text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:32px 32px}
+.cta-in{max-width:700px;margin:0 auto;position:relative;z-index:1}
+@media(max-width:960px){
+  .fg{grid-template-columns:1fr 1fr}.models-grid{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}
+  .sec{padding-left:24px;padding-right:24px}
+}
+@media(max-width:580px){.fg{grid-template-columns:1fr}.models-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="site-nav"></div>
+
+<section class="page-hero" id="main-content">
+  <div class="page-hero-left">
+    <div class="page-hero-left-inner">
+      <div class="hero-bc"><a href="index.html">Home</a><span class="sep">›</span><span>For Communities</span></div>
+      <div class="page-hero-eyebrow">👥 Sports Communities</div>
+      <h1 class="ph1">Build &amp; Grow Your <span>Sports Community</span></h1>
+      <p class="ph-sub">Create an exclusive, members-only sports community with SportsGenX. Flexible subscription models, verified memberships, exclusive tournaments, and a platform that keeps your community engaged, active, and growing.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn-primary">📅 Book a Free Demo</a>
+        <a href="#features" class="btn-outline-red">Explore Features ↓</a>
+      </div>
+    </div>
+  </div>
+  <div class="page-hero-right">
+    <div class="plans-visual">
+      <div class="plan-card monthly">
+        <div class="plan-badge">Popular</div>
+        <div class="plan-name">Monthly Plan</div>
+        <div class="plan-desc">Flexible month-to-month membership for casual players</div>
+        <div class="plan-perks"><span class="plan-perk">Tournaments</span><span class="plan-perk">Rankings</span></div>
+      </div>
+      <div class="plan-card quarterly">
+        <div class="plan-badge">Value</div>
+        <div class="plan-name">Quarterly Plan</div>
+        <div class="plan-desc">3-month commitment with better value per month</div>
+        <div class="plan-perks"><span class="plan-perk">All Monthly +</span><span class="plan-perk">Priority Access</span></div>
+      </div>
+      <div class="plan-card annual">
+        <div class="plan-badge">Best Value</div>
+        <div class="plan-name">Annual Plan</div>
+        <div class="plan-desc">Full-year access with maximum savings and benefits</div>
+        <div class="plan-perks"><span class="plan-perk">All Benefits</span><span class="plan-perk">Exclusive Events</span></div>
+      </div>
+      <div class="verified-note">
+        <div class="verified-note-icon">✅</div>
+        <div class="verified-note-text">Only verified members access<br>community-exclusive tournaments</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec red" id="features">
+  <div class="inner">
+    <div class="sec-hdr">
+      <span class="eb w">Community Features</span>
+      <h2 class="sh2 wh">Everything You Need to <span class="fs">Run a Thriving Community</span></h2>
+      <p class="ssub lt">From member onboarding to exclusive tournaments and engagement tools — SportsGenX gives sports communities a complete management platform.</p>
+    </div>
+    <div class="fg">
+      <div class="fc"><span class="fc-icon">📝</span><h3 class="fc-h3">Member Registration</h3><p class="fc-copy">Online member registration with customizable intake forms. Members register via app or web, submit required details, and join your community in minutes.</p></div>
+      <div class="fc"><span class="fc-icon">✅</span><h3 class="fc-h3">Verification Process</h3><p class="fc-copy">Ensure community quality with a member verification workflow. Review applications, request documents, and approve members before granting access — keeping your community exclusive.</p></div>
+      <div class="fc"><span class="fc-icon">💳</span><h3 class="fc-h3">Membership Payments</h3><p class="fc-copy">Collect monthly, quarterly, or annual membership fees online — UPI, cards, and net banking. Auto-renewal reminders, payment tracking, and instant access grants on payment confirmation.</p></div>
+      <div class="fc"><span class="fc-icon">🏆</span><h3 class="fc-h3">Exclusive Tournaments</h3><p class="fc-copy">Run members-only tournaments accessible only to verified community members. Non-members see the event but cannot register — protecting the exclusivity of your community events.</p></div>
+      <div class="fc"><span class="fc-icon">📣</span><h3 class="fc-h3">Community Notifications</h3><p class="fc-copy">Send push notifications and WhatsApp messages to the entire community or specific segments. Event announcements, match results, membership reminders, and community updates.</p></div>
+      <div class="fc"><span class="fc-icon">🤝</span><h3 class="fc-h3">Member Engagement</h3><p class="fc-copy">Keep members active with leaderboards, rankings, tournament history, and performance tracking. Engaged members renew memberships and bring new players to your community.</p></div>
+      <div class="fc"><span class="fc-icon">📊</span><h3 class="fc-h3">Community Analytics</h3><p class="fc-copy">Track membership growth, renewal rates, tournament participation, and engagement levels. Understand what's working and where to focus your community-building efforts.</p></div>
+      <div class="fc"><span class="fc-icon">🏅</span><h3 class="fc-h3">Community Rankings</h3><p class="fc-copy">Maintain a community-specific leaderboard — rankings that only include your members. A powerful engagement tool that motivates players to participate in more community events.</p></div>
+      <div class="fc"><span class="fc-icon">🎓</span><h3 class="fc-h3">Digital Certificates</h3><p class="fc-copy">Issue branded community certificates for tournament winners, participants, and membership milestones — creating a sense of belonging and achievement for every member.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec offwhite" id="models">
+  <div class="inner">
+    <div class="sec-hdr">
+      <span class="eb r">Membership Models</span>
+      <h2 class="sh2 bk">Flexible Plans for <span class="rs">Every Community</span></h2>
+      <p class="ssub dk">Choose the membership structure that works for your community. Mix and match plans, or offer all three simultaneously.</p>
+    </div>
+    <div class="models-grid">
+      <div class="model-card">
+        <div class="model-icon">📅</div>
+        <div class="model-label">Monthly Plans</div>
+        <div class="model-desc">Low-commitment entry point. Perfect for players who want to try your community before committing long-term. Auto-renews each month until cancelled.</div>
+        <div class="model-tags"><span class="model-tag">Low Barrier</span><span class="model-tag">Auto-Renew</span><span class="model-tag">Trial Friendly</span></div>
+      </div>
+      <div class="model-card">
+        <div class="model-icon">🗓️</div>
+        <div class="model-label">Quarterly Plans</div>
+        <div class="model-desc">The sweet spot — better value than monthly, lower commitment than annual. Ideal for players who actively compete in seasonal cycles.</div>
+        <div class="model-tags"><span class="model-tag">Better Value</span><span class="model-tag">Seasonal</span><span class="model-tag">3-Month</span></div>
+      </div>
+      <div class="model-card">
+        <div class="model-icon">⭐</div>
+        <div class="model-label">Annual Plans</div>
+        <div class="model-desc">Your most committed members. Best value per month, highest retention. Annual members are your community champions — they participate the most and stay the longest.</div>
+        <div class="model-tags"><span class="model-tag">Best Value</span><span class="model-tag">High Retention</span><span class="model-tag">Full Year</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec white" id="why">
+  <div class="split">
+    <div class="dark-card">
+      <div class="dark-banner"><div class="dark-banner-t">Your Community. Powered.</div><div class="dark-banner-s">On SportsGenX</div></div>
+      <ul class="dark-ul">
+        <li><div class="di">📝</div>Online Member Registration &amp; Verification</li>
+        <li><div class="di">💳</div>Flexible Subscription Plans (M/Q/A)</li>
+        <li><div class="di">🏆</div>Members-Only Exclusive Tournaments</li>
+        <li><div class="di">📊</div>Community Rankings &amp; Leaderboards</li>
+        <li><div class="di">📣</div>Push &amp; WhatsApp Notifications</li>
+        <li><div class="di">🤝</div>Member Engagement Tools</li>
+        <li><div class="di">📈</div>Community Analytics Dashboard</li>
+        <li><div class="di">🎓</div>Branded Digital Certificates</li>
+      </ul>
+      <div class="dark-foot">Verified Members Only · Built for Exclusivity</div>
+    </div>
+    <div class="split-text">
+      <span class="eb r">Why Build on SportsGenX</span>
+      <h2>A Community That <span>Grows Itself</span></h2>
+      <p>The best sports communities are built on <strong>shared experiences, fair competition, and a sense of belonging</strong>. SportsGenX gives you the platform to create all three — with exclusive tournaments, live rankings, and a verified membership that makes every member feel part of something special.</p>
+      <p>Members who participate in exclusive tournaments and see their name on a community leaderboard <strong>renew their memberships at dramatically higher rates</strong> than communities that only use WhatsApp groups.</p>
+      <p>Whether you're building a corporate badminton league, a city-level tennis community, or a multi-sport club — SportsGenX has the tools to launch, manage, and grow it.</p>
+      <div class="exclusive-note"><p><strong>Verified Members Only</strong>Only verified, paid members can access community-exclusive events and competitions — protecting the quality and exclusivity of your community.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-in">
+    <h2 class="cta-h2">Ready to Launch Your <span>Sports Community?</span></h2>
+    <p class="cta-sub">Give your members an exclusive, engaging sports community they'll want to be part of. Set up your community on SportsGenX and launch your first exclusive tournament in minutes.</p>
+    <div class="cta-btns"><a href="#demo-form" class="btn-white">📅 Book a Free Demo</a><a href="https://play.google.com/store/apps/details?id=com.dream_shuttlers" target="_blank" rel="noopener" class="btn-outline-white">▶ Android App</a>
+      <a href="https://apps.apple.com/us/app/sportsgenx/id6747614361" target="_blank" rel="noopener" class="btn-outline-white">🍎 iOS App</a></div>
+  </div>
+</section>
+<div id="site-footer"></div>
+<script src="components.js"></script>
+</body></html>
