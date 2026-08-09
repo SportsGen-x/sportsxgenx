@@ -410,7 +410,11 @@ select.hero-form-input option {
   font-weight: 600;
 }
 
-/* RESPONSIVE & MOBILE OPTIMIZATIONS */
+/* Responsive text toggles */
+.btn-text-mobile, .trust-text-mobile {
+  display: none !important;
+}
+
 @media(max-width:960px){
   .comparison-grid {
     grid-template-columns: 1fr;
@@ -444,6 +448,30 @@ select.hero-form-input option {
 }
 
 @media(max-width:580px){
+  .btn-text-full, .trust-text-full {
+    display: none !important;
+  }
+  .btn-text-mobile, .trust-text-mobile {
+    display: inline !important;
+  }
+  .page-hero-left {
+    padding: 40px 16px 36px !important;
+  }
+  .page-hero-h1 {
+    font-size: 26px !important;
+  }
+  .page-hero-sub {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 24px !important;
+  }
+  .hero-ctas {
+    gap: 8px !important;
+  }
+  .hero-trust {
+    gap: 4px !important;
+    margin-top: 20px !important;
+  }
   .pains-grid {
     grid-template-columns: 1fr;
   }
@@ -491,10 +519,12 @@ select.hero-form-input option {
             <line x1="8" y1="2" x2="8" y2="6"></line>
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
-          Book a Free Demo
+          <span class="btn-text-full">Book a Free Demo</span>
+          <span class="btn-text-mobile">Book Demo</span>
         </a>
         <a href="#comparison" class="btn-outline-red">
-          Compare Platform vs Excel
+          <span class="btn-text-full">Compare Platform vs Excel</span>
+          <span class="btn-text-mobile">Compare vs Excel</span>
           <svg class="btn-icon btn-icon-right" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <polyline points="19 12 12 19 5 12"></polyline>
@@ -506,21 +536,24 @@ select.hero-form-input option {
           <svg class="trust-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
           </svg>
-          Auto-Generated Brackets
+          <span class="trust-text-full">Auto-Generated Brackets</span>
+          <span class="trust-text-mobile">Auto Brackets</span>
         </span>
         <span class="trust-pill">
           <svg class="trust-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
             <line x1="12" y1="18" x2="12.01" y2="18"></line>
           </svg>
-          Live Scoring App
+          <span class="trust-text-full">Live Scoring App</span>
+          <span class="trust-text-mobile">Live Scoring</span>
         </span>
         <span class="trust-pill">
           <svg class="trust-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
           </svg>
-          Safe &amp; Secure Platform
+          <span class="trust-text-full">Safe &amp; Secure Platform</span>
+          <span class="trust-text-mobile">Secure Platform</span>
         </span>
       </div>
     </div>
