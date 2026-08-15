@@ -20,7 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css"/>
+<link rel="stylesheet" href="shared.css?v=20260815h"/>
 <style>
 /* Hero right — stats panel */
 .hero-stats{position:relative;z-index:1;width:100%;display:flex;flex-direction:column;gap:16px}
@@ -192,20 +192,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 @media(max-width:960px){
   .transform-grid{grid-template-columns:1fr;grid-template-rows:auto auto auto}
   .transform-divider{padding:12px 0;border-right:none;border-bottom:1px solid #eee;border-top:1px solid #eee}
+  .transform-col{padding:28px 20px}
+  .transform-list li{font-size:13.5px}
+  .hero-stats{gap:12px;width:100%;max-width:100%}
+  .hero-stat-row{gap:12px;grid-template-columns:1fr 1fr}
+  .hero-stat-card{padding:16px 12px;min-width:0}
+  .hero-stat-num{font-size:28px}
+  .hero-stat-label{font-size:9px;letter-spacing:.08em}
+  .hero-stat-wide{padding:16px;gap:12px}
+  .hero-stat-wide-val{font-size:16px}
   .steps-grid{grid-template-columns:1fr 1fr}
   .features-grid{grid-template-columns:1fr 1fr}
-  .support-inner,.wl-inner,.pricing-narrative-inner{grid-template-columns:1fr}
-  .sports-grid{grid-template-columns:repeat(3,1fr)}
+  .support-inner,.wl-inner,.pricing-narrative-inner{grid-template-columns:1fr;gap:36px}
+  .sports-grid{grid-template-columns:repeat(3,1fr);gap:12px}
   .formats-grid{grid-template-columns:1fr 1fr}
   .testi-grid{grid-template-columns:1fr}
   .feat-header{flex-direction:column;align-items:flex-start}
-  .transform-section,.steps-section,.features-section,.support-section,.sports-section,.formats-section,.pricing-narrative,.wl-section,.testi-section{padding-left:24px;padding-right:24px}
+  .step-card,.feat-card{padding:28px 20px}
+  .transform-section,.steps-section,.features-section,.support-section,.sports-section,.formats-section,.pricing-narrative,.wl-section,.testi-section{padding:56px 20px}
+  .section-inner{max-width:100%}
 }
 @media(max-width:580px){
   .steps-grid{grid-template-columns:1fr}
   .features-grid{grid-template-columns:1fr}
   .sports-grid{grid-template-columns:repeat(2,1fr)}
   .formats-grid{grid-template-columns:1fr}
+  .transform-section,.steps-section,.features-section,.support-section,.sports-section,.formats-section,.pricing-narrative,.wl-section,.testi-section{padding:48px 16px}
+  .transform-col{padding:24px 16px}
+  .hero-stat-row{grid-template-columns:1fr 1fr;gap:10px}
+  .hero-stat-num{font-size:22px}
+  .hero-stat-label{font-size:9px;line-height:1.3;overflow-wrap:anywhere}
+  .hero-stat-card{padding:14px 10px}
+  .support-card,.wl-card{padding:18px 16px}
+  .hero-trust{gap:8px}
+  .trust-pill{font-size:10px;padding:6px 9px}
 }
 </style>
 </head>
@@ -231,7 +251,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 class="page-hero-h1">Run Your Tournament <span>Like a Pro</span> — Without the Chaos</h1>
       <p class="page-hero-sub">SportsGenX replaces WhatsApp groups, Excel sheets, and manual headaches with a single, powerful tournament management platform. Online registration, automated draws, live scoring, player auctions, and e-certificates — all in one app.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btn-primary"><svg class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
+        <a href="#contact" class="btn-primary"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
         <a href="#how-it-works" class="btn-outline-red">See How It Works ↓</a>
       </div>
       <div class="hero-trust">
@@ -469,6 +489,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div id="site-footer"></div>
 
-<script src="components.js"></script>
+<script src="components.js?v=20260815h"></script>
 </body>
 </html>

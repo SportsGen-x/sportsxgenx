@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css"/>
+<link rel="stylesheet" href="shared.css?v=20260815h"/>
 <style>
 .hero-flow{display:flex;flex-direction:column;align-items:center;gap:0;position:relative;z-index:1;width:100%;max-width:240px}
 .flow-step{background:rgba(255,255,255,.92);border:2px solid rgba(255,255,255,.5);border-radius:10px;padding:14px 24px;text-align:center;width:100%;transition:background .2s}
@@ -63,12 +63,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .flow-step{width:auto;padding:10px 16px}
   .features-grid{grid-template-columns:1fr 1fr}
   .formats-grid{grid-template-columns:1fr 1fr}
-  .features-section,.formats-section{padding-left:24px;padding-right:24px}
+  .features-section,.formats-section{padding:56px 20px}
   .feat-header{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:580px){
+  .features-section,.why-section,.screens-section,.how-section,.unique-section,.formats-section,.steps-section,.support-section,.sports-section,.testi-section,.comp-section,.dark-section,.wl-section,.pricing-narrative,.models-section,.phase-section{padding:48px 16px}
   .features-grid{grid-template-columns:1fr}
   .formats-grid{grid-template-columns:1fr}
+  .hero-flow{flex-direction:column;max-width:260px;margin:0 auto;gap:0}
+  .flow-step{width:100%}
+  .flow-arrow{display:block;height:16px}
 }
 </style>
 </head>
@@ -94,7 +98,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 class="page-hero-h1">Knockout <span>Tournament</span> Management</h1>
       <p class="page-hero-sub">Players compete in single or doubles categories. Draws are generated based on rankings or randomly. Matches are scheduled in knockout format — winners advance, losers are eliminated, until the champion is decided.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btn-primary"><svg class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
+        <a href="#contact" class="btn-primary"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
         <a href="#features" class="btn-outline-red">Explore Features ↓</a>
       </div>
     </div>
@@ -262,6 +266,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="crm-contact-section"></div>
 
 <div id="site-footer"></div>
-<script src="components.js"></script>
+<script src="components.js?v=20260815h"></script>
 </body>
 </html>

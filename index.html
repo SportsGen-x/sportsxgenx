@@ -21,11 +21,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="shared.css" />
+<link rel="stylesheet" href="shared.css?v=20260815h" />
 <style>
 /* ── HERO (homepage-specific) ── */
-.hero{min-height:100vh;padding-top:68px;display:grid;grid-template-columns:55% 45%;position:relative;overflow:hidden}
-.hero-left{background:var(--white);display:flex;align-items:center;padding:80px 60px;position:relative;z-index:2}
+.hero{min-height:100vh;padding-top:68px;display:grid;grid-template-columns:55% 45%;position:relative;overflow-x:clip;overflow-y:visible}
+.hero-left{background:var(--white);display:flex;align-items:center;padding:80px 60px;position:relative;z-index:2;min-width:0}
 .hero-left::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(200,0,26,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(200,0,26,.05) 1px,transparent 1px);background-size:56px 56px}
 .hero-left::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,rgba(200,0,26,.12) 1px,transparent 1px);background-size:24px 24px;mask-image:radial-gradient(ellipse 70% 70% at 10% 50%,black,transparent);opacity:.4}
 .hero-text{position:relative;z-index:1;max-width:540px}
@@ -188,33 +188,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 /* ── RESPONSIVE ── */
 @media(max-width:1000px){
-  .hero{grid-template-columns:1fr}
-  .hero-left{padding:60px 24px 48px}
-  .hero-right{padding:40px 24px 60px;min-height:340px}
-  .hero-phone img{max-width:300px}
-  .hero-text{max-width:100%}
-  .about-inner{grid-template-columns:1fr;gap:48px}
-  .about-section{padding:72px 24px}
-  .about-stats{grid-template-columns:1fr 1fr}
-  .features-section,.why-section,.sol-section,.testi-section{padding:72px 24px}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-left{padding:48px 20px 40px;min-width:0}
+  .hero-right{padding:32px 20px 48px;min-height:0}
+  .hero-phone img{max-width:min(300px,86vw)}
+  .hero-text{max-width:100%;min-width:0}
+  .hero-h1{overflow-wrap:anywhere;word-break:break-word;font-size:clamp(26px,7vw,36px);line-height:1.1}
+  .hero-sub{font-size:14px;margin-bottom:24px}
+  .about-inner{grid-template-columns:1fr;gap:40px}
+  .about-section{padding:64px 20px}
+  .about-body{padding-left:16px}
+  .about-stats{grid-template-columns:1fr 1fr;gap:12px}
+  .features-section,.why-section,.sol-section,.testi-section{padding:64px 20px}
   .features-grid,.why-grid{grid-template-columns:1fr 1fr}
-  .feat-cta-bar{grid-column:span 2;flex-direction:column;align-items:flex-start}
+  .feat-cta-bar{grid-column:span 2;flex-direction:column;align-items:flex-start;padding:24px 20px}
   .sol-body,.sol-body.three-col{grid-template-columns:1fr}
   .testi-grid{grid-template-columns:1fr}
   .testi-trust-divider{display:none}
-  .testi-trust{gap:24px}
-  .features-header{flex-direction:column;align-items:flex-start}
-  /* Contact section media queries moved to shared.css */
+  .testi-trust{gap:20px;padding:24px 20px}
+  .features-header{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:40px}
+  .feat-card{padding:28px 22px}
+  .why-card{padding:28px 22px}
+  .trust-line{gap:8px}
 }
 @media(max-width:640px){
-  .hero-h1{font-size:34px}
-  .hero-ctas{flex-direction:column;align-items:stretch}
+  .hero-left{padding:40px 16px 32px}
+  .hero-right{padding:28px 16px 40px}
+  .hero-h1{font-size:clamp(24px,7.5vw,30px)}
+  .hero-sub{font-size:13.5px;line-height:1.7}
+  .hero-ctas{flex-direction:column;align-items:stretch;gap:10px}
   .hero-ctas .btn-primary{width:100%}
+  .about-section,.features-section,.why-section,.sol-section,.testi-section{padding:52px 16px}
   .about-stats{grid-template-columns:1fr}
   .features-grid{grid-template-columns:1fr}
-  .feat-cta-bar{grid-column:span 1}
+  .feat-cta-bar{grid-column:span 1;width:100%}
+  .feat-cta-text{font-size:18px}
   .why-grid{grid-template-columns:1fr}
-  .why-card{padding:36px 24px}
+  .why-card{padding:28px 18px}
+  .sol-card{padding:24px 18px}
+  .strip-item{padding:0 18px}
+  .strip-label{font-size:12px}
+  .stat-card{padding:18px 16px}
+  .stat-num{font-size:28px}
 }
 </style>
 </head>
@@ -238,14 +253,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="hero-sub">From <strong>online player registration</strong> and <strong>automated fixture generation</strong> to <strong>live scoring</strong>, player auctions, and e-certificate distribution — SportsGenX is the complete sports event management platform trusted by tournament organisers across the globe.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn-primary">
-          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
           Book Free Demo
         </a>
         <div class="hero-store-badges" data-store-badges="light"></div>
       </div>
       <div class="trust-line">
         <span class="trust-badge">
-          <svg class="icon" style="width:12px;height:12px;margin-right:4px;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="width:12px;height:12px;margin-right:4px;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
           Used by 100+ organisers
         </span>
         <span class="trust-sports">Badminton · Cricket · Football · Pickleball · Tennis &amp; more</span>
@@ -262,26 +277,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- SPORTS MARQUEE -->
 <div class="sports-strip" aria-hidden="true">
   <div class="strip-track">
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Badminton</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Cricket</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Football</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Tennis</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Table Tennis</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Pickleball</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Squash</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Basketball</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Volleyball</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Swimming</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Badminton</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Cricket</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Football</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Tennis</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Table Tennis</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Pickleball</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Squash</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Basketball</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Volleyball</span></div>
-    <div class="strip-item"><svg class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Swimming</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Badminton</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Cricket</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Football</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Tennis</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Table Tennis</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Pickleball</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Squash</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Basketball</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Volleyball</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Swimming</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Badminton</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Cricket</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Football</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Tennis</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Table Tennis</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Pickleball</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Squash</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Basketball</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Volleyball</span></div>
+    <div class="strip-item"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon strip-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="strip-label">Swimming</span></div>
   </div>
 </div>
 
@@ -322,49 +337,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="features-grid">
     <div class="feat-card">
-      <div class="feat-icon-wrap" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="color:var(--red);"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg></div>
+      <div class="feat-icon-wrap" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24" style="color:var(--red);"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg></div>
       <span class="feat-tag">Tournament Publishing</span>
       <h3 class="feat-h3">Publish Your Tournament to Thousands — Instantly</h3>
       <p class="feat-copy">List your sports event on the SportsGenX platform and reach thousands of players across your city and sport. Your tournament goes live in under 60 seconds — no technical setup needed.</p>
     </div>
     <div class="feat-card">
-      <div class="feat-icon-wrap" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="color:var(--red);"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></div>
+      <div class="feat-icon-wrap" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24" style="color:var(--red);"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></div>
       <span class="feat-tag">Online Participation</span>
       <h3 class="feat-h3">Sports Tournament Registration App — Zero Manual Work</h3>
       <p class="feat-copy">Players register directly from the app or via WhatsApp — entries auto-populate, duplicate detection runs automatically, and you get a real-time registered-player dashboard.</p>
     </div>
     <div class="feat-card">
-      <div class="feat-icon-wrap" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="color:var(--red);"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div>
+      <div class="feat-icon-wrap" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24" style="color:var(--red);"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div>
       <span class="feat-tag">Fee Management</span>
       <h3 class="feat-h3">Online Entry Fee Collection &amp; Payment Management</h3>
       <p class="feat-copy">Collect tournament entry fees online — UPI, cards, and net banking. Every payment is tracked, reconciled, and settled automatically. No more chasing screenshots. Full audit trail and next-day settlement.</p>
     </div>
     <div class="feat-card">
-      <div class="feat-icon-wrap" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="color:var(--red);"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path><path d="M12 2a6 6 0 0 1 6 6v5a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8a6 6 0 0 1 6-6z"></path></svg></div>
+      <div class="feat-icon-wrap" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24" style="color:var(--red);"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path><path d="M12 2a6 6 0 0 1 6 6v5a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8a6 6 0 0 1 6-6z"></path></svg></div>
       <span class="feat-tag">Draws &amp; Brackets</span>
       <h3 class="feat-h3">Tournament Fixture Generator &amp; Bracket Maker — Automated</h3>
       <p class="feat-copy">Auto-creates brackets, draws, and match schedules for any format — knockout, round robin, league, Premier League, or lucky draw. The bracket maker builds the complete fixture in seconds. Fully automated. Zero errors.</p>
     </div>
     <div class="feat-card">
-      <div class="feat-icon-wrap" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="color:var(--red);"><circle cx="12" cy="12" r="2"></circle><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path></svg></div>
+      <div class="feat-icon-wrap" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24" style="color:var(--red);"><circle cx="12" cy="12" r="2"></circle><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path></svg></div>
       <span class="feat-tag">Live Scoring</span>
       <h3 class="feat-h3">Live Sports Scoring App with Real-Time Display &amp; Streaming</h3>
       <p class="feat-copy">Match scores update in real time — visible to players, spectators, and organisers instantly on-screen and in-app. Umpires score directly from their phone. Venue displays sync automatically. Live streaming integration included.</p>
     </div>
     <div class="feat-card">
-      <div class="feat-icon-wrap" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="color:var(--red);"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
+      <div class="feat-icon-wrap" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24" style="color:var(--red);"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
       <span class="feat-tag">E-Certificates</span>
       <h3 class="feat-h3">Automated Sports E-Certificates for Every Tournament</h3>
       <p class="feat-copy">Instantly generate and distribute personalised digital sports certificates to winners, runners-up, and all participants — directly from the SportsGenX platform.</p>
     </div>
     <div class="feat-card">
-      <div class="feat-icon-wrap" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="color:var(--red);"><path d="M14.5 2L2 14.5 5.5 18 18 5.5z"></path><path d="M21.5 6.5l-3-3"></path><path d="M16 10l-4-4"></path><path d="M9 13H4c-.55 0-1 .45-1 1v5c0 .55.45 1 1 1h5c.55 0 1-.45 1-1v-5c0-.55-.45-1-1-1z"></path></svg></div>
+      <div class="feat-icon-wrap" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24" style="color:var(--red);"><path d="M14.5 2L2 14.5 5.5 18 18 5.5z"></path><path d="M21.5 6.5l-3-3"></path><path d="M16 10l-4-4"></path><path d="M9 13H4c-.55 0-1 .45-1 1v5c0 .55.45 1 1 1h5c.55 0 1-.45 1-1v-5c0-.55-.45-1-1-1z"></path></svg></div>
       <span class="feat-tag">Player Auction</span>
       <h3 class="feat-h3">Player Auction Software for Leagues — Real-Time Bidding</h3>
       <p class="feat-copy">Live, real-time player bidding for cricket leagues, badminton leagues, and any team-format tournament. Bids update instantly on the full-screen venue display. Team budgets, player base prices, and unsold players tracked automatically.</p>
     </div>
     <div class="feat-card">
-      <div class="feat-icon-wrap" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="color:var(--red);"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path></svg></div>
+      <div class="feat-icon-wrap" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24" style="color:var(--red);"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path></svg></div>
       <span class="feat-tag">Premier League Management</span>
       <h3 class="feat-h3">Sports League Management Software — Points Tables, Groups &amp; Pools</h3>
       <p class="feat-copy">Automated points tables, pool/group stage scheduling, head-to-head records, and playoff qualification tracking. Supports premier leagues, knockout leagues, and hybrid formats across any sport.</p>
@@ -373,7 +388,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="feat-cta-text">Ready to run your next tournament <span>the smart way?</span></div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
         <a href="#contact" class="btn-outline-white" style="font-size:12px;padding:11px 22px;">
-          <svg class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
           Book a Free Demo
         </a>
         <div class="feat-store-badges" data-store-badges="on-red" style="display:flex;gap:10px;flex-wrap:wrap;"></div>
@@ -392,25 +407,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="why-grid">
       <div class="why-card">
         <span class="why-card-num">01</span>
-        <svg class="icon why-card-icon" style="color:var(--red);width:30px;height:30px;margin-bottom:16px;display:block;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon why-card-icon" style="color:var(--red);width:30px;height:30px;margin-bottom:16px;display:block;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
         <h3 class="why-card-h3">All-in-One Tournament Management Platform</h3>
         <p class="why-card-copy">From the first registration to the final e-certificate, SportsGenX is the only sports tournament management software you'll need. <strong>No third-party tools. No manual data entry. No WhatsApp chaos.</strong> One dashboard manages every element of your event — automated, end-to-end.</p>
       </div>
       <div class="why-card">
         <span class="why-card-num">02</span>
-        <svg class="icon why-card-icon" style="color:var(--red);width:30px;height:30px;margin-bottom:16px;display:block;" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path></svg>
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon why-card-icon" style="color:var(--red);width:30px;height:30px;margin-bottom:16px;display:block;" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path></svg>
         <h3 class="why-card-h3">Every Sport. Every Format.</h3>
         <p class="why-card-copy">Knockout. Round Robin. Premier League. Lucky Doubles. League. SportsGenX supports more tournament formats than any other platform — for <strong>badminton, cricket, football, tennis, pickleball, basketball, and more</strong>. Not just racket sports. Every sport.</p>
       </div>
       <div class="why-card">
         <span class="why-card-num">03</span>
-        <svg class="icon why-card-icon" style="color:var(--red);width:30px;height:30px;margin-bottom:16px;display:block;" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon why-card-icon" style="color:var(--red);width:30px;height:30px;margin-bottom:16px;display:block;" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
         <h3 class="why-card-h3">Real Humans. Real Support.</h3>
         <p class="why-card-copy">Tournament day problems don't wait for business hours. SportsGenX provides <strong>live human support — not chatbots</strong> — available from 5 AM on tournament morning through the closing ceremony. Proven by organisers across India.</p>
       </div>
       <div class="why-card">
         <span class="why-card-num">04</span>
-        <svg class="icon why-card-icon" style="color:var(--red);width:30px;height:30px;margin-bottom:16px;display:block;" viewBox="0 0 24 24"><path d="M22 2l-7 4-6 9-2 2-3-3 2-2 9-6 4-7z"></path><path d="M9 15l-5 5M15 9l5-5"></path></svg>
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon why-card-icon" style="color:var(--red);width:30px;height:30px;margin-bottom:16px;display:block;" viewBox="0 0 24 24"><path d="M22 2l-7 4-6 9-2 2-3-3 2-2 9-6 4-7z"></path><path d="M9 15l-5 5M15 9l5-5"></path></svg>
         <h3 class="why-card-h3">Easy to Start. Built to Scale.</h3>
         <p class="why-card-copy">List your first tournament at <strong>zero cost. No platform fee. No commission</strong> on your first event. SportsGenX grows with you — from a 20-player local knockout to a 500-player national-level open. Start free. Scale as you grow.</p>
       </div>
@@ -428,14 +443,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="sol-body">
       <div class="sol-card">
-        <div class="sol-card-title"><svg class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><path d="M4 22V8h16v14"></path><path d="M12 2L2 8h20L12 2z"></path></svg> Association Features</div>
+        <div class="sol-card-title"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><path d="M4 22V8h16v14"></path><path d="M12 2L2 8h20L12 2z"></path></svg> Association Features</div>
         <ul class="sol-list">
           <li>Player Registration</li><li>Membership Verification</li><li>Digital Player Database</li>
           <li>Ranking Systems</li><li>Tournament Management</li><li>Membership Renewals</li><li>Reports &amp; Analytics</li>
         </ul>
       </div>
       <div class="sol-card">
-        <div class="sol-card-title"><svg class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> Dedicated Association Portal</div>
+        <div class="sol-card-title"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> Dedicated Association Portal</div>
         <p style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:16px;">Every association receives a fully branded digital home:</p>
         <ul class="sol-list">
           <li>Dedicated Website</li><li>Member Dashboard</li><li>Player Directory</li>
@@ -456,14 +471,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="sol-body">
       <div class="sol-card">
-        <div class="sol-card-title"><svg class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg> Academy Features</div>
+        <div class="sol-card-title"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg> Academy Features</div>
         <ul class="sol-list">
           <li>Dedicated Academy Profile</li><li>Membership Management</li><li>Player Performance Tracking</li>
           <li>Tournament Participation History</li><li>Notifications &amp; Communication</li><li>Revenue Reports</li>
         </ul>
       </div>
       <div class="sol-card">
-        <div class="sol-card-title"><svg class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> Academy Dashboard — Monitor</div>
+        <div class="sol-card-title"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> Academy Dashboard — Monitor</div>
         <ul class="sol-list">
           <li>Active Players</li><li>Membership Renewals</li><li>Tournament Results</li>
           <li>Rankings</li><li>Attendance</li><li>Financial Reports</li>
@@ -483,7 +498,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="sol-body">
       <div class="sol-card">
-        <div class="sol-card-title"><svg class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Community Features</div>
+        <div class="sol-card-title"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Community Features</div>
         <ul class="sol-list">
           <li>Online Member Registration</li>
           <li>Verification Workflows</li>
@@ -495,7 +510,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="sol-note on-red">Only verified members gain access to community-exclusive events.</p>
       </div>
       <div class="sol-card">
-        <div class="sol-card-title"><svg class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Membership Models</div>
+        <div class="sol-card-title"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Membership Models</div>
         <ul class="sol-list">
           <li>Custom Pricing Per Plan</li>
           <li>Flexible Frequencies (Monthly/Quarterly/Annual)</li>
@@ -520,14 +535,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="sol-body three-col">
       <div class="sol-card">
-        <div class="sol-card-title"><svg class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> Built For</div>
+        <div class="sol-card-title"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> Built For</div>
         <ul class="sol-list">
           <li>Sports Academies</li><li>Sports Associations</li><li>Sports Communities</li>
           <li>League Organizers</li><li>Tournament Organizers</li><li>Federations</li>
         </ul>
       </div>
       <div class="sol-card">
-        <div class="sol-card-title"><svg class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg> What's Included</div>
+        <div class="sol-card-title"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg> What's Included</div>
         <ul class="sol-list">
           <li>Android App</li><li>iOS App</li><li>Web Portal</li>
           <li>Custom Branding</li><li>Custom Domain</li>
@@ -535,7 +550,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
       </div>
       <div class="sol-card">
-        <div class="sol-card-title"><svg class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg> Your Advantage</div>
+        <div class="sol-card-title"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon card-icon" style="width:16px;height:16px;margin-right:8px;vertical-align:-2px;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg> Your Advantage</div>
         <ul class="sol-list">
           <li>Zero development cost</li><li>Launch in weeks, not months</li>
           <li>Full feature parity with SportsGenX</li>
@@ -602,6 +617,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- FOOTER -->
 <div id="site-footer"></div>
 
-<script src="components.js"></script>
+<script src="components.js?v=20260815h"></script>
 </body>
 </html>

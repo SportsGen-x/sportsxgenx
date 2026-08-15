@@ -16,7 +16,7 @@
 
   // Close nav when clicking outside
   document.addEventListener('click', function (e) {
-    if (!e.target.closest('nav')) {
+    if (!e.target.closest('.site-header') && !e.target.closest('nav.site-nav')) {
       navLinks.classList.remove('open');
       hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');

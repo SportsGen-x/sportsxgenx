@@ -10,14 +10,26 @@
   ──────────────────────────────────────────────────── */
   var WEB3FORMS_KEY = '9b0b5880-470c-4c95-941c-a83aa559d40e';
 
-  /* ── Active-page detection ── */
-  var page = (window.location.pathname.split('/').pop() || 'index.html').split('?')[0];
+  /* ── Active-page detection (normalize / and pretty URLs) ── */
+  var page = (window.location.pathname.split('/').pop() || 'index.html').split('?')[0].split('#')[0];
+  if (!page || page === '/') page = 'index.html';
+  if (page.indexOf('.') === -1) page = page + '.html';
+
+  var TOURNAMENT_PAGES = {
+    'knockout-tournament-management.html': 1,
+    'premier-league-management.html': 1,
+    'tournament-draw-making.html': 1,
+    'live-player-auction.html': 1
+  };
 
   function active(href) {
     return page === href ? ' class="active"' : '';
   }
   function ddActive(href) {
     return page === href ? ' class="active"' : '';
+  }
+  function tournamentActive() {
+    return TOURNAMENT_PAGES[page] ? ' active' : '';
   }
 
   /* ══════════════════════════════════════════
@@ -82,7 +94,7 @@
 
   function iconSvg(name, cls) {
     var paths = ICONS[name] || ICONS.star;
-    return '<svg class="' + (cls || 'icon') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + paths + '</svg>';
+    return '<svg class="' + (cls || 'icon') + '" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + paths + '</svg>';
   }
 
   function uiIcon(name, extraClass) {
@@ -96,14 +108,14 @@
   function storeBadgeGoogle(variant) {
     var v = variant ? ' store-badge--' + variant : '';
     return '<a href="' + PLAY_URL + '" target="_blank" rel="noopener" class="store-badge' + v + '" aria-label="Get it on Google Play">' +
-      '<svg class="store-badge-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.18 23.7c.25.14.55.16.83.05l13.5-5.9L12.1 12 3 23.55c-.05.05-.08.1-.1.15-.08.2-.05.43.08.6.07.1.14.18.2.25zM20.8 10.4l-2.8-1.6-5.7 3.2 5.7 3.2 2.9-1.6c.7-.4.7-1.4-.1-1.8zM3.08.25C2.9.4 2.8.65 2.8.95v22.1c0 .2.05.4.15.55L12 12 3.08.25zM16.7 5.15 3.9.15c-.2-.1-.4-.15-.6-.1L12.1 12l4.6-6.85z"/></svg>' +
+      '<svg class="store-badge-logo" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.18 23.7c.25.14.55.16.83.05l13.5-5.9L12.1 12 3 23.55c-.05.05-.08.1-.1.15-.08.2-.05.43.08.6.07.1.14.18.2.25zM20.8 10.4l-2.8-1.6-5.7 3.2 5.7 3.2 2.9-1.6c.7-.4.7-1.4-.1-1.8zM3.08.25C2.9.4 2.8.65 2.8.95v22.1c0 .2.05.4.15.55L12 12 3.08.25zM16.7 5.15 3.9.15c-.2-.1-.4-.15-.6-.1L12.1 12l4.6-6.85z"/></svg>' +
       '<span class="store-badge-text"><span class="store-badge-sub">Get it on</span><span class="store-badge-name">Google Play</span></span></a>';
   }
 
   function storeBadgeApple(variant) {
     var v = variant ? ' store-badge--' + variant : '';
     return '<a href="' + APPLE_URL + '" target="_blank" rel="noopener" class="store-badge' + v + '" aria-label="Download on the App Store">' +
-      '<svg class="store-badge-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-.96.04-2.13.64-2.82 1.45-.6.68-1.12 1.82-.98 2.92.1.08.2.12.31.12.9 0 2.01-.62 2.5-1.43z"/></svg>' +
+      '<svg class="store-badge-logo" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-.96.04-2.13.64-2.82 1.45-.6.68-1.12 1.82-.98 2.92.1.08.2.12.31.12.9 0 2.01-.62 2.5-1.43z"/></svg>' +
       '<span class="store-badge-text"><span class="store-badge-sub">Download on the</span><span class="store-badge-name">App Store</span></span></a>';
   }
 
@@ -126,15 +138,16 @@
      NAV HTML
   ══════════════════════════════════════════ */
   var NAV = [
-    '<nav role="navigation" aria-label="Main navigation">',
+    '<header class="site-header">',
+    '<nav class="site-nav" role="navigation" aria-label="Main navigation">',
     '  <a href="index.html" class="nav-logo">',
     '    <img src="sportsgenxlogored.png" alt="SportsGenX"/>',
     '  </a>',
     '  <ul class="nav-links" id="nav-links">',
     '    <li><a href="index.html"' + active('index.html') + '>Home</a></li>',
-    '    <li class="nav-dropdown">',
-    '      <a href="#">Tournament Management <span class="chevron"></span></a>',
-    '      <div class="dropdown-menu">',
+    '    <li class="nav-dropdown' + tournamentActive() + '">',
+    '      <a href="#" aria-haspopup="true">Tournament Management <span class="chevron" aria-hidden="true"></span></a>',
+    '      <div class="dropdown-menu" role="menu">',
     '        <a href="knockout-tournament-management.html"' + ddActive('knockout-tournament-management.html') + '><span class="dd-icon" data-icon="trophy"></span> Knockout Tournaments</a>',
     '        <a href="premier-league-management.html"' + ddActive('premier-league-management.html') + '><span class="dd-icon" data-icon="medal"></span> Premier Leagues</a>',
     '        <div class="dropdown-divider"></div>',
@@ -147,12 +160,13 @@
     '    <li><a href="for-associations.html"' + active('for-associations.html') + '>For Associations</a></li>',
     '    <li><a href="for-communities.html"' + active('for-communities.html') + '>For Communities</a></li>',
     '    <li><a href="pricing.html"' + active('pricing.html') + '>Pricing</a></li>',
-    '    <li class="nav-cta-li"><a href="#contact"><svg class="icon" style="margin-right:6px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Demo</a></li>',
+    '    <li class="nav-cta-li"><a href="index.html#contact"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Demo</a></li>',
     '  </ul>',
     '  <button class="nav-hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">',
     '    <span></span><span></span><span></span>',
     '  </button>',
-    '</nav>'
+    '</nav>',
+    '</header>'
   ].join('\n');
 
   /* ══════════════════════════════════════════
@@ -168,10 +182,10 @@
     '        <a href="index.html"><img src="sportsgenxlogored.png" alt="SportsGenX" class="footer-logo"/></a>',
     '        <p class="footer-tagline">The complete tournament management platform for sports organisers, academies, associations, and communities.</p>',
     '        <div class="footer-social">',
-    '          <a href="https://www.instagram.com/sports_genx/" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>',
-    '          <a href="https://www.youtube.com/channel/UC1ugrkIW0YWp_aqqbSfTjEQ" target="_blank" rel="noopener" aria-label="YouTube" class="footer-social-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg></a>',
-    '          <a href="#" aria-label="LinkedIn" class="footer-social-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>',
-    '          <a href="https://wa.me/919893009057" target="_blank" rel="noopener" aria-label="WhatsApp" class="footer-social-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></a>',
+    '          <a href="https://www.instagram.com/sports_genx/" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>',
+    '          <a href="https://www.youtube.com/channel/UC1ugrkIW0YWp_aqqbSfTjEQ" target="_blank" rel="noopener" aria-label="YouTube" class="footer-social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg></a>',
+    '          <a href="#" aria-label="LinkedIn" class="footer-social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>',
+    '          <a href="https://wa.me/919893009057" target="_blank" rel="noopener" aria-label="WhatsApp" class="footer-social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></a>',
     '        </div>',
     '        <p class="footer-app-label">Download the App</p>',
     '        <div class="footer-app-btns">',
@@ -207,11 +221,11 @@
     '      <div class="footer-contact">',
     '        <h4 class="footer-h4">Contact Us</h4>',
     '        <ul class="contact-list">',
-    '          <li><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><a href="mailto:hello@sportsgenx.com">hello@sportsgenx.com</a></li>',
-    '          <li><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><a href="tel:+919893009057">+91 98930 09057</a></li>',
-    '          <li><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg><a href="https://wa.me/919893009057" target="_blank" rel="noopener">WhatsApp Us</a></li>',
-    '          <li><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Bengaluru, Karnataka, India</span></li>',
-    '          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><a href="https://webapp.sportsgenx.com" target="_blank">webapp.sportsgenx.com</a></li>',
+    '          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><a href="mailto:hello@sportsgenx.com">hello@sportsgenx.com</a></li>',
+    '          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><a href="tel:+919893009057">+91 98930 09057</a></li>',
+    '          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg><a href="https://wa.me/919893009057" target="_blank" rel="noopener">WhatsApp Us</a></li>',
+    '          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Bengaluru, Karnataka, India</span></li>',
+    '          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><a href="https://webapp.sportsgenx.com" target="_blank">webapp.sportsgenx.com</a></li>',
     '        </ul>',
     '      </div>',
     '    </div>',
@@ -243,7 +257,7 @@
     '      <p class="contact-lead">Ready to digitize your tournament? Talk to our team — we\'ll walk you through the platform and get your first event live within the hour.</p>',
     '      <div class="contact-cards">',
     '        <div class="contact-card">',
-    '          <div class="contact-card-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>',
+    '          <div class="contact-card-icon" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>',
     '          <div class="contact-card-body">',
     '            <div class="contact-card-label">Company Location</div>',
     '            <span class="contact-card-value">B Block 401 Gulmarg Pride, Kanadia Road</span>',
@@ -251,7 +265,7 @@
     '          </div>',
     '        </div>',
     '        <div class="contact-card">',
-    '          <div class="contact-card-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>',
+    '          <div class="contact-card-icon" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>',
     '          <div class="contact-card-body">',
     '            <div class="contact-card-label">Email Address</div>',
     '            <a href="mailto:cs@dreamshuttlers.com" class="contact-card-value">cs@dreamshuttlers.com</a>',
@@ -259,7 +273,7 @@
     '          </div>',
     '        </div>',
     '        <div class="contact-card">',
-    '          <div class="contact-card-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>',
+    '          <div class="contact-card-icon" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>',
     '          <div class="contact-card-body">',
     '            <div class="contact-card-label">Call Us</div>',
     '            <a href="tel:+919893009057" class="contact-card-value">+91 98930 09057</a>',
@@ -267,7 +281,7 @@
     '          </div>',
     '        </div>',
     '        <div class="contact-card">',
-    '          <div class="contact-card-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>',
+    '          <div class="contact-card-icon" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>',
     '          <div class="contact-card-body">',
     '            <div class="contact-card-label">WhatsApp</div>',
     '            <a href="https://wa.me/919893009057" class="contact-card-value">Chat on WhatsApp</a>',
@@ -361,10 +375,10 @@
     '              </select>',
     '            </div>',
     '          </div>',
-    '          <button type="submit" class="form-submit"><svg class="icon" style="margin-right:6px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book My Free Demo</button>',
+    '          <button type="submit" class="form-submit"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="margin-right:6px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book My Free Demo</button>',
     '        </form>',
     '        <a href="https://wa.me/919893009057" class="form-whatsapp" target="_blank" rel="noopener noreferrer">',
-    '          <svg class="icon" style="margin-right:6px;" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> Or reach us instantly on WhatsApp',
+    '          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="margin-right:6px;" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> Or reach us instantly on WhatsApp',
     '        </a>',
     '      </div>',
     '    </div>',
@@ -402,7 +416,8 @@
       btn.id = 'floating-demo-btn';
       btn.href = contactHref;
       btn.className = 'floating-demo-btn';
-      btn.innerHTML = '<svg class="icon" style="margin-right:6px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo';
+      btn.innerHTML = '<svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span class="fdb-text">Book Free Demo</span>';
+      btn.setAttribute('aria-label', 'Book Free Demo');
       document.body.appendChild(btn);
     }
     // Ensure nav Book Demo points to local contact when present
@@ -455,7 +470,7 @@
     });
 
     document.addEventListener('click', function (e) {
-      if (!e.target.closest('nav')) {
+      if (!e.target.closest('.site-header')) {
         navLinks.classList.remove('open');
         hamburger.classList.remove('open');
         hamburger.setAttribute('aria-expanded', 'false');
