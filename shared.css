@@ -968,9 +968,9 @@ ul.sol-list li,
 .form-box::after{content:'';position:absolute;top:-60px;left:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
 .form-title{font-family:var(--font-display);font-size:26px;font-weight:700;text-transform:uppercase;color:var(--white);margin-bottom:6px}
 .form-subtitle{font-size:13px;color:rgba(255,255,255,.65);margin-bottom:28px;line-height:1.6}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
-.form-group.full{grid-column:span 2}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:0}
+.form-row .form-group.full{grid-column:1 / -1}
 .form-group label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7)}
 .form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:12px 14px;font-size:14px;color:var(--white);font-family:var(--font-body);outline:none;transition:border-color .2s,background .2s;width:100%}
 .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.35)}
@@ -978,7 +978,8 @@ ul.sol-list li,
 .form-group select{appearance:none;cursor:pointer}
 .form-group select option{background:var(--red-dark);color:var(--white)}
 .form-group textarea{resize:vertical;min-height:90px}
-.form-submit{width:100%;padding:15px;border-radius:6px;background:var(--white);color:var(--red);font-family:var(--font-display);font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border:none;cursor:pointer;transition:background .2s,transform .15s;margin-top:6px;position:relative;z-index:1}
+.form-group .iti{width:100%}
+.form-submit{width:100%;padding:15px;border-radius:6px;background:var(--white);color:var(--red);font-family:var(--font-display);font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border:none;cursor:pointer;transition:background .2s,transform .15s;margin-top:8px;position:relative;z-index:1}
 .form-submit:hover{background:#f0f0f0;transform:translateY(-2px)}
 .form-whatsapp{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;padding:12px;border:1px solid rgba(255,255,255,.25);border-radius:6px;color:rgba(255,255,255,.8);font-size:13px;font-weight:600;text-decoration:none;transition:background .2s,color .2s;position:relative;z-index:1}
 .form-whatsapp:hover{background:rgba(255,255,255,.1);color:var(--white)}
@@ -996,7 +997,7 @@ ul.sol-list li,
   .contact-inner{grid-template-columns:1fr;gap:40px}
   .contact-section{padding:64px 20px}
   .form-row{grid-template-columns:1fr}
-  .form-group.full{grid-column:span 1}
+  .form-row .form-group.full{grid-column:1 / -1}
   .form-box{padding:36px 24px}
   .franchise-bar{flex-direction:column;align-items:flex-start}
 }

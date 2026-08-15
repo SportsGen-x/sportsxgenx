@@ -23,7 +23,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=20260815k"/>
+<link rel="stylesheet" href="shared.css?v=20260815m"/>
 <style>
 /* Page-Specific Styles */
 
@@ -191,9 +191,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   box-shadow: 0 0 0 3px rgba(200, 0, 26, 0.15);
 }
 
-/* Specific elements span full width (2 columns) */
-.hero-form-input[name="expected_no_of_teams"],
+/* Full-width: identity, WhatsApp (country picker), long service options, CTA */
+.hero-form-input[name="first_name"],
+.hero-form-input[name="phone"],
+.hero-form-input.ait-phone,
+.iti,
+.hero-form-input[name="service_needed"],
 .hero-form-submit {
+  grid-column: 1 / -1;
+}
+.hero-form-row > .iti {
   grid-column: 1 / -1;
 }
 
@@ -503,7 +510,7 @@ select.hero-form-input option {
   }
 }
 </style>
-  <script src="components.js?v=20260815l" defer></script>
+  <script src="components.js?v=20260815m" defer></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -520,7 +527,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="page-hero-left">
     <div class="page-hero-left-inner">
       <div class="hero-breadcrumb">
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <span class="sep">›</span>
         <span>Excel Alternative</span>
       </div>
@@ -583,18 +590,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="page-hero-right">
     <div class="hero-form-card">
       <h3 class="hero-form-title">Book Your Free Demo</h3>
-      <p class="hero-form-sub">Get a custom 30-minute walkthrough. Set up your first tournament today.</p>
+      <p class="hero-form-sub">Get a personalised walkthrough — live today. See auction, live scoring &amp; format setup in action — most leagues go live same day.</p>
       <form id="hero-demo-form">
         <div id="hero-form-error" class="form-error" style="background:#fef2f2; border:1px solid #fca5a5; color:#dc2626; padding:10px; border-radius:4px; margin-bottom:16px; font-size:12.5px; display:none; grid-column: 1 / -1;"></div>
         <input type="hidden" name="page_url" class="ait-page-url" value="" />
         <div class="hero-form-row">
-          <input type="text" class="hero-form-input" name="first_name" placeholder="First Name *" autocomplete="given-name" required />
-          <input type="text" class="hero-form-input" name="last_name" placeholder="Last Name" autocomplete="family-name" />
-          <input type="tel" class="hero-form-input ait-phone" name="phone" placeholder="Phone Number *" autocomplete="tel" required />
+          <input type="text" class="hero-form-input" name="first_name" placeholder="Full Name *" autocomplete="name" required />
+          <input type="tel" class="hero-form-input ait-phone" name="phone" placeholder="WhatsApp Number *" autocomplete="tel" required />
           <input type="email" class="hero-form-input" name="email" placeholder="Email Address" autocomplete="email" />
-          <input type="text" class="hero-form-input" name="city" placeholder="Your City" autocomplete="address-level2" />
-          <select class="hero-form-input" name="your_sport" required>
-            <option value="" disabled selected>Select Your Sport *</option>
+          <input type="text" class="hero-form-input" name="city" placeholder="City" autocomplete="address-level2" />
+          <select class="hero-form-input" name="sport_you_organise">
+            <option value="">Sport You Organise</option>
             <option value="badminton">Badminton</option>
             <option value="cricket">Cricket</option>
             <option value="football">Football</option>
@@ -607,13 +613,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <option value="other">Other</option>
           </select>
           <select class="hero-form-input" name="expected_no_of_teams">
-            <option value="" disabled selected>Expected No of Teams</option>
+            <option value="">Expected No of Teams</option>
             <option value="4-8_teams">4-8 teams</option>
             <option value="9-16_teams">9-16 teams</option>
             <option value="17-32_teams">17-32 teams</option>
             <option value="32+_teams">32+ teams</option>
           </select>
-          <button type="submit" class="hero-form-submit" id="hero-submit-btn">Book My Free Demo</button>
+          <select class="hero-form-input" name="service_needed">
+            <option value="">Service Needed</option>
+            <option value="mega_premier_league">Mega Premier League</option>
+            <option value="knockout">Knockout</option>
+            <option value="live_auction">Live Auction</option>
+            <option value="generate_draws_/_bracket">Generate Draws / Bracket</option>
+            <option value="knockout_league">Knockout League</option>
+            <option value="league">League</option>
+            <option value="round_robin">Round Robin</option>
+            <option value="not_sure">Not sure</option>
+          </select>
+          <button type="submit" class="hero-form-submit" id="hero-submit-btn">BOOK MY FREE DEMO</button>
         </div>
       </form>
     </div>

@@ -1,3 +1,27 @@
+# ── Default document ─────────────────────────────────────────────────────────
+DirectoryIndex index.html
+
+# ── Pretty URLs (strip .html) ────────────────────────────────────────────────
+# Requires: AllowOverride FileInfo (or All) + mod_rewrite
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  Options -MultiViews
+
+  # Redirect /index.html → /
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
+
+  # Redirect /page.html → /page (keep query string)
+  RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+  RewriteRule ^ %1 [R=301,L,NE]
+
+  # Internally serve /page as /page.html when that file exists
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
 # ── HTML: always revalidate so updated ?v= query strings are picked up ──────
 <FilesMatch "\.(html|htm)$">
     Header set Cache-Control "no-cache, must-revalidate"
@@ -5,8 +29,6 @@
 </FilesMatch>
 
 # ── Versioned assets (CSS/JS loaded with ?v=): cache aggressively ────────────
-# Apache matches on filename only, not query string — but since we bump ?v=
-# on every deploy, the browser treats each new URL as a fresh resource.
 <FilesMatch "\.(css|js)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
 </FilesMatch>

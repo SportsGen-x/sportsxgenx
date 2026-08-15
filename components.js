@@ -140,27 +140,27 @@
   var NAV = [
     '<header class="site-header">',
     '<nav class="site-nav" role="navigation" aria-label="Main navigation">',
-    '  <a href="index.html" class="nav-logo">',
+    '  <a href="/" class="nav-logo">',
     '    <img src="sportsgenxlogored.png" alt="SportsGenX"/>',
     '  </a>',
     '  <ul class="nav-links" id="nav-links">',
-    '    <li><a href="index.html"' + active('index.html') + '>Home</a></li>',
+    '    <li><a href="/"' + active('index.html') + '>Home</a></li>',
     '    <li class="nav-dropdown' + tournamentActive() + '">',
     '      <a href="#" aria-haspopup="true">Tournament Management <span class="chevron" aria-hidden="true"></span></a>',
     '      <div class="dropdown-menu" role="menu">',
-    '        <a href="knockout-tournament-management.html"' + ddActive('knockout-tournament-management.html') + '><span class="dd-icon" data-icon="trophy"></span> Knockout Tournaments</a>',
-    '        <a href="premier-league-management.html"' + ddActive('premier-league-management.html') + '><span class="dd-icon" data-icon="medal"></span> Premier Leagues</a>',
+    '        <a href="knockout-tournament-management"' + ddActive('knockout-tournament-management.html') + '><span class="dd-icon" data-icon="trophy"></span> Knockout Tournaments</a>',
+    '        <a href="premier-league-management"' + ddActive('premier-league-management.html') + '><span class="dd-icon" data-icon="medal"></span> Premier Leagues</a>',
     '        <div class="dropdown-divider"></div>',
-    '        <a href="tournament-draw-making.html"' + ddActive('tournament-draw-making.html') + '><span class="dd-icon" data-icon="chart"></span> Draw Making</a>',
-    '        <a href="live-player-auction.html"' + ddActive('live-player-auction.html') + '><span class="dd-icon" data-icon="gavel"></span> Live Auction</a>',
+    '        <a href="tournament-draw-making"' + ddActive('tournament-draw-making.html') + '><span class="dd-icon" data-icon="chart"></span> Draw Making</a>',
+    '        <a href="live-player-auction"' + ddActive('live-player-auction.html') + '><span class="dd-icon" data-icon="gavel"></span> Live Auction</a>',
     '      </div>',
     '    </li>',
-    '    <li><a href="for-organisers.html"' + active('for-organisers.html') + '>For Organisers</a></li>',
-    '    <li><a href="for-academies.html"' + active('for-academies.html') + '>For Academies</a></li>',
-    '    <li><a href="for-associations.html"' + active('for-associations.html') + '>For Associations</a></li>',
-    '    <li><a href="for-communities.html"' + active('for-communities.html') + '>For Communities</a></li>',
-    '    <li><a href="pricing.html"' + active('pricing.html') + '>Pricing</a></li>',
-    '    <li class="nav-cta-li"><a href="index.html#contact"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Demo</a></li>',
+    '    <li><a href="for-organisers"' + active('for-organisers.html') + '>For Organisers</a></li>',
+    '    <li><a href="for-academies"' + active('for-academies.html') + '>For Academies</a></li>',
+    '    <li><a href="for-associations"' + active('for-associations.html') + '>For Associations</a></li>',
+    '    <li><a href="for-communities"' + active('for-communities.html') + '>For Communities</a></li>',
+    '    <li><a href="pricing"' + active('pricing.html') + '>Pricing</a></li>',
+    '    <li class="nav-cta-li"><a href="/#contact"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Demo</a></li>',
     '  </ul>',
     '  <button class="nav-hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">',
     '    <span></span><span></span><span></span>',
@@ -179,7 +179,7 @@
 
     '      <!-- Brand -->',
     '      <div class="footer-brand">',
-    '        <a href="index.html"><img src="sportsgenxlogored.png" alt="SportsGenX" class="footer-logo"/></a>',
+    '        <a href="/"><img src="sportsgenxlogored.png" alt="SportsGenX" class="footer-logo"/></a>',
     '        <p class="footer-tagline">The complete tournament management platform for sports organisers, academies, associations, and communities.</p>',
     '        <div class="footer-social">',
     '          <a href="https://www.instagram.com/sports_genx/" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>',
@@ -198,11 +198,11 @@
     '      <div class="footer-links">',
     '        <h4 class="footer-h4">Platform</h4>',
     '        <ul>',
-    '          <li><a href="for-organisers.html">For Organisers</a></li>',
-    '          <li><a href="for-academies.html">For Academies &amp; Clubs</a></li>',
-    '          <li><a href="for-associations.html">For Associations</a></li>',
-    '          <li><a href="for-communities.html">For Communities</a></li>',
-    '          <li><a href="pricing.html">Pricing</a></li>',
+    '          <li><a href="for-organisers">For Organisers</a></li>',
+    '          <li><a href="for-academies">For Academies &amp; Clubs</a></li>',
+    '          <li><a href="for-associations">For Associations</a></li>',
+    '          <li><a href="for-communities">For Communities</a></li>',
+    '          <li><a href="pricing">Pricing</a></li>',
     '        </ul>',
     '      </div>',
 
@@ -210,10 +210,10 @@
     '      <div class="footer-links">',
     '        <h4 class="footer-h4">Tournament Tools</h4>',
     '        <ul>',
-    '          <li><a href="premier-league-management.html">Premier League</a></li>',
-    '          <li><a href="knockout-tournament-management.html">Knockout Tournament</a></li>',
-    '          <li><a href="tournament-draw-making.html">Draw Making</a></li>',
-    '          <li><a href="live-player-auction.html">Live Player Auction</a></li>',
+    '          <li><a href="premier-league-management">Premier League</a></li>',
+    '          <li><a href="knockout-tournament-management">Knockout Tournament</a></li>',
+    '          <li><a href="tournament-draw-making">Draw Making</a></li>',
+    '          <li><a href="live-player-auction">Live Player Auction</a></li>',
     '        </ul>',
     '      </div>',
 
@@ -235,10 +235,10 @@
     '    <div class="footer-bottom-inner">',
     '      <p>© 2026 SportsGenX / Dream Shuttlers LLP. All rights reserved.</p>',
     '      <div class="footer-bottom-nav">',
-    '        <a href="privacy-policy.html">Privacy Policy</a>',
-    '        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>',
+    '        <a href="privacy-policy">Privacy Policy</a>',
+    '        <a href="terms-and-conditions">Terms &amp; Conditions</a>',
     '        <a href="#">Refund Policy</a>',
-    '        <a href="index.html">Home</a>',
+    '        <a href="/">Home</a>',
     '      </div>',
     '    </div>',
     '  </div>',
@@ -328,17 +328,13 @@
     '          <div id="homepage-form-error" class="form-error" style="background:#fef2f2; border:1px solid #fca5a5; color:#dc2626; padding:10px; border-radius:4px; margin-bottom:16px; font-size:14px; display:none;"></div>',
     '          <input type="hidden" name="page_url" class="ait-page-url" value="" />',
     '          <div class="form-row">',
-    '            <div class="form-group">',
-    '              <label for="f-firstname">First Name *</label>',
-    '              <input type="text" id="f-firstname" name="first_name" placeholder="First name" autocomplete="given-name" required />',
+    '            <div class="form-group full">',
+    '              <label for="f-firstname">Full Name *</label>',
+    '              <input type="text" id="f-firstname" name="first_name" placeholder="Enter your full name" autocomplete="name" required />',
     '            </div>',
-    '            <div class="form-group">',
-    '              <label for="f-lastname">Last Name</label>',
-    '              <input type="text" id="f-lastname" name="last_name" placeholder="Last name" autocomplete="family-name" />',
-    '            </div>',
-    '            <div class="form-group">',
-    '              <label for="f-phone">Phone *</label>',
-    '              <input type="tel" id="f-phone" name="phone" class="ait-phone" placeholder="Enter phone" autocomplete="tel" required />',
+    '            <div class="form-group full">',
+    '              <label for="f-phone">WhatsApp Number *</label>',
+    '              <input type="tel" id="f-phone" name="phone" class="ait-phone" placeholder="Enter WhatsApp number" autocomplete="tel" required />',
     '            </div>',
     '            <div class="form-group">',
     '              <label for="f-email">Email</label>',
@@ -349,9 +345,9 @@
     '              <input type="text" id="f-city" name="city" placeholder="Your city" autocomplete="address-level2" />',
     '            </div>',
     '            <div class="form-group">',
-    '              <label for="f-sport">Your Sport *</label>',
-    '              <select id="f-sport" name="your_sport" required>',
-    '                <option value="" disabled selected>Select...</option>',
+    '              <label for="f-sport">Sport You Organise</label>',
+    '              <select id="f-sport" name="sport_you_organise">',
+    '                <option value="">Select...</option>',
     '                <option value="badminton">Badminton</option>',
     '                <option value="cricket">Cricket</option>',
     '                <option value="football">Football</option>',
@@ -367,15 +363,29 @@
     '            <div class="form-group">',
     '              <label for="f-teams">Expected No of Teams</label>',
     '              <select id="f-teams" name="expected_no_of_teams">',
-    '                <option value="" disabled selected>Select...</option>',
+    '                <option value="">Select...</option>',
     '                <option value="4-8_teams">4-8 teams</option>',
     '                <option value="9-16_teams">9-16 teams</option>',
     '                <option value="17-32_teams">17-32 teams</option>',
     '                <option value="32+_teams">32+ teams</option>',
     '              </select>',
     '            </div>',
+    '            <div class="form-group full">',
+    '              <label for="f-service">Service Needed</label>',
+    '              <select id="f-service" name="service_needed">',
+    '                <option value="">Select...</option>',
+    '                <option value="mega_premier_league">Mega Premier League</option>',
+    '                <option value="knockout">Knockout</option>',
+    '                <option value="live_auction">Live Auction</option>',
+    '                <option value="generate_draws_/_bracket">Generate Draws / Bracket</option>',
+    '                <option value="knockout_league">Knockout League</option>',
+    '                <option value="league">League</option>',
+    '                <option value="round_robin">Round Robin</option>',
+    '                <option value="not_sure">Not sure</option>',
+    '              </select>',
+    '            </div>',
     '          </div>',
-    '          <button type="submit" class="form-submit"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="margin-right:6px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book My Free Demo</button>',
+    '          <button type="submit" class="form-submit"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="margin-right:6px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> BOOK MY FREE DEMO</button>',
     '        </form>',
     '        <a href="https://wa.me/919893009057" class="form-whatsapp" target="_blank" rel="noopener noreferrer">',
     '          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="margin-right:6px;" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> Or reach us instantly on WhatsApp',
@@ -404,7 +414,7 @@
 
     // Floating "Book Demo" CTA button — scroll to on-page Get in Touch
     var hasContact = !!document.getElementById('contact');
-    var contactHref = hasContact ? '#contact' : 'index.html#contact';
+    var contactHref = hasContact ? '#contact' : '/#contact';
     if (!document.getElementById('floating-demo-btn')) {
       var btn = document.createElement('a');
       btn.id = 'floating-demo-btn';
@@ -532,7 +542,7 @@
      CRM INTEGRATION SETTINGS & HELPERS
   ══════════════════════════════════════════ */
   var API_URL = 'https://app.aiengagecrm.com/cback/api';
-  var SLUG = 'spgxpremierleague2';
+  var SLUG = 'book-your-free-demo-copy';
   var REDIRECT_URL = 'https://sportsgenx.com/thank-you-landing.html';
   var REDIRECT_TARGET = 'parent';
 
@@ -618,15 +628,13 @@
       var data = {};
       var inputs = form.querySelectorAll('input, textarea, select');
       
-      // Basic validation
-      var first_name = form.querySelector('[name="first_name"]').value.trim();
+      // Basic validation (Full Name + WhatsApp required)
+      var fnEl = form.querySelector('[name="first_name"]');
+      var first_name = fnEl ? fnEl.value.trim() : '';
       var phoneEl = form.querySelector('[name="phone"]');
       var phone = phoneEl ? phoneEl.value.trim() : '';
-      var your_sport_el = form.querySelector('[name="your_sport"]');
-      var your_sport = your_sport_el ? your_sport_el.value : '';
 
       if (!first_name) {
-        var fnEl = form.querySelector('[name="first_name"]');
         if (fnEl) {
           fnEl.focus();
           fnEl.style.borderColor = '#C8001A';
@@ -634,21 +642,12 @@
         }
         return;
       }
-      
+
       if (!phone) {
         if (phoneEl) {
           phoneEl.focus();
           phoneEl.style.borderColor = '#C8001A';
           setTimeout(function() { phoneEl.style.borderColor = ''; }, 2500);
-        }
-        return;
-      }
-
-      if (!your_sport) {
-        if (your_sport_el) {
-          your_sport_el.focus();
-          your_sport_el.style.borderColor = '#C8001A';
-          setTimeout(function() { your_sport_el.style.borderColor = ''; }, 2500);
         }
         return;
       }
