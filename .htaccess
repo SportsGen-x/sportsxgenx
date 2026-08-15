@@ -1,0 +1,17 @@
+# ── HTML: always revalidate so updated ?v= query strings are picked up ──────
+<FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+    Header set Pragma "no-cache"
+</FilesMatch>
+
+# ── Versioned assets (CSS/JS loaded with ?v=): cache aggressively ────────────
+# Apache matches on filename only, not query string — but since we bump ?v=
+# on every deploy, the browser treats each new URL as a fresh resource.
+<FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# ── Images/fonts: one-year cache ─────────────────────────────────────────────
+<FilesMatch "\.(png|jpg|jpeg|gif|webp|svg|ico|woff|woff2|ttf|eot)$">
+    Header set Cache-Control "public, max-age=31536000"
+</FilesMatch>

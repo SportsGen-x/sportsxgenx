@@ -394,13 +394,7 @@
     if (navEl) navEl.outerHTML = NAV;
 
     var contactEl = document.getElementById('crm-contact-section');
-    if (contactEl) {
-      contactEl.outerHTML = CONTACT_SECTION;
-      var homepageForm = document.getElementById('homepage-demo-form');
-      if (homepageForm) {
-        setupFormHandler(homepageForm);
-      }
-    }
+    if (contactEl) contactEl.outerHTML = CONTACT_SECTION;
 
     var footerEl = document.getElementById('site-footer');
     if (footerEl) footerEl.outerHTML = FOOTER;
@@ -607,9 +601,12 @@
      FORM HANDLER & SUBMISSION
   ══════════════════════════════════════════ */
   function setupFormHandler(form) {
+    if (!form || form.getAttribute('data-spgx-bound') === '1') return;
+    form.setAttribute('data-spgx-bound', '1');
     stampPageUrl(form);
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (form.getAttribute('data-spgx-submitting') === '1') return;
       stampPageUrl(form);
 
       var errEl = form.parentElement.querySelector('.form-error') || document.getElementById('homepage-form-error') || document.getElementById('hero-form-error');
@@ -678,6 +675,7 @@
 
       var payload = { data: data, tracking: aitTracking() };
 
+      form.setAttribute('data-spgx-submitting', '1');
       if (btn) {
         btn.disabled = true;
         btn.textContent = 'Submitting...';
@@ -690,6 +688,7 @@
       })
       .then(function(r) { return r.json().then(function(d) { return { ok: r.ok, data: d }; }); })
       .then(function(res) {
+        form.removeAttribute('data-spgx-submitting');
         if (btn) {
           btn.disabled = false;
           btn.innerHTML = originalBtnHtml;
@@ -710,6 +709,7 @@
         }
       })
       .catch(function() {
+        form.removeAttribute('data-spgx-submitting');
         if (btn) {
           btn.disabled = false;
           btn.innerHTML = originalBtnHtml;

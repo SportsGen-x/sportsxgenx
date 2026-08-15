@@ -10,6 +10,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-583SJSFK');</script>
 <!-- End Google Tag Manager -->
 <title>For Academies &amp; Clubs — SportsGenX</title>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="assets/favicon.ico"/>
 <meta name="description" content="Your academy's digital headquarters. Manage players, memberships, tournaments, attendance, and communication from a single platform. First setup free." />
 <meta property="og:title" content="For Academies &amp; Clubs — SportsGenX" />
 <meta property="og:description" content="Reduce admin time by 80% and give your players a professional experience with SportsGenX academy management." />
@@ -19,9 +22,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=20260815h"/>
+<link rel="stylesheet" href="shared.css?v=20260815k"/>
 <style>
-/* hero right visual */
+
+.features-section{background:var(--red);padding:90px 40px;position:relative;overflow:hidden}
+.features-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,.25),transparent)}
+.features-section .section-header{margin-bottom:56px}
+.features-section .section-h2{color:var(--white)}
+.features-section .section-h2 .fade,.features-section .section-h2 span.fade{color:rgba(255,255,255,.6)}
+.features-section .section-sub{color:rgba(255,255,255,.65);font-size:14.5px;line-height:1.7;margin-top:12px;max-width:540px;margin-left:auto;margin-right:auto}
+.features-section .eyebrow{color:rgba(255,255,255,.7)}
+.features-section .eyebrow::before{background:rgba(255,255,255,.7)}
+.features-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18);border-radius:12px;overflow:hidden}
+.feat-card{background:var(--white);padding:34px 28px;position:relative;transition:background .2s;overflow:hidden}
+.feat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.feat-card:hover{background:#fff5f5}
+.feat-card:hover::after{transform:scaleX(1)}
+.feat-icon{font-size:26px;margin-bottom:14px;display:block;color:var(--red)}
+.feat-h3{font-family:var(--font-display);font-size:16px;font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.2;margin-bottom:10px}
+.feat-copy{font-size:13px;line-height:1.75;color:#666}
+.audience-section{padding:90px 40px;position:relative}
+.audience-section--offwhite{background:var(--off-white)}
+.audience-section--offwhite::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
+.audience-section--white{background:var(--white)}
+.audience-section .section-sub{font-size:14.5px;line-height:1.7;margin-top:12px;max-width:540px;margin-left:auto;margin-right:auto;color:#666}
+.split{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.dark-card{background:var(--black);border-radius:16px;padding:36px 32px;position:relative;overflow:hidden}
+.dark-card::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(200,0,26,.08) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.dark-banner{background:var(--red);border-radius:8px;padding:18px 20px;margin-bottom:20px;position:relative;z-index:1;text-align:center}
+.dark-banner-t{font-family:var(--font-display);font-size:18px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.04em}
+.dark-banner-s{font-size:10px;color:rgba(255,255,255,.6);margin-top:3px;letter-spacing:.06em;text-transform:uppercase}
+.dark-ul{list-style:none;display:flex;flex-direction:column;gap:11px;position:relative;z-index:1}
+.dark-ul li{display:flex;align-items:flex-start;gap:11px;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.8)}
+.dark-ul li .di{font-size:14px;flex-shrink:0;width:28px;height:28px;margin-top:0;background:rgba(200,0,26,.15);border:1px solid rgba(200,0,26,.25);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;color:var(--red)}
+.dark-ul li .di svg{width:14px;height:14px;display:block}
+.dark-foot{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-family:var(--font-display);font-size:12px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,.3);letter-spacing:.08em;position:relative;z-index:1}
+.split-text h2{font-family:var(--font-display);font-size:clamp(26px,3vw,40px);font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.1;margin-top:12px;margin-bottom:16px}
+.split-text h2 span{color:var(--red)}
+.split-text p{font-size:14px;line-height:1.8;color:#555;margin-bottom:14px}
+.split-text p strong{color:var(--black);font-weight:600}
+.red-callout{background:var(--red);border-radius:8px;padding:20px 24px;margin-top:20px}
+.red-callout p{font-family:var(--font-display);font-size:16px;font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.4}
+.red-callout p span{color:rgba(255,255,255,.7);font-size:13px;font-family:var(--font-body);text-transform:none;font-weight:500;display:block;margin-top:5px;line-height:1.6}
+
+
 .hero-dash{position:relative;z-index:1;width:100%;max-width:300px;display:flex;flex-direction:column;gap:12px}
 .dash-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:16px 18px}
 .dash-card-label{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px}
@@ -41,72 +85,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .dash-player-badge{font-size:10px;padding:2px 8px;border-radius:100px;font-weight:600}
 .dash-player-badge.active{background:rgba(100,220,100,.15);color:#7ddf7d;border:1px solid rgba(100,220,100,.25)}
 .dash-player-badge.due{background:rgba(255,200,0,.12);color:#ffc107;border:1px solid rgba(255,200,0,.2)}
-/* page-specific heading */
-.ph1{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3.5vw,52px);line-height:1.05;color:var(--black);text-transform:uppercase;margin-bottom:18px}
-.ph1 span{color:var(--red)}
-.ph-sub{font-size:15px;line-height:1.75;color:#555;margin-bottom:32px}
-/* sections */
-.sec{padding:90px 40px;position:relative}
-.sec.red{background:var(--red)}
-.sec.red::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,.25),transparent)}
-.sec.white{background:var(--white)}
-.sec.offwhite{background:var(--off-white)}
-.sec.offwhite::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
-.inner{max-width:1200px;margin:0 auto}
-.sec-hdr{text-align:center;margin-bottom:52px}
-.eb{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;position:relative;padding-left:20px;margin-bottom:12px}
-.eb.red-text{color:var(--red)}.eb.red-text::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:12px;height:2px;background:var(--red)}
-.eb.white-text{color:rgba(255,255,255,.7)}.eb.white-text::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:12px;height:2px;background:rgba(255,255,255,.7)}
-.sh2{font-family:var(--font-display);font-size:clamp(26px,3vw,42px);font-weight:700;text-transform:uppercase;line-height:1.1;margin-top:8px}
-.sh2.black{color:var(--black)}.sh2.white{color:var(--white)}.sh2 span.red{color:var(--red)}.sh2 span.fade{color:rgba(255,255,255,.6)}
-.ssub{font-size:14.5px;line-height:1.7;margin-top:12px;max-width:540px;margin-left:auto;margin-right:auto}
-.ssub.dark{color:#666}.ssub.light{color:rgba(255,255,255,.65)}
-/* feature grid */
-.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18);border-radius:12px;overflow:hidden}
-.fc{background:var(--white);padding:30px 26px;position:relative;transition:background .2s;overflow:hidden}
-.fc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.fc:hover{background:#fff5f5}.fc:hover::after{transform:scaleX(1)}
-.fc-icon{font-size:24px;margin-bottom:12px;display:block}
-.fc-h3{font-family:var(--font-display);font-size:15px;font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.2;margin-bottom:8px}
-.fc-copy{font-size:12.5px;line-height:1.7;color:#666}
-/* dashboard grid */
 .dg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .dc{background:var(--white);border:2px solid #eee;border-radius:12px;padding:28px 22px;text-align:center;transition:border-color .2s,box-shadow .2s}
 .dc:hover{border-color:var(--red);box-shadow:0 6px 24px rgba(200,0,26,.1)}
-.dc-icon{font-size:32px;margin-bottom:12px}
+.dc-icon{font-size:32px;margin-bottom:12px;color:var(--red);display:flex;justify-content:center}
 .dc-label{font-family:var(--font-display);font-size:14px;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:6px}
 .dc-desc{font-size:12px;color:#777;line-height:1.6}
-/* split */
-.split{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.dark-card{background:var(--black);border-radius:16px;padding:36px 32px;position:relative;overflow:hidden}
-.dark-card::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(200,0,26,.08) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
-.dark-banner{background:var(--red);border-radius:8px;padding:18px 20px;margin-bottom:20px;position:relative;z-index:1;text-align:center}
-.dark-banner-t{font-family:var(--font-display);font-size:18px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.04em}
-.dark-banner-s{font-size:10px;color:rgba(255,255,255,.6);margin-top:3px;letter-spacing:.06em;text-transform:uppercase}
-.dark-ul{list-style:none;display:flex;flex-direction:column;gap:11px;position:relative;z-index:1}
-.dark-ul li{display:flex;align-items:flex-start;gap:11px;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.8)}
-.dark-ul li .di{font-size:14px;flex-shrink:0;width:28px;height:28px;margin-top:0;background:rgba(200,0,26,.15);border:1px solid rgba(200,0,26,.25);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;color:var(--red)}
-.dark-ul li .di svg{width:14px;height:14px;display:block}
-.dark-foot{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-family:var(--font-display);font-size:12px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,.3);letter-spacing:.08em;position:relative;z-index:1}
-.split-text h2{font-family:var(--font-display);font-size:clamp(26px,3vw,40px);font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.1;margin-top:12px;margin-bottom:16px}
-.split-text h2 span{color:var(--red)}.split-text p{font-size:14px;line-height:1.8;color:#555;margin-bottom:14px}
-.split-text p strong{color:var(--black);font-weight:600}
-.red-callout{background:var(--red);border-radius:8px;padding:20px 24px;margin-top:20px}
-.red-callout p{font-family:var(--font-display);font-size:16px;font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.4}
-.red-callout p span{color:rgba(255,255,255,.7);font-size:13px;font-family:var(--font-body);text-transform:none;font-weight:500;display:block;margin-top:5px;line-height:1.6}
-.cta-sec{background:var(--red);padding:80px 40px;text-align:center;position:relative;overflow:hidden}
-.cta-sec::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:32px 32px}
-.cta-in{max-width:700px;margin:0 auto;position:relative;z-index:1}
-.cta-h2{font-family:var(--font-display);font-size:clamp(28px,4vw,46px);font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.1;margin-bottom:14px}
-.cta-h2 span{color:rgba(255,255,255,.65)}
-.cta-sub{font-size:15px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:32px}
+@media(max-width:960px){.dg{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.dg{grid-template-columns:1fr}}
+
+
 @media(max-width:960px){
-  .fg{grid-template-columns:1fr 1fr}.dg{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}
-  .sec{padding:56px 20px}
+  .features-grid{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr;gap:40px}
+  .features-section,.audience-section{padding:56px 20px}
 }
 @media(max-width:580px){
-  .features-section,.why-section,.screens-section,.how-section,.unique-section,.formats-section,.steps-section,.support-section,.sports-section,.testi-section,.comp-section,.dark-section,.wl-section,.pricing-narrative,.models-section,.phase-section{padding:48px 16px}.fg{grid-template-columns:1fr}.dg{grid-template-columns:1fr 1fr}}
+  .features-grid{grid-template-columns:1fr}
+  .features-section,.audience-section{padding:48px 16px}
+  .feat-card{padding:28px 20px}
+  .dark-card{padding:28px 20px}
+}
+
 </style>
+  <script src="components.js?v=20260815l" defer></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -121,13 +123,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="page-hero" id="main-content">
   <div class="page-hero-left">
     <div class="page-hero-left-inner">
-      <div class="hero-bc"><a href="index.html">Home</a><span class="sep">›</span><span>For Academies &amp; Clubs</span></div>
-      <div class="page-hero-eyebrow">Academies &amp; Clubs</div>
-      <h1 class="ph1">Your Academy's <span>Digital Headquarters</span></h1>
-      <p class="ph-sub">Manage players, memberships, tournaments, attendance, and communication from a single platform. SportsGenX gives every academy and club a complete digital home — so you can focus on coaching, not admin.</p>
+      <div class="hero-breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>For Academies &amp; Clubs</span></div>
+      <div class="page-hero-eyebrow"><span class="ui-icon" data-icon="building" aria-hidden="true"></span> Academies &amp; Clubs</div>
+      <h1 class="page-hero-h1">Your Academy's <span>Digital Headquarters</span></h1>
+      <p class="page-hero-sub">Manage players, memberships, tournaments, attendance, and communication from a single platform. SportsGenX gives every academy and club a complete digital home — so you can focus on coaching, not admin.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn-primary"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
         <a href="#features" class="btn-outline-red">Explore Features ↓</a>
+      </div>
+      <div class="hero-trust">
+        <span class="trust-pill"><span class="ui-icon" data-icon="checkcircle" aria-hidden="true"></span> First Setup Free</span>
+        <span class="trust-pill"><span class="ui-icon" data-icon="users" aria-hidden="true"></span> Player Management</span>
+        <span class="trust-pill"><span class="ui-icon" data-icon="wallet" aria-hidden="true"></span> Membership Billing</span>
       </div>
     </div>
   </div>
@@ -162,46 +169,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="sec red" id="features">
-  <div class="inner">
-    <div class="sec-hdr">
-      <span class="eb white-text">Academy Features</span>
-      <h2 class="sh2 white">Everything Your Academy <span class="fade">Needs to Go Digital</span></h2>
-      <p class="ssub light">From the first membership to tournament results and performance analytics — SportsGenX manages every aspect of academy operations.</p>
+<section class="features-section" id="features">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow on-red">Academy Features</span>
+      <h2 class="section-h2 on-red">Everything Your Academy <span class="fade">Needs to Go Digital</span></h2>
+      <p class="section-sub on-red">From the first membership to tournament results and performance analytics — SportsGenX manages every aspect of academy operations.</p>
     </div>
-    <div class="fg">
-      <div class="fc"><span class="fc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span><h3 class="fc-h3">Dedicated Academy Profile</h3><p class="fc-copy">A fully branded public profile for your academy on the SportsGenX platform — visible to players, parents, and tournament organisers in your city and sport.</p></div>
-      <div class="fc"><span class="fc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span><h3 class="fc-h3">Membership Management</h3><p class="fc-copy">Create membership plans, track renewals, collect fees online, and manage active vs expired memberships — all from one dashboard. Auto-reminders for renewals sent to players.</p></div>
-      <div class="fc"><span class="fc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span><h3 class="fc-h3">Player Performance Tracking</h3><p class="fc-copy">Track individual player statistics across every tournament — matches played, wins, losses, points earned, and ranking movement over time. Share performance reports with players and parents.</p></div>
-      <div class="fc"><span class="fc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span><h3 class="fc-h3">Tournament Participation History</h3><p class="fc-copy">A complete record of every tournament every player has participated in — categories, results, certificates earned. Searchable and downloadable.</p></div>
-      <div class="fc"><span class="fc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span><h3 class="fc-h3">Notifications &amp; Communication</h3><p class="fc-copy">Send push notifications and WhatsApp messages to all members, specific groups, or individual players. Tournament announcements, match schedules, renewal reminders — all built in.</p></div>
-      <div class="fc"><span class="fc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span><h3 class="fc-h3">Revenue Reports</h3><p class="fc-copy">Full financial visibility — membership fee collection, tournament entry revenues, outstanding payments, and monthly/annual summaries. Export to PDF or share with your finance team.</p></div>
-      <div class="fc"><span class="fc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span><h3 class="fc-h3">Tournament Management</h3><p class="fc-copy">Run your own academy tournaments directly from the platform — registration, draws, scoring, and e-certificates. Or list your players for external tournaments.</p></div>
-      <div class="fc"><span class="fc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span><h3 class="fc-h3">Attendance Tracking</h3><p class="fc-copy">Log and monitor player attendance at training sessions and events. Identify consistently absent players and follow up proactively to retain members.</p></div>
-      <div class="fc"><span class="fc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span><h3 class="fc-h3">Player–Coach Connect</h3><p class="fc-copy">Connect players with the right coaches from your academy roster. Players can view coach profiles, specializations, and request sessions — all within the SportsGenX ecosystem.</p></div>
+    <div class="features-grid">
+      <div class="feat-card"><span class="feat-icon" data-icon="building" aria-hidden="true"></span><h3 class="feat-h3">Dedicated Academy Profile</h3><p class="feat-copy">A fully branded public profile for your academy on the SportsGenX platform — visible to players, parents, and tournament organisers in your city and sport.</p></div>
+      <div class="feat-card"><span class="feat-icon" data-icon="creditcard" aria-hidden="true"></span><h3 class="feat-h3">Membership Management</h3><p class="feat-copy">Create membership plans, track renewals, collect fees online, and manage active vs expired memberships — all from one dashboard. Auto-reminders for renewals sent to players.</p></div>
+      <div class="feat-card"><span class="feat-icon" data-icon="trending" aria-hidden="true"></span><h3 class="feat-h3">Player Performance Tracking</h3><p class="feat-copy">Track individual player statistics across every tournament — matches played, wins, losses, points earned, and ranking movement over time. Share performance reports with players and parents.</p></div>
+      <div class="feat-card"><span class="feat-icon" data-icon="folder" aria-hidden="true"></span><h3 class="feat-h3">Tournament Participation History</h3><p class="feat-copy">A complete record of every tournament every player has participated in — categories, results, certificates earned. Searchable and downloadable.</p></div>
+      <div class="feat-card"><span class="feat-icon" data-icon="megaphone" aria-hidden="true"></span><h3 class="feat-h3">Notifications &amp; Communication</h3><p class="feat-copy">Send push notifications and WhatsApp messages to all members, specific groups, or individual players. Tournament announcements, match schedules, renewal reminders — all built in.</p></div>
+      <div class="feat-card"><span class="feat-icon" data-icon="wallet" aria-hidden="true"></span><h3 class="feat-h3">Revenue Reports</h3><p class="feat-copy">Full financial visibility — membership fee collection, tournament entry revenues, outstanding payments, and monthly/annual summaries. Export to PDF or share with your finance team.</p></div>
+      <div class="feat-card"><span class="feat-icon" data-icon="trophy" aria-hidden="true"></span><h3 class="feat-h3">Tournament Management</h3><p class="feat-copy">Run your own academy tournaments directly from the platform — registration, draws, scoring, and e-certificates. Or list your players for external tournaments.</p></div>
+      <div class="feat-card"><span class="feat-icon" data-icon="calendar" aria-hidden="true"></span><h3 class="feat-h3">Attendance Tracking</h3><p class="feat-copy">Log and monitor player attendance at training sessions and events. Identify consistently absent players and follow up proactively to retain members.</p></div>
+      <div class="feat-card"><span class="feat-icon" data-icon="users" aria-hidden="true"></span><h3 class="feat-h3">Player–Coach Connect</h3><p class="feat-copy">Connect players with the right coaches from your academy roster. Players can view coach profiles, specializations, and request sessions — all within the SportsGenX ecosystem.</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec offwhite" id="dashboard">
-  <div class="inner">
-    <div class="sec-hdr">
-      <span class="eb red-text">Academy Dashboard</span>
-      <h2 class="sh2 black">Monitor Everything <span class="red">from One Screen</span></h2>
-      <p class="ssub dark">The Academy Dashboard gives you a real-time bird's-eye view of your entire operation — players, memberships, tournaments, and financials.</p>
+<section class="audience-section audience-section--offwhite" id="dashboard">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Academy Dashboard</span>
+      <h2 class="section-h2">Monitor Everything <span>from One Screen</span></h2>
+      <p class="section-sub">The Academy Dashboard gives you a real-time bird's-eye view of your entire operation — players, memberships, tournaments, and financials.</p>
     </div>
     <div class="dg">
-      <div class="dc"><div class="dc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><div class="dc-label">Active Players</div><div class="dc-desc">See who's actively enrolled, training, and participating in tournaments right now.</div></div>
-      <div class="dc"><div class="dc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><div class="dc-label">Membership Renewals</div><div class="dc-desc">Know exactly who is due for renewal this month — send reminders with one tap.</div></div>
-      <div class="dc"><div class="dc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><div class="dc-label">Tournament Results</div><div class="dc-desc">Track your academy players' performance across all external and internal tournaments.</div></div>
-      <div class="dc"><div class="dc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><div class="dc-label">Rankings</div><div class="dc-desc">City and sport-level rankings for all your players — updated after every tournament.</div></div>
-      <div class="dc"><div class="dc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><div class="dc-label">Attendance</div><div class="dc-desc">Monthly and weekly attendance reports for training sessions and events.</div></div>
-      <div class="dc"><div class="dc-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><div class="dc-label">Financial Reports</div><div class="dc-desc">Revenue summaries, payment tracking, and outstanding dues — updated in real time.</div></div>
+      <div class="dc"><div class="dc-icon" data-icon="users" aria-hidden="true"></div><div class="dc-label">Active Players</div><div class="dc-desc">See who's actively enrolled, training, and participating in tournaments right now.</div></div>
+      <div class="dc"><div class="dc-icon" data-icon="refresh" aria-hidden="true"></div><div class="dc-label">Membership Renewals</div><div class="dc-desc">Know exactly who is due for renewal this month — send reminders with one tap.</div></div>
+      <div class="dc"><div class="dc-icon" data-icon="trophy" aria-hidden="true"></div><div class="dc-label">Tournament Results</div><div class="dc-desc">Track your academy players' performance across all external and internal tournaments.</div></div>
+      <div class="dc"><div class="dc-icon" data-icon="medal" aria-hidden="true"></div><div class="dc-label">Rankings</div><div class="dc-desc">City and sport-level rankings for all your players — updated after every tournament.</div></div>
+      <div class="dc"><div class="dc-icon" data-icon="calendar" aria-hidden="true"></div><div class="dc-label">Attendance</div><div class="dc-desc">Monthly and weekly attendance reports for training sessions and events.</div></div>
+      <div class="dc"><div class="dc-icon" data-icon="chart" aria-hidden="true"></div><div class="dc-label">Financial Reports</div><div class="dc-desc">Revenue summaries, payment tracking, and outstanding dues — updated in real time.</div></div>
     </div>
   </div>
 </section>
 
-<section class="sec white" id="why">
+<section class="audience-section audience-section--white" id="why">
   <div class="split">
     <div class="dark-card">
       <div class="dark-banner"><div class="dark-banner-t">Your Academy. Digitized.</div><div class="dark-banner-s">Powered by SportsGenX</div></div>
@@ -218,7 +225,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="dark-foot">Zero spreadsheets · Zero WhatsApp chaos</div>
     </div>
     <div class="split-text">
-      <span class="eb red-text">Why SportsGenX</span>
+      <span class="eyebrow">Why SportsGenX</span>
       <h2>The Complete Digital HQ for <span>Your Academy</span></h2>
       <p>Most academies manage everything on WhatsApp, Excel, and notes apps. <strong>SportsGenX replaces all of that</strong> with a single, purpose-built academy management platform.</p>
       <p>Whether you run a 20-player badminton club in Indore or a 200-player multi-sport academy in Mumbai — the platform scales with you. <strong>One dashboard, all players, all tournaments, all payments.</strong></p>
@@ -231,7 +238,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="crm-contact-section"></div>
 
 <div id="site-footer"></div>
-
-<script src="components.js?v=20260815h"></script>
 </body>
 </html>
