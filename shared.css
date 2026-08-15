@@ -217,7 +217,7 @@ nav{
 .hero-breadcrumb .sep,.hero-bc .sep{color:#ddd}
 
 /* ── HERO CTAs & TRUST ── */
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-ctas{display:flex;gap:12px;flex-wrap:nowrap;align-items:center}
 .hero-trust{display:flex;gap:10px;flex-wrap:wrap}
 .trust-pill{
   background:rgba(200,0,26,.06);border:1px solid rgba(200,0,26,.18);
@@ -249,23 +249,25 @@ nav{
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1.6fr;gap:48px}
 
 .footer-logo{height:36px;display:block;mix-blend-mode:lighten;margin-bottom:16px}
-.footer-tagline{font-size:13px;line-height:1.7;color:#666;margin-bottom:20px}
+.footer-tagline{font-size:13px;line-height:1.7;color:#bbb;margin-bottom:20px}
 .footer-social{display:flex;gap:10px}
-.social-btn{
+.footer-social-btn{
   display:inline-flex;align-items:center;justify-content:center;
   width:36px;height:36px;border-radius:8px;
   background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
   font-size:16px;text-decoration:none;
-  transition:background .2s,border-color .2s;
+  color:#ccc;
+  transition:background .2s,border-color .2s,color .2s;
 }
-.social-btn:hover{background:rgba(200,0,26,.2);border-color:rgba(200,0,26,.4)}
+.footer-social-btn:hover{background:rgba(200,0,26,.2);border-color:rgba(200,0,26,.4);color:var(--white)}
 
-.footer-app-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#555;margin:20px 0 10px}
+.footer-app-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#aaa;margin:20px 0 10px}
 .footer-app-btns{display:flex;flex-direction:column;gap:10px}
 .store-btn{
-  display:inline-flex;align-items:center;gap:10px;
+  display:inline-flex;align-items:center;gap:12px;
   background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
   border-radius:8px;padding:9px 16px;text-decoration:none;
+  color:var(--white);
   transition:background .2s,border-color .2s;min-width:160px;
 }
 .store-btn:hover{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.28)}
@@ -281,15 +283,15 @@ nav{
   padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.08);
 }
 .footer-links ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{color:#888;text-decoration:none;font-size:13px;transition:color .2s;padding-left:12px;position:relative}
+.footer-links a{color:#aaa;text-decoration:none;font-size:13px;transition:color .2s;padding-left:12px;position:relative}
 .footer-links a::before{content:'›';position:absolute;left:0;color:var(--red);opacity:0;transition:opacity .2s}
 .footer-links a:hover{color:var(--white)}
 .footer-links a:hover::before{opacity:1}
 
 .contact-list{list-style:none;display:flex;flex-direction:column;gap:11px}
-.contact-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#888}
+.contact-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#aaa}
 .contact-icon{font-size:14px;flex-shrink:0;margin-top:1px}
-.contact-list a{color:#888;text-decoration:none;transition:color .2s}
+.contact-list a{color:#aaa;text-decoration:none;transition:color .2s}
 .contact-list a:hover{color:var(--white)}
 
 /* ── Demo form band — highlighted for ad campaigns ── */
@@ -498,3 +500,152 @@ nav{
   .hero-ctas,.cta-btns{flex-direction:column;align-items:flex-start}
   .btn-primary,.btn-outline-red,.btn-white,.btn-outline-white{width:100%;justify-content:center}
 }
+
+/* ── INTL-TEL-INPUT OVERRIDES ── */
+.iti {
+  width: 100%;
+}
+.iti__country-list {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.footer-input[name="expected_no_of_teams"] {
+  grid-column: 1 / -1;
+}
+
+/* ── GLOBAL SVG ICON & REDESIGNED FOOTER HELPERS ── */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 2;
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: middle;
+}
+.btn-primary svg, .btn-outline-red svg, .btn-white svg, .btn-outline-white svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+.footer-social-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+}
+.footer-social-btn svg * {
+  stroke: currentColor !important;
+  fill: none !important;
+  stroke-width: 2px !important;
+}
+.store-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  stroke: none;
+  flex-shrink: 0;
+}
+.contact-list svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+  stroke: currentColor;
+  fill: none;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Redesigned clean bullet lists replacing list emojis */
+ul.sol-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+ul.sol-list li {
+  position: relative !important;
+  padding-left: 24px !important;
+  color: inherit;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+ul.sol-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C8001A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.on-red ul.sol-list li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+}
+
+/* ── CENTRALIZED CRM CONTACT SECTION STYLES ── */
+.contact-section{background:var(--white);padding:100px 40px;position:relative;overflow:hidden}
+.contact-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
+.contact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-h2{font-family:var(--font-display);font-size:clamp(28px,3.5vw,44px);font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.1;margin-top:12px;margin-bottom:12px}
+.contact-h2 span{color:var(--red)}
+.contact-lead{font-size:15px;line-height:1.7;color:#555;margin-bottom:40px}
+.contact-cards{display:flex;flex-direction:column;gap:16px;margin-bottom:36px}
+.contact-card{display:flex;align-items:flex-start;gap:16px;background:var(--off-white);border-radius:10px;padding:20px 22px;border-left:4px solid var(--red);transition:box-shadow .2s}
+.contact-card:hover{box-shadow:0 4px 20px rgba(200,0,26,.1)}
+.contact-card-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.contact-card-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.contact-card-value{font-size:15px;font-weight:600;color:var(--black);text-decoration:none;display:block}
+.contact-card-value:hover{color:var(--red)}
+.contact-card-sub{font-size:12px;color:#888;margin-top:3px}
+.contact-social{display:flex;gap:12px;flex-wrap:wrap}
+
+.form-box{background:var(--red);border-radius:14px;padding:44px 40px;position:relative;overflow:hidden}
+.form-box::before{content:'';position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.06);pointer-events:none}
+.form-box::after{content:'';position:absolute;top:-60px;left:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.form-title{font-family:var(--font-display);font-size:26px;font-weight:700;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.form-subtitle{font-size:13px;color:rgba(255,255,255,.65);margin-bottom:28px;line-height:1.6}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.form-group.full{grid-column:span 2}
+.form-group label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:12px 14px;font-size:14px;color:var(--white);font-family:var(--font-body);outline:none;transition:border-color .2s,background .2s;width:100%}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.35)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.18)}
+.form-group select{appearance:none;cursor:pointer}
+.form-group select option{background:var(--red-dark);color:var(--white)}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-submit{width:100%;padding:15px;border-radius:6px;background:var(--white);color:var(--red);font-family:var(--font-display);font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border:none;cursor:pointer;transition:background .2s,transform .15s;margin-top:6px;position:relative;z-index:1}
+.form-submit:hover{background:#f0f0f0;transform:translateY(-2px)}
+.form-whatsapp{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;padding:12px;border:1px solid rgba(255,255,255,.25);border-radius:6px;color:rgba(255,255,255,.8);font-size:13px;font-weight:600;text-decoration:none;transition:background .2s,color .2s;position:relative;z-index:1}
+.form-whatsapp:hover{background:rgba(255,255,255,.1);color:var(--white)}
+
+.franchise-bar{margin-top:48px;padding-top:48px;border-top:1px solid #eee;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.franchise-text h3{font-family:var(--font-display);font-size:20px;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:6px}
+.franchise-text p{font-size:13px;color:#666}
+.franchise-contacts{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.franchise-contact{font-size:13px;color:#444}
+.franchise-contact strong{color:var(--red);display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.franchise-contact a{color:#333;text-decoration:none;font-weight:600}
+.franchise-contact a:hover{color:var(--red)}
+
+@media(max-width:960px){
+  .contact-inner{grid-template-columns:1fr}
+  .contact-section{padding:72px 24px}
+  .form-row{grid-template-columns:1fr}
+  .form-group.full{grid-column:span 1}
+  .franchise-bar{flex-direction:column;align-items:flex-start}
+}
+
+

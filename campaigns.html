@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-583SJSFK');</script>
+<!-- End Google Tag Manager -->
+<title>SportsGenX — Internal Campaign & Page Directory</title>
+<meta name="description" content="Private internal directory of SportsGenX active ad campaign landing pages, audience persona routes, and feature showcases."/>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* Dashboard-specific Custom Styles */
+body {
+  background: radial-gradient(circle at 50% 0%, #1e0205 0%, #0c0203 50%, #050102 100%);
+  color: #f3f4f6;
+  min-height: 100vh;
+  padding: 60px 24px;
+  position: relative;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(200, 0, 26, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header styling */
+.db-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.db-logo {
+  height: 48px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 12px rgba(200, 0, 26, 0.4));
+}
+
+.db-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+}
+
+.db-title span {
+  color: var(--red);
+  text-shadow: 0 0 20px rgba(200, 0, 26, 0.6);
+}
+
+.db-subtitle {
+  font-size: 15px;
+  color: #9ca3af;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Alert Banner */
+.private-alert {
+  background: rgba(200, 0, 26, 0.12);
+  border: 1px solid rgba(200, 0, 26, 0.35);
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto 48px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.private-alert-icon {
+  font-size: 24px;
+  animation: pulse 2s infinite;
+}
+
+.private-alert-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #fca5a5;
+  font-weight: 500;
+}
+
+.private-alert-text strong {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Grid Sections */
+.db-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
+  margin-bottom: 60px;
+}
+
+.db-section-card {
+  background: rgba(20, 20, 22, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.db-section-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--red) 0%, rgba(200,0,26,0.3) 100%);
+}
+
+.db-section-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(200, 0, 26, 0.3);
+  box-shadow: 0 15px 35px rgba(200, 0, 26, 0.1);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-icon {
+  font-size: 20px;
+}
+
+.links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.link-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 16px;
+  transition: background 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.link-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.link-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page-title-link {
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.page-title-link:hover {
+  color: var(--red-light);
+}
+
+.page-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 100px;
+}
+
+.badge-campaign {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badge-audience {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.badge-feature {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-utility {
+  background: rgba(107, 114, 128, 0.15);
+  color: #9ca3af;
+  border: 1px solid rgba(107, 114, 128, 0.3);
+}
+
+.page-desc {
+  font-size: 12.5px;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+.copy-url-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s;
+}
+
+.copy-url-btn:hover {
+  color: #fff;
+}
+
+.copy-url-btn svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+/* Footer note */
+.db-footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 12px;
+  color: #4b5563;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 24px;
+}
+
+.db-footer a {
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.db-footer a:hover {
+  color: #fff;
+}
+
+/* Keyframe animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.95); }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 40px 16px;
+  }
+  .db-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-583SJSFK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="dashboard-container">
+  
+  <header class="db-header">
+    <img src="sportsgenxlogored.png" alt="SportsGenX" class="db-logo"/>
+    <h1 class="db-title" id="page-heading">Sports<span>Gen</span>X Page Reference Directory</h1>
+    <p class="db-subtitle">Quick reference list for active landing pages, campaigns, feature showcases, and utility routes.</p>
+  </header>
+
+  <div class="private-alert" role="alert">
+    <div class="private-alert-icon">⚠️</div>
+    <div class="private-alert-text">
+      <strong>Private Reference Directory:</strong> This page is strictly for internal campaign planning and reference. It is <strong>not linked</strong> in any public navigation bar or footer menu to prevent accidental indexing of draft pages.
+    </div>
+  </div>
+
+  <main class="db-grid">
+
+    <!-- CAMPAIGN PAGES -->
+    <section class="db-section-card" aria-labelledby="sec-campaigns">
+      <h2 class="section-title" id="sec-campaigns">
+        <span class="section-icon">🔥</span> Paid Ad Campaigns
+      </h2>
+      <div class="links-list">
+        <div class="link-item">
+          <div class="link-header">
+            <a href="excel-replacement.html" class="page-title-link" id="link-excel-replacement">Ditch Excel & WhatsApp Campaign</a>
+            <span class="page-badge badge-campaign">Campaign</span>
+          </div>
+          <p class="page-desc">Ad campaign landing page targeting event organizers who run their tournaments using spreadsheets and chat groups. Features hidden nav/footer demo forms to focus purely on conversion.</p>
+          <button class="copy-url-btn" onclick="copyLink('excel-replacement.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIENCE PERSONA PAGES -->
+    <section class="db-section-card" aria-labelledby="sec-audiences">
+      <h2 class="section-title" id="sec-audiences">
+        <span class="section-icon"></span> Audience Landing Pages
+      </h2>
+      <div class="links-list">
+        <div class="link-item">
+          <div class="link-header">
+            <a href="for-organisers.html" class="page-title-link" id="link-organisers">For Tournament Organisers</a>
+            <span class="page-badge badge-audience">Audience</span>
+          </div>
+          <p class="page-desc">Targeted page highlighting features for independent local/regional tournament organizers.</p>
+          <button class="copy-url-btn" onclick="copyLink('for-organisers.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+        
+        <div class="link-item">
+          <div class="link-header">
+            <a href="for-academies.html" class="page-title-link" id="link-academies">For Academies & Clubs</a>
+            <span class="page-badge badge-audience">Audience</span>
+          </div>
+          <p class="page-desc">Targeted page highlighting features for sports training centers, clubs, and academies.</p>
+          <button class="copy-url-btn" onclick="copyLink('for-academies.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+
+        <div class="link-item">
+          <div class="link-header">
+            <a href="for-associations.html" class="page-title-link" id="link-associations">For Sports Associations</a>
+            <span class="page-badge badge-audience">Audience</span>
+          </div>
+          <p class="page-desc">Targeted page highlighting official board management, compliance, and structured tier features.</p>
+          <button class="copy-url-btn" onclick="copyLink('for-associations.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+
+        <div class="link-item">
+          <div class="link-header">
+            <a href="for-communities.html" class="page-title-link" id="link-communities">For Corporate & Communities</a>
+            <span class="page-badge badge-audience">Audience</span>
+          </div>
+          <p class="page-desc">Targeted page highlighting corporate events, casual leagues, and internal group matches.</p>
+          <button class="copy-url-btn" onclick="copyLink('for-communities.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE SHOWCASE PAGES -->
+    <section class="db-section-card" aria-labelledby="sec-features">
+      <h2 class="section-title" id="sec-features">
+        <span class="section-icon">🏆</span> Feature Landing Pages
+      </h2>
+      <div class="links-list">
+        <div class="link-item">
+          <div class="link-header">
+            <a href="knockout-tournament-management.html" class="page-title-link" id="link-knockout">Knockout Tournaments</a>
+            <span class="page-badge badge-feature">Feature</span>
+          </div>
+          <p class="page-desc">Interactive page showcasing knockout formats, single/double elimination ladders, and brackets.</p>
+          <button class="copy-url-btn" onclick="copyLink('knockout-tournament-management.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+
+        <div class="link-item">
+          <div class="link-header">
+            <a href="premier-league-management.html" class="page-title-link" id="link-league">Premier Leagues</a>
+            <span class="page-badge badge-feature">Feature</span>
+          </div>
+          <p class="page-desc">Interactive page showcasing league tables, round-robin stages, points calculation, and tie-breakers.</p>
+          <button class="copy-url-btn" onclick="copyLink('premier-league-management.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+
+        <div class="link-item">
+          <div class="link-header">
+            <a href="tournament-draw-making.html" class="page-title-link" id="link-draws">Automated Draw Making</a>
+            <span class="page-badge badge-feature">Feature</span>
+          </div>
+          <p class="page-desc">Interactive page showing how automated draws, seedings, and bracket generator works.</p>
+          <button class="copy-url-btn" onclick="copyLink('tournament-draw-making.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+
+        <div class="link-item">
+          <div class="link-header">
+            <a href="live-player-auction.html" class="page-title-link" id="link-auction">Live Player Auction</a>
+            <span class="page-badge badge-feature">Feature</span>
+          </div>
+          <p class="page-desc">Interactive page demonstrating the fantasy player auction, virtual wallet, and bidding platform.</p>
+          <button class="copy-url-btn" onclick="copyLink('live-player-auction.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE UTILITY & SYSTEM PAGES -->
+    <section class="db-section-card" aria-labelledby="sec-system">
+      <h2 class="section-title" id="sec-system">
+        <span class="section-icon">⚙️</span> Core & Utility Pages
+      </h2>
+      <div class="links-list">
+        <div class="link-item">
+          <div class="link-header">
+            <a href="pricing.html" class="page-title-link" id="link-pricing">Pricing Page</a>
+            <span class="page-badge badge-utility">Utility</span>
+          </div>
+          <p class="page-desc">Format-based pricing list detailing the costs of various tournament and league formats.</p>
+          <button class="copy-url-btn" onclick="copyLink('pricing.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+
+        <div class="link-item">
+          <div class="link-header">
+            <a href="index.html" class="page-title-link" id="link-homepage">Main Homepage</a>
+            <span class="page-badge badge-utility">Utility</span>
+          </div>
+          <p class="page-desc">Primary visitor entrance page, containing the full features, sports marquee, about section, and contact info.</p>
+          <button class="copy-url-btn" onclick="copyLink('index.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+
+        <div class="link-item">
+          <div class="link-header">
+            <a href="thank-you.html" class="page-title-link" id="link-thankyou">Thank You (Lead Confirmed)</a>
+            <span class="page-badge badge-utility">Utility</span>
+          </div>
+          <p class="page-desc">Success page shown to users who submit the booking forms. Includes GTM event trigger for conversion analytics.</p>
+          <button class="copy-url-btn" onclick="copyLink('thank-you.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+
+        <div class="link-item">
+          <div class="link-header">
+            <a href="privacy-policy.html" class="page-title-link" id="link-privacy">Privacy Policy</a>
+            <span class="page-badge badge-utility">Utility</span>
+          </div>
+          <p class="page-desc">Standard policy page details player privacy, data storage compliance, and platform operations.</p>
+          <button class="copy-url-btn" onclick="copyLink('privacy-policy.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+
+        <div class="link-item">
+          <div class="link-header">
+            <a href="terms-and-conditions.html" class="page-title-link" id="link-terms">Terms & Conditions</a>
+            <span class="page-badge badge-utility">Utility</span>
+          </div>
+          <p class="page-desc">Legal terms governing tournament registrations, payments, licensing, and liability policies.</p>
+          <button class="copy-url-btn" onclick="copyLink('terms-and-conditions.html', this)">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Relative Link
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="db-footer">
+    <p>© 2026 SportsGenX / Dream Shuttlers LLP. All rights reserved. &nbsp;·&nbsp; <a href="index.html">Back to Home</a></p>
+  </footer>
+
+</div>
+
+<script>
+function copyLink(filename, button) {
+  var path = filename;
+  if (window.location.protocol !== 'file:') {
+    path = filename.replace('.html', '');
+  }
+  
+  var absoluteUrl = window.location.origin + '/' + path;
+  if (window.location.protocol === 'file:') {
+    absoluteUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/' + filename;
+  }
+  
+  // Try using navigator.clipboard
+  navigator.clipboard.writeText(absoluteUrl).then(function() {
+    showSuccess(button);
+  }).catch(function() {
+    // Fallback: copy relative text
+    var tempInput = document.createElement('input');
+    tempInput.value = absoluteUrl;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+      document.execCommand('copy');
+      showSuccess(button);
+    } catch (err) {
+      console.error('Failed to copy link: ', err);
+    }
+    document.body.removeChild(tempInput);
+  });
+}
+
+function showSuccess(button) {
+  var originalHTML = button.innerHTML;
+  button.innerHTML = '✅ Copied URL!';
+  button.style.color = '#34d399';
+  setTimeout(function() {
+    button.innerHTML = originalHTML;
+    button.style.color = '';
+  }, 2000);
+}
+</script>
+
+</body>
+</html>

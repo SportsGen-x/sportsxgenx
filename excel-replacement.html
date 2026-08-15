@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-583SJSFK');</script>
+<!-- End Google Tag Manager -->
 <title>Stop Running Tournaments on Excel & WhatsApp — SportsGenX</title>
 <meta name="description" content="Ditch the manual spreadsheets and chaotic WhatsApp groups. Manage registrations, categories, draws, fixtures, and live standings from a single platform." />
 <meta property="og:title" content="Stop Running Tournaments on Excel & WhatsApp — SportsGenX" />
@@ -182,8 +189,7 @@
 }
 
 /* Specific elements span full width (2 columns) */
-.hero-form-input[name="role"],
-.hero-form-textarea,
+.hero-form-input[name="expected_no_of_teams"],
 .hero-form-submit {
   grid-column: 1 / -1;
 }
@@ -488,6 +494,10 @@ select.hero-form-input option {
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-583SJSFK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -563,34 +573,34 @@ select.hero-form-input option {
       <h3 class="hero-form-title">Book Your Free Demo</h3>
       <p class="hero-form-sub">Get a custom 30-minute walkthrough. Set up your first tournament today.</p>
       <form id="hero-demo-form">
+        <div id="hero-form-error" class="form-error" style="background:#fef2f2; border:1px solid #fca5a5; color:#dc2626; padding:10px; border-radius:4px; margin-bottom:16px; font-size:12.5px; display:none; grid-column: 1 / -1;"></div>
         <div class="hero-form-row">
-          <input type="text" class="hero-form-input" name="name" placeholder="Full Name *" required />
-          <input type="tel" class="hero-form-input" name="phone" placeholder="Phone Number *" required />
-          <input type="email" class="hero-form-input" name="email" placeholder="Email Address" />
-          <select class="hero-form-input" name="sport" required>
+          <input type="text" class="hero-form-input" name="first_name" placeholder="First Name *" autocomplete="given-name" required />
+          <input type="text" class="hero-form-input" name="last_name" placeholder="Last Name" autocomplete="family-name" />
+          <input type="tel" class="hero-form-input ait-phone" name="phone" placeholder="Phone Number *" autocomplete="tel" required />
+          <input type="email" class="hero-form-input" name="email" placeholder="Email Address" autocomplete="email" />
+          <input type="text" class="hero-form-input" name="city" placeholder="Your City" autocomplete="address-level2" />
+          <select class="hero-form-input" name="your_sport" required>
             <option value="" disabled selected>Select Your Sport *</option>
-            <option>Badminton</option>
-            <option>Cricket</option>
-            <option>Football</option>
-            <option>Tennis</option>
-            <option>Table Tennis</option>
-            <option>Pickleball</option>
-            <option>Basketball</option>
-            <option>Squash</option>
-            <option>Volleyball</option>
-            <option>Other</option>
+            <option value="badminton">Badminton</option>
+            <option value="cricket">Cricket</option>
+            <option value="football">Football</option>
+            <option value="tennis">Tennis</option>
+            <option value="table_tennis">Table Tennis</option>
+            <option value="pickleball">Pickleball</option>
+            <option value="squash">Squash</option>
+            <option value="basketball">Basketball</option>
+            <option value="volleyball">Volleyball</option>
+            <option value="other">Other</option>
           </select>
-          <select class="hero-form-input" name="role" required>
-            <option value="" disabled selected>I Am A *</option>
-            <option>Tournament Organiser</option>
-            <option>Sports Association</option>
-            <option>Academy / Club</option>
-            <option>League Organiser</option>
-            <option>Sports Community</option>
-            <option>Franchisee Enquiry</option>
+          <select class="hero-form-input" name="expected_no_of_teams">
+            <option value="" disabled selected>Expected No of Teams</option>
+            <option value="4-8_teams">4-8 teams</option>
+            <option value="9-16_teams">9-16 teams</option>
+            <option value="17-32_teams">17-32 teams</option>
+            <option value="32+_teams">32+ teams</option>
           </select>
-          <textarea class="hero-form-input hero-form-textarea" name="message" placeholder="Optional: Tell us about your event format..."></textarea>
-          <button type="submit" class="hero-form-submit">Book My Free Demo</button>
+          <button type="submit" class="hero-form-submit" id="hero-submit-btn">Book My Free Demo</button>
         </div>
       </form>
     </div>
@@ -798,6 +808,7 @@ select.hero-form-input option {
 </section>
 
 <!-- Dynamically injected footer and demo form -->
+<div id="crm-contact-section"></div>
 <div id="site-footer"></div>
 
 <script src="components.js"></script>
