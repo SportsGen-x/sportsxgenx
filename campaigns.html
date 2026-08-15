@@ -328,7 +328,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </header>
 
   <div class="private-alert" role="alert">
-    <div class="private-alert-icon">⚠️</div>
+    <div class="private-alert-icon" data-icon="alert"></div>
     <div class="private-alert-text">
       <strong>Private Reference Directory:</strong> This page is strictly for internal campaign planning and reference. It is <strong>not linked</strong> in any public navigation bar or footer menu to prevent accidental indexing of draft pages.
     </div>
@@ -339,7 +339,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- CAMPAIGN PAGES -->
     <section class="db-section-card" aria-labelledby="sec-campaigns">
       <h2 class="section-title" id="sec-campaigns">
-        <span class="section-icon">🔥</span> Paid Ad Campaigns
+        <span class="section-icon" data-icon="flame"></span> Paid Ad Campaigns
       </h2>
       <div class="links-list">
         <div class="link-item">
@@ -359,7 +359,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- AUDIENCE PERSONA PAGES -->
     <section class="db-section-card" aria-labelledby="sec-audiences">
       <h2 class="section-title" id="sec-audiences">
-        <span class="section-icon"></span> Audience Landing Pages
+        <span class="section-icon" data-icon="users"></span> Audience Landing Pages
       </h2>
       <div class="links-list">
         <div class="link-item">
@@ -415,7 +415,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- FEATURE SHOWCASE PAGES -->
     <section class="db-section-card" aria-labelledby="sec-features">
       <h2 class="section-title" id="sec-features">
-        <span class="section-icon">🏆</span> Feature Landing Pages
+        <span class="section-icon" data-icon="trophy"></span> Feature Landing Pages
       </h2>
       <div class="links-list">
         <div class="link-item">
@@ -471,7 +471,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- CORE UTILITY & SYSTEM PAGES -->
     <section class="db-section-card" aria-labelledby="sec-system">
       <h2 class="section-title" id="sec-system">
-        <span class="section-icon">⚙️</span> Core & Utility Pages
+        <span class="section-icon" data-icon="settings"></span> Core & Utility Pages
       </h2>
       <div class="links-list">
         <div class="link-item">
@@ -577,7 +577,7 @@ function copyLink(filename, button) {
 
 function showSuccess(button) {
   var originalHTML = button.innerHTML;
-  button.innerHTML = '✅ Copied URL!';
+  button.innerHTML = 'Copied URL!';
   button.style.color = '#34d399';
   setTimeout(function() {
     button.innerHTML = originalHTML;
@@ -585,6 +585,7 @@ function showSuccess(button) {
   }, 2000);
 }
 </script>
+<script src="components.js"></script>
 
 </body>
 </html>

@@ -84,8 +84,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .dark-banner-t{font-family:var(--font-display);font-size:18px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.04em}
 .dark-banner-s{font-size:10px;color:rgba(255,255,255,.6);margin-top:3px;letter-spacing:.06em;text-transform:uppercase}
 .dark-ul{list-style:none;display:flex;flex-direction:column;gap:11px;position:relative;z-index:1}
-.dark-ul li{display:flex;align-items:center;gap:11px;font-size:13.5px;color:rgba(255,255,255,.8)}
-.dark-ul li .di{font-size:15px;flex-shrink:0;width:28px;height:28px;background:rgba(200,0,26,.15);border:1px solid rgba(200,0,26,.25);border-radius:5px;display:flex;align-items:center;justify-content:center}
+.dark-ul li{display:flex;align-items:flex-start;gap:11px;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.8)}
+.dark-ul li .di{font-size:14px;flex-shrink:0;width:28px;height:28px;margin-top:0;background:rgba(200,0,26,.15);border:1px solid rgba(200,0,26,.25);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;color:var(--red)}
+.dark-ul li .di svg{width:14px;height:14px;display:block}
 .dark-foot{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-family:var(--font-display);font-size:12px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,.3);letter-spacing:.08em;position:relative;z-index:1}
 .split-text h2{font-family:var(--font-display);font-size:clamp(26px,3vw,40px);font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.1;margin-top:12px;margin-bottom:16px}
 .split-text h2 span{color:var(--red)}.split-text p{font-size:14px;line-height:1.8;color:#555;margin-bottom:14px}
@@ -124,7 +125,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 class="ph1">Your Academy's <span>Digital Headquarters</span></h1>
       <p class="ph-sub">Manage players, memberships, tournaments, attendance, and communication from a single platform. SportsGenX gives every academy and club a complete digital home — so you can focus on coaching, not admin.</p>
       <div class="hero-ctas">
-        <a href="index.html#contact" class="btn-primary"><svg class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
+        <a href="#contact" class="btn-primary"><svg class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
         <a href="#features" class="btn-outline-red">Explore Features ↓</a>
       </div>
     </div>
@@ -204,14 +205,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="dark-card">
       <div class="dark-banner"><div class="dark-banner-t">Your Academy. Digitized.</div><div class="dark-banner-s">Powered by SportsGenX</div></div>
       <ul class="dark-ul">
-        <li><div class="di" aria-hidden="true">🏟️</div>Branded Academy Profile on SportsGenX</li>
-        <li><div class="di" aria-hidden="true">💳</div>Online Membership Collection &amp; Renewal</li>
-        <li><div class="di" aria-hidden="true">📈</div>Player Performance Analytics</li>
-        <li><div class="di" aria-hidden="true">🏆</div>Tournament History for Every Player</li>
-        <li><div class="di" aria-hidden="true">📣</div>WhatsApp &amp; Push Notifications</li>
-        <li><div class="di" aria-hidden="true">💰</div>Full Revenue &amp; Financial Reporting</li>
-        <li><div class="di" aria-hidden="true">📅</div>Attendance Tracking</li>
-        <li><div class="di" aria-hidden="true"></div>Automated e-Certificates</li>
+        <li><div class="di" aria-hidden="true" data-icon="building"></div>Branded Academy Profile on SportsGenX</li>
+        <li><div class="di" aria-hidden="true" data-icon="creditcard"></div>Online Membership Collection &amp; Renewal</li>
+        <li><div class="di" aria-hidden="true" data-icon="trending"></div>Player Performance Analytics</li>
+        <li><div class="di" aria-hidden="true" data-icon="trophy"></div>Tournament History for Every Player</li>
+        <li><div class="di" aria-hidden="true" data-icon="megaphone"></div>WhatsApp &amp; Push Notifications</li>
+        <li><div class="di" aria-hidden="true" data-icon="wallet"></div>Full Revenue &amp; Financial Reporting</li>
+        <li><div class="di" aria-hidden="true" data-icon="calendar"></div>Attendance Tracking</li>
+        <li><div class="di" aria-hidden="true" data-icon="medal"></div>Automated e-Certificates</li>
       </ul>
       <div class="dark-foot">Zero spreadsheets · Zero WhatsApp chaos</div>
     </div>

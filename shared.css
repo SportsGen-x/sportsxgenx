@@ -118,14 +118,18 @@ nav{
 
 /* ── BUTTONS ── */
 .btn-primary{
-  display:inline-flex;align-items:center;gap:8px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
   background:var(--red);color:var(--white);
   padding:15px 30px;border-radius:5px;
   font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
   text-decoration:none;border:2px solid var(--red);
-  transition:background .2s,transform .15s;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  white-space:nowrap;
+  box-shadow:0 4px 14px rgba(200,0,26,.28);
 }
-.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px)}
+.btn-primary:hover{background:var(--red-dark);border-color:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 22px rgba(200,0,26,.38)}
+.btn-primary:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.btn-primary:active{transform:translateY(0);box-shadow:0 2px 8px rgba(200,0,26,.25)}
 
 .btn-outline-red{
   display:inline-flex;align-items:center;gap:8px;
@@ -217,7 +221,23 @@ nav{
 .hero-breadcrumb .sep,.hero-bc .sep{color:#ddd}
 
 /* ── HERO CTAs & TRUST ── */
-.hero-ctas{display:flex;gap:12px;flex-wrap:nowrap;align-items:center}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero-ctas .btn-primary{
+  height:48px;
+  padding:0 26px;
+  font-size:13px;
+  flex-shrink:0;
+}
+.hero-ctas .btn-primary svg{
+  width:16px;
+  height:16px;
+  margin-right:0;
+  flex-shrink:0;
+}
+.hero-ctas .btn-outline-red{
+  height:48px;
+  padding:0 22px;
+}
 .hero-trust{display:flex;gap:10px;flex-wrap:wrap}
 .trust-pill{
   background:rgba(200,0,26,.06);border:1px solid rgba(200,0,26,.18);
@@ -497,8 +517,13 @@ nav{
 }
 
 @media(max-width:580px){
-  .hero-ctas,.cta-btns{flex-direction:column;align-items:flex-start}
-  .btn-primary,.btn-outline-red,.btn-white,.btn-outline-white{width:100%;justify-content:center}
+  .hero-ctas,.cta-btns{flex-direction:column;align-items:stretch}
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-outline-red,
+  .cta-btns .btn-primary,
+  .cta-btns .btn-outline-red,
+  .cta-btns .btn-white,
+  .cta-btns .btn-outline-white{width:100%;justify-content:center}
 }
 
 /* ── INTL-TEL-INPUT OVERRIDES ── */
@@ -564,34 +589,134 @@ nav{
   margin-top: 2px;
 }
 
-/* Redesigned clean bullet lists replacing list emojis */
-ul.sol-list {
+/* Redesigned clean bullet lists — aligned with first line of content */
+ul.sol-list,
+.transform-list,
+.dark-ul,
+.wl-includes,
+.screen-card-list,
+.comp-list,
+.legal-content ul,
+.legal-content ol {
   list-style: none !important;
   padding-left: 0 !important;
+  margin-left: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
-ul.sol-list li {
-  position: relative !important;
-  padding-left: 24px !important;
-  color: inherit;
-  font-size: 13.5px;
-  line-height: 1.6;
+
+ul.sol-list { gap: 10px; }
+.transform-list { gap: 12px; }
+.dark-ul { gap: 11px; }
+.wl-includes { gap: 12px; }
+.screen-card-list { gap: 7px; }
+.comp-list { gap: 16px; }
+.legal-content ul,
+.legal-content ol { gap: 8px; margin-bottom: 14px; }
+
+ul.sol-list li,
+.transform-list li,
+.dark-ul li,
+.wl-includes li,
+.screen-card-list li,
+.comp-list li,
+.legal-content li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px;
+  position: static !important;
+  padding-left: 0 !important;
+  margin: 0;
+  line-height: 1.55;
 }
-ul.sol-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 4px;
+
+/* Pseudo-element bullets (homepage solutions, auction screens, legal) */
+ul.sol-list li::before,
+.screen-card-list li::before,
+.legal-content ul > li::before {
+  content: "" !important;
+  position: static !important;
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-top: 0.55em; /* centers on first text line */
+  background: var(--red);
+}
+.on-red ul.sol-list li::before { background: rgba(255,255,255,.55); }
+.on-white ul.sol-list li::before { background: var(--red); }
+.legal-content ol { counter-reset: legal-item; }
+.legal-content ol > li { counter-increment: legal-item; }
+.legal-content ol > li::before {
+  content: counter(legal-item) ".";
+  flex-shrink: 0;
+  min-width: 1.25em;
+  margin-top: 0;
+  font-weight: 600;
+  color: var(--red);
+  line-height: 1.55;
+  background: none;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+}
+
+/* Icon bullets inside list items — pin to first text line */
+.transform-list li .t-icon,
+.dark-ul li .di,
+.wl-includes li .wi-icon,
+.comp-list li .c-icon,
+.comp-list li .comp-icon,
+li .t-icon,
+li .di,
+li .wi-icon {
+  flex-shrink: 0 !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  line-height: 1 !important;
+  margin-top: 0.15em; /* optical align with text cap-height */
+}
+
+.dark-ul li .di,
+.wl-includes li .wi-icon {
+  width: 28px;
+  height: 28px;
+  margin-top: 0; /* box height ≈ line box; keep flush to top */
+  align-self: flex-start;
+}
+
+.dark-ul li .di svg,
+.wl-includes li .wi-icon svg,
+.transform-list li .t-icon svg,
+.comp-list li svg {
   width: 14px;
   height: 14px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C8001A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
+  display: block;
+  flex-shrink: 0;
 }
-.on-red ul.sol-list li::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+
+.transform-list li .t-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 16px;
+  margin-top: 0.2em;
+}
+
+.wl-includes li .wi-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* List item text wraps beside icon, not under it */
+ul.sol-list li,
+.transform-list li,
+.dark-ul li,
+.wl-includes li,
+.screen-card-list li,
+.comp-list li,
+.legal-content li {
+  text-align: left;
 }
 
 /* ── CENTRALIZED CRM CONTACT SECTION STYLES ── */
@@ -609,7 +734,44 @@ ul.sol-list li::before {
 .contact-card-value{font-size:15px;font-weight:600;color:var(--black);text-decoration:none;display:block}
 .contact-card-value:hover{color:var(--red)}
 .contact-card-sub{font-size:12px;color:#888;margin-top:3px}
-.contact-social{display:flex;gap:12px;flex-wrap:wrap}
+.contact-social{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.contact-social-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:40px;
+  padding:0 16px;
+  border-radius:8px;
+  background:var(--off-white);
+  border:1px solid #eee;
+  color:var(--black);
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:background .2s,border-color .2s,color .2s,transform .15s,box-shadow .2s;
+}
+.contact-social-btn svg{
+  width:16px;
+  height:16px;
+  flex-shrink:0;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.contact-social-btn:hover{
+  background:#fff5f5;
+  border-color:rgba(200,0,26,.35);
+  color:var(--red);
+  transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(200,0,26,.1);
+}
+.contact-social-btn:focus-visible{
+  outline:2px solid var(--red);
+  outline-offset:2px;
+}
 
 .form-box{background:var(--red);border-radius:14px;padding:44px 40px;position:relative;overflow:hidden}
 .form-box::before{content:'';position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.06);pointer-events:none}
@@ -649,3 +811,200 @@ ul.sol-list li::before {
 }
 
 
+/* ── SPACING TOKENS ── */
+:root{
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:24px;
+  --space-6:32px;
+  --space-7:48px;
+  --space-8:64px;
+  --space-9:80px;
+  --space-10:100px;
+  --radius-sm:5px;
+  --radius-md:8px;
+  --radius-lg:14px;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.06);
+  --shadow-md:0 8px 24px rgba(0,0,0,.1);
+  --container:1200px;
+}
+
+/* ── UI ICON SYSTEM (Lucide-style via data-icon) ── */
+.ui-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  line-height:0;
+  color:inherit;
+}
+.ui-icon svg,
+[data-icon] svg{
+  width:1em;
+  height:1em;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  display:block;
+}
+.ui-icon--sm{font-size:16px}
+.ui-icon--md{font-size:22px}
+.ui-icon--lg{font-size:28px}
+.ui-icon--xl{font-size:36px}
+
+/* Common icon hosts used across landing pages */
+.feat-icon,.step-icon,.format-icon,.flow-step-icon,.phase-icon,
+.how-card-icon,.price-icon,.support-card-icon,.t-icon,.di,
+.model-icon,.unique-icon,.why-card-icon,.sport-emoji,.screen-card-top span,
+.verified-note-icon,.pricing-pillar-icon,.wi-icon,.bracket-trophy{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-style:normal;
+  line-height:1;
+}
+.feat-icon,.step-icon,.format-icon,.how-card-icon,.price-icon,
+.unique-icon,.phase-icon,.flow-step-icon{font-size:28px;color:var(--red)}
+.support-card-icon,.pricing-pillar-icon{font-size:24px;color:var(--red)}
+.t-icon,.di,.wi-icon{font-size:18px;width:22px;flex-shrink:0;color:var(--red)}
+.sport-emoji{font-size:32px;color:var(--red);margin-bottom:12px}
+.model-icon{font-size:28px;color:var(--red)}
+.verified-note-icon{font-size:20px;color:var(--red)}
+.dd-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;font-size:14px;color:var(--red);flex-shrink:0}
+.dd-icon svg{width:14px;height:14px}
+
+/* ── OFFICIAL-STYLE STORE BADGES ── */
+.store-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:#0F0F0F;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  padding:8px 14px 8px 12px;
+  min-height:44px;
+  border:1px solid rgba(255,255,255,.12);
+  transition:transform .15s,background .2s,box-shadow .2s,opacity .2s;
+  box-shadow:0 2px 8px rgba(0,0,0,.12);
+  flex-shrink:0;
+}
+.store-badge:hover{
+  background:#1a1a1a;
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
+}
+.store-badge:focus-visible{
+  outline:2px solid var(--red);
+  outline-offset:3px;
+}
+.store-badge-logo{
+  width:22px;
+  height:22px;
+  flex-shrink:0;
+  display:block;
+}
+.store-badge-text{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  line-height:1.15;
+  text-align:left;
+}
+.store-badge-sub{
+  font-size:9px;
+  font-weight:500;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.7);
+  font-family:var(--font-body);
+}
+.store-badge-name{
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.01em;
+  color:#fff;
+  font-family:var(--font-body);
+}
+.store-badge--light{
+  background:#fff;
+  color:#0F0F0F;
+  border:1.5px solid #111;
+}
+.store-badge--light .store-badge-sub{color:rgba(0,0,0,.55)}
+.store-badge--light .store-badge-name{color:#0F0F0F}
+.store-badge--light:hover{background:#f5f5f5}
+.store-badge--on-red{
+  background:rgba(0,0,0,.35);
+  border-color:rgba(255,255,255,.25);
+}
+.store-badge--on-red:hover{background:rgba(0,0,0,.5)}
+
+.hero-store-badges{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.footer-app-btns .store-badge{
+  width:100%;
+  justify-content:flex-start;
+  background:#111;
+}
+.testi-stars{
+  display:flex;
+  gap:2px;
+  align-items:center;
+  color:#E8A317;
+  margin-top:10px;
+}
+.testi-stars .ui-icon svg{
+  fill:currentColor;
+  stroke:currentColor;
+  width:14px;
+  height:14px;
+}
+.page-hero-eyebrow .ui-icon{
+  font-size:14px;
+  margin-right:2px;
+}
+.transform-col.after .t-icon,
+.transform-col.after .ui-icon{color:rgba(255,255,255,.9)}
+.transform-col.before .t-icon{color:#999}
+
+/* Contact nav CTA on pages without local #contact */
+body:not(:has(#contact)) .nav-cta-li a{/* handled in JS */}
+
+.hero-ctas .store-badge,
+.cta-btns .store-badge{height:48px;padding:8px 16px 8px 14px}
+.hero-ctas .store-badge-logo{width:24px;height:24px}
+.hero-ctas .store-badge-name{font-size:16px}
+
+@media(max-width:580px){
+  .hero-ctas{
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+  }
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-outline-red,
+  .hero-ctas .store-badge,
+  .cta-btns .store-badge{
+    width:100%;
+    justify-content:center;
+  }
+  .hero-store-badges{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .store-badge{min-width:0}
+}
+
+/* Trust pills without emoji */
+.trust-pill .ui-icon{margin-right:4px;font-size:12px}

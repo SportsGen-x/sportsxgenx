@@ -76,8 +76,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .dark-banner-t{font-family:var(--font-display);font-size:18px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.04em}
 .dark-banner-s{font-size:10px;color:rgba(255,255,255,.6);margin-top:3px;letter-spacing:.06em;text-transform:uppercase}
 .dark-ul{list-style:none;display:flex;flex-direction:column;gap:11px;position:relative;z-index:1}
-.dark-ul li{display:flex;align-items:center;gap:11px;font-size:13.5px;color:rgba(255,255,255,.8)}
-.dark-ul li .di{font-size:15px;flex-shrink:0;width:28px;height:28px;background:rgba(200,0,26,.15);border:1px solid rgba(200,0,26,.25);border-radius:5px;display:flex;align-items:center;justify-content:center}
+.dark-ul li{display:flex;align-items:flex-start;gap:11px;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.8)}
+.dark-ul li .di{font-size:14px;flex-shrink:0;width:28px;height:28px;margin-top:0;background:rgba(200,0,26,.15);border:1px solid rgba(200,0,26,.25);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;color:var(--red)}
+.dark-ul li .di svg{width:14px;height:14px;display:block}
 .dark-foot{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-family:var(--font-display);font-size:12px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,.3);letter-spacing:.08em;position:relative;z-index:1}
 .split-text h2{font-family:var(--font-display);font-size:clamp(26px,3vw,40px);font-weight:700;text-transform:uppercase;color:var(--black);line-height:1.1;margin-top:12px;margin-bottom:16px}
 .split-text h2 span{color:var(--red)}.split-text p{font-size:14px;line-height:1.8;color:#555;margin-bottom:14px}
@@ -111,7 +112,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 class="ph1">Build &amp; Grow Your <span>Sports Community</span></h1>
       <p class="ph-sub">Create an exclusive, members-only sports community with SportsGenX. Flexible subscription models, verified memberships, exclusive tournaments, and a platform that keeps your community engaged, active, and growing.</p>
       <div class="hero-ctas">
-        <a href="#" class="btn-primary"><svg class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
+        <a href="#contact" class="btn-primary"><svg class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
         <a href="#features" class="btn-outline-red">Explore Features ↓</a>
       </div>
     </div>
@@ -137,7 +138,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="plan-perks"><span class="plan-perk">All Benefits</span><span class="plan-perk">Exclusive Events</span></div>
       </div>
       <div class="verified-note">
-        <div class="verified-note-icon">✅</div>
+        <div class="verified-note-icon" data-icon="checkcircle"></div>
         <div class="verified-note-text">Only verified members access<br>community-exclusive tournaments</div>
       </div>
     </div>
@@ -174,19 +175,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="models-grid">
       <div class="model-card">
-        <div class="model-icon">📅</div>
+        <div class="model-icon" data-icon="calendar"></div>
         <div class="model-label">Monthly Plans</div>
         <div class="model-desc">Low-commitment entry point. Perfect for players who want to try your community before committing long-term. Auto-renews each month until cancelled.</div>
         <div class="model-tags"><span class="model-tag">Low Barrier</span><span class="model-tag">Auto-Renew</span><span class="model-tag">Trial Friendly</span></div>
       </div>
       <div class="model-card">
-        <div class="model-icon">🗓️</div>
+        <div class="model-icon" data-icon="calendar"></div>
         <div class="model-label">Quarterly Plans</div>
         <div class="model-desc">The sweet spot — better value than monthly, lower commitment than annual. Ideal for players who actively compete in seasonal cycles.</div>
         <div class="model-tags"><span class="model-tag">Better Value</span><span class="model-tag">Seasonal</span><span class="model-tag">3-Month</span></div>
       </div>
       <div class="model-card">
-        <div class="model-icon">⭐</div>
+        <div class="model-icon" data-icon="star"></div>
         <div class="model-label">Annual Plans</div>
         <div class="model-desc">Your most committed members. Best value per month, highest retention. Annual members are your community champions — they participate the most and stay the longest.</div>
         <div class="model-tags"><span class="model-tag">Best Value</span><span class="model-tag">High Retention</span><span class="model-tag">Full Year</span></div>

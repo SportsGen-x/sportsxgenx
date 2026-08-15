@@ -46,10 +46,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .transform-col.before .transform-label{color:#999;border-color:#eee}
 .transform-col.after .transform-label{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.2)}
 .transform-list{list-style:none;display:flex;flex-direction:column;gap:12px}
-.transform-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5}
+.transform-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.55}
 .transform-col.before .transform-list li{color:#888}
 .transform-col.after .transform-list li{color:rgba(255,255,255,.88)}
-.transform-list li .t-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.transform-list li .t-icon{font-size:16px;width:18px;height:18px;flex-shrink:0;margin-top:.2em;display:inline-flex;align-items:center;justify-content:center}
+.transform-list li .t-icon svg{width:16px;height:16px;display:block}
 
 /* STEPS */
 .steps-section{background:var(--off-white);padding:90px 40px;position:relative}
@@ -167,8 +168,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .wl-card-banner-title{font-family:var(--font-display);font-size:22px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.04em}
 .wl-card-banner-sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;letter-spacing:.06em;text-transform:uppercase}
 .wl-includes{list-style:none;display:flex;flex-direction:column;gap:12px;position:relative;z-index:1}
-.wl-includes li{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,.8)}
-.wl-includes li .wi-icon{font-size:18px;flex-shrink:0;width:32px;height:32px;background:rgba(200,0,26,.15);border:1px solid rgba(200,0,26,.25);border-radius:6px;display:flex;align-items:center;justify-content:center}
+.wl-includes li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.55;color:rgba(255,255,255,.8)}
+.wl-includes li .wi-icon{font-size:16px;flex-shrink:0;width:32px;height:32px;margin-top:0;background:rgba(200,0,26,.15);border:1px solid rgba(200,0,26,.25);border-radius:6px;display:inline-flex;align-items:center;justify-content:center;color:var(--red)}
+.wl-includes li .wi-icon svg{width:16px;height:16px;display:block}
 .wl-card-tagline{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-family:var(--font-display);font-size:14px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,.4);letter-spacing:.08em;position:relative;z-index:1}
 
 /* TESTI */
@@ -225,16 +227,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="sep">›</span>
         <span>For Organisers</span>
       </div>
-      <div class="page-hero-eyebrow">🏟️ Tournament Organisers</div>
+      <div class="page-hero-eyebrow"><span class="ui-icon" data-icon="building" aria-hidden="true"></span> Tournament Organisers</div>
       <h1 class="page-hero-h1">Run Your Tournament <span>Like a Pro</span> — Without the Chaos</h1>
       <p class="page-hero-sub">SportsGenX replaces WhatsApp groups, Excel sheets, and manual headaches with a single, powerful tournament management platform. Online registration, automated draws, live scoring, player auctions, and e-certificates — all in one app.</p>
       <div class="hero-ctas">
-        <a href="index.html#contact" class="btn-primary"><svg class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
+        <a href="#contact" class="btn-primary"><svg class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
         <a href="#how-it-works" class="btn-outline-red">See How It Works ↓</a>
       </div>
       <div class="hero-trust">
-        <span class="trust-pill">✅ 100+ Tournaments</span>
-        <span class="trust-pill">⭐ 5.0 Organiser Rating</span>
+        <span class="trust-pill"><span class="ui-icon" data-icon="checkcircle" aria-hidden="true"></span> 100+ Tournaments</span>
+        <span class="trust-pill"><span class="ui-icon" data-icon="star" aria-hidden="true"></span> 5.0 Organiser Rating</span>
         <span class="trust-pill">🆓 First Tournament Free</span>
       </div>
     </div>
@@ -269,30 +271,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="transform-grid">
       <div class="transform-col before">
-        <div class="transform-label">❌ Before SportsGenX</div>
+        <div class="transform-label"><span class="ui-icon" data-icon="x" aria-hidden="true"></span> Before SportsGenX</div>
         <ul class="transform-list">
-          <li><span class="t-icon" aria-hidden="true">😩</span>Registration via WhatsApp messages and Google Forms</li>
-          <li><span class="t-icon" aria-hidden="true">📋</span>Manually building draws in Excel — hours of work</li>
-          <li><span class="t-icon" aria-hidden="true">💸</span>Chasing players for entry fees via bank transfers and screenshots</li>
-          <li><span class="t-icon" aria-hidden="true">📣</span>Announcing scores on WhatsApp groups — constant manual updates</li>
-          <li><span class="t-icon" aria-hidden="true">🖨️</span>Printing, signing, and posting paper certificates</li>
-          <li><span class="t-icon" aria-hidden="true">😰</span>Tournament day chaos — no central view of what's happening</li>
-          <li><span class="t-icon" aria-hidden="true">📞</span>Phone calls to umpires for score updates</li>
-          <li><span class="t-icon" aria-hidden="true">💤</span>No player data, no analytics, no records for next year</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="frown"></span>Registration via WhatsApp messages and Google Forms</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="clipboard"></span>Manually building draws in Excel — hours of work</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="wallet"></span>Chasing players for entry fees via bank transfers and screenshots</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="megaphone"></span>Announcing scores on WhatsApp groups — constant manual updates</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="printer"></span>Printing, signing, and posting paper certificates</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="meh"></span>Tournament day chaos — no central view of what's happening</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="phone"></span>Phone calls to umpires for score updates</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="moon"></span>No player data, no analytics, no records for next year</li>
         </ul>
       </div>
       <div class="transform-divider" aria-hidden="true"><div class="transform-divider-inner">→</div></div>
       <div class="transform-col after">
-        <div class="transform-label">✅ After SportsGenX</div>
+        <div class="transform-label"><span class="ui-icon" data-icon="checkcircle" aria-hidden="true"></span> After SportsGenX</div>
         <ul class="transform-list">
-          <li><span class="t-icon" aria-hidden="true">🔗</span>Share one link — players register in the app instantly</li>
-          <li><span class="t-icon" aria-hidden="true"></span>One click generates your complete draw in seconds</li>
-          <li><span class="t-icon" aria-hidden="true">💳</span>UPI, cards, net banking — fees collected and tracked automatically</li>
-          <li><span class="t-icon" aria-hidden="true">📺</span>Live scores on venue screens and in-app — zero manual updates</li>
-          <li><span class="t-icon" aria-hidden="true"></span>Personalised e-certificates auto-generated and distributed instantly</li>
-          <li><span class="t-icon" aria-hidden="true">📊</span>Single dashboard — see every match, score, and result live</li>
-          <li><span class="t-icon" aria-hidden="true">📱</span>Umpires score on their phone — updates everywhere in real time</li>
-          <li><span class="t-icon" aria-hidden="true">📈</span>Full player database, rankings, and analytics saved forever</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="link"></span>Share one link — players register in the app instantly</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="zap"></span>One click generates your complete draw in seconds</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="creditcard"></span>UPI, cards, net banking — fees collected and tracked automatically</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="monitor"></span>Live scores on venue screens and in-app — zero manual updates</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="medal"></span>Personalised e-certificates auto-generated and distributed instantly</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="chart"></span>Single dashboard — see every match, score, and result live</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="smartphone"></span>Umpires score on their phone — updates everywhere in real time</li>
+          <li><span class="t-icon" aria-hidden="true" data-icon="trending"></span>Full player database, rankings, and analytics saved forever</li>
         </ul>
       </div>
     </div>
@@ -307,12 +309,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="section-sub">From publishing to prize-giving — SportsGenX walks you through every step, with expert support at each stage.</p>
     </div>
     <div class="steps-grid">
-      <div class="step-card"><div class="step-num">01</div><span class="step-icon" aria-hidden="true">📢</span><h3 class="step-h3">Publish Your Tournament</h3><p class="step-copy">List your event on SportsGenX in under 60 seconds. <strong>Your tournament goes live instantly</strong> — visible to thousands of players in your city and sport.</p></div>
-      <div class="step-card"><div class="step-num">02</div><span class="step-icon" aria-hidden="true">📋</span><h3 class="step-h3">Online Registration &amp; Payments</h3><p class="step-copy">Players register and pay online — UPI, cards, and net banking. <strong>Entries auto-populate, duplicates are flagged</strong>, and you see everything on your dashboard in real time.</p></div>
-      <div class="step-card"><div class="step-num">03</div><span class="step-icon" aria-hidden="true">🎲</span><h3 class="step-h3">Auto-Generate Draws &amp; Fixtures</h3><p class="step-copy">One click generates your complete draw. <strong>Knockout, Round Robin, Premier League, Lucky Doubles</strong> — any format. BYEs, scheduling, and court assignments handled automatically.</p></div>
-      <div class="step-card"><div class="step-num">04</div><span class="step-icon" aria-hidden="true">📡</span><h3 class="step-h3">Live Scoring &amp; Venue Display</h3><p class="step-copy">Umpires score matches directly from their phone. <strong>Live scores appear on venue screens, in the app, and on the draw</strong> — simultaneously. No phone calls, no score sheets.</p></div>
-      <div class="step-card"><div class="step-num">05</div><span class="step-icon" aria-hidden="true">🔨</span><h3 class="step-h3">Player Auction (for Leagues)</h3><p class="step-copy">Running a Premier League? Conduct a <strong>live IPL-style player auction</strong> on your venue screen — real-time bidding, team budgets, lucky wheel tie-breakers, and instant team allocation.</p></div>
-      <div class="step-card"><div class="step-num">06</div><span class="step-icon" aria-hidden="true"></span><h3 class="step-h3">Winners, Results &amp; e-Certificates</h3><p class="step-copy">Declare winners with one click. <strong>Personalised e-certificates for winners, runners-up, and all participants</strong> are generated and distributed instantly.</p></div>
+      <div class="step-card"><div class="step-num">01</div><span class="step-icon" aria-hidden="true" data-icon="megaphone"></span><h3 class="step-h3">Publish Your Tournament</h3><p class="step-copy">List your event on SportsGenX in under 60 seconds. <strong>Your tournament goes live instantly</strong> — visible to thousands of players in your city and sport.</p></div>
+      <div class="step-card"><div class="step-num">02</div><span class="step-icon" aria-hidden="true" data-icon="clipboard"></span><h3 class="step-h3">Online Registration &amp; Payments</h3><p class="step-copy">Players register and pay online — UPI, cards, and net banking. <strong>Entries auto-populate, duplicates are flagged</strong>, and you see everything on your dashboard in real time.</p></div>
+      <div class="step-card"><div class="step-num">03</div><span class="step-icon" aria-hidden="true" data-icon="dice"></span><h3 class="step-h3">Auto-Generate Draws &amp; Fixtures</h3><p class="step-copy">One click generates your complete draw. <strong>Knockout, Round Robin, Premier League, Lucky Doubles</strong> — any format. BYEs, scheduling, and court assignments handled automatically.</p></div>
+      <div class="step-card"><div class="step-num">04</div><span class="step-icon" aria-hidden="true" data-icon="radio"></span><h3 class="step-h3">Live Scoring &amp; Venue Display</h3><p class="step-copy">Umpires score matches directly from their phone. <strong>Live scores appear on venue screens, in the app, and on the draw</strong> — simultaneously. No phone calls, no score sheets.</p></div>
+      <div class="step-card"><div class="step-num">05</div><span class="step-icon" aria-hidden="true" data-icon="gavel"></span><h3 class="step-h3">Player Auction (for Leagues)</h3><p class="step-copy">Running a Premier League? Conduct a <strong>live IPL-style player auction</strong> on your venue screen — real-time bidding, team budgets, lucky wheel tie-breakers, and instant team allocation.</p></div>
+      <div class="step-card"><div class="step-num">06</div><span class="step-icon" aria-hidden="true" data-icon="medal"></span><h3 class="step-h3">Winners, Results &amp; e-Certificates</h3><p class="step-copy">Declare winners with one click. <strong>Personalised e-certificates for winners, runners-up, and all participants</strong> are generated and distributed instantly.</p></div>
     </div>
   </div>
 </section>
@@ -326,15 +328,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="feat-header-right">A complete toolkit built specifically for sports tournament organisers — from first-timers to national-level events.</p>
   </div>
   <div class="features-grid">
-    <div class="feat-card"><span class="feat-icon" aria-hidden="true">🌐</span><h3 class="feat-h3">Tournament Listing &amp; Discovery</h3><p class="feat-copy">Your tournament appears in the SportsGenX directory — searchable by sport, city, and date. Reach players who are actively looking for events to join.</p></div>
-    <div class="feat-card"><span class="feat-icon" aria-hidden="true">📱</span><h3 class="feat-h3">WhatsApp Registration Bot</h3><p class="feat-copy">Players can register via WhatsApp without downloading the app. Entries are captured automatically — no manual data entry for the organiser.</p></div>
-    <div class="feat-card"><span class="feat-icon" aria-hidden="true">💳</span><h3 class="feat-h3">Secure Payment Collection</h3><p class="feat-copy">UPI, cards, and net banking. Every rupee tracked automatically. Full audit trail, next-day settlement, and zero chasing of payment screenshots.</p></div>
-    <div class="feat-card"><span class="feat-icon" aria-hidden="true">🧩</span><h3 class="feat-h3">Multi-Format Support</h3><p class="feat-copy">Knockout, Round Robin, League, Premier League, Lucky Doubles, Knockout League — SportsGenX supports more formats than any other platform.</p></div>
-    <div class="feat-card"><span class="feat-icon" aria-hidden="true"></span><h3 class="feat-h3">Category &amp; Age Group Management</h3><p class="feat-copy">Create unlimited categories — U13, U15, U17, Open, Mixed, Veteran. Each with independent draws, schedules, and results.</p></div>
-    <div class="feat-card"><span class="feat-icon" aria-hidden="true">📊</span><h3 class="feat-h3">Organiser Dashboard</h3><p class="feat-copy">Real-time view of registrations, payments, match progress, scores, and results — everything in one place. No switching between tabs or apps.</p></div>
-    <div class="feat-card"><span class="feat-icon" aria-hidden="true">📺</span><h3 class="feat-h3">Venue Display Integration</h3><p class="feat-copy">Connect any TV or projector to display live scores, draws, and match schedules at the venue. Players and spectators always know what's happening.</p></div>
-    <div class="feat-card"><span class="feat-icon" aria-hidden="true">🔴</span><h3 class="feat-h3">Live Streaming Score Ticker</h3><p class="feat-copy">Streaming your matches live? Add a professional score ticker overlay — like broadcast TV — with a single integration. No separate software needed.</p></div>
-    <div class="feat-card"><span class="feat-icon" aria-hidden="true">📸</span><h3 class="feat-h3">Tournament Gallery</h3><p class="feat-copy">Upload photos and videos from your event — shared directly with all participants through the app. Build lasting memories and promote your next event.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true" data-icon="globe"></span><h3 class="feat-h3">Tournament Listing &amp; Discovery</h3><p class="feat-copy">Your tournament appears in the SportsGenX directory — searchable by sport, city, and date. Reach players who are actively looking for events to join.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true" data-icon="smartphone"></span><h3 class="feat-h3">WhatsApp Registration Bot</h3><p class="feat-copy">Players can register via WhatsApp without downloading the app. Entries are captured automatically — no manual data entry for the organiser.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true" data-icon="creditcard"></span><h3 class="feat-h3">Secure Payment Collection</h3><p class="feat-copy">UPI, cards, and net banking. Every rupee tracked automatically. Full audit trail, next-day settlement, and zero chasing of payment screenshots.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true" data-icon="puzzle"></span><h3 class="feat-h3">Multi-Format Support</h3><p class="feat-copy">Knockout, Round Robin, League, Premier League, Lucky Doubles, Knockout League — SportsGenX supports more formats than any other platform.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true" data-icon="layers"></span><h3 class="feat-h3">Category &amp; Age Group Management</h3><p class="feat-copy">Create unlimited categories — U13, U15, U17, Open, Mixed, Veteran. Each with independent draws, schedules, and results.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true" data-icon="chart"></span><h3 class="feat-h3">Organiser Dashboard</h3><p class="feat-copy">Real-time view of registrations, payments, match progress, scores, and results — everything in one place. No switching between tabs or apps.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true" data-icon="monitor"></span><h3 class="feat-h3">Venue Display Integration</h3><p class="feat-copy">Connect any TV or projector to display live scores, draws, and match schedules at the venue. Players and spectators always know what's happening.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true" data-icon="circle"></span><h3 class="feat-h3">Live Streaming Score Ticker</h3><p class="feat-copy">Streaming your matches live? Add a professional score ticker overlay — like broadcast TV — with a single integration. No separate software needed.</p></div>
+    <div class="feat-card"><span class="feat-icon" aria-hidden="true" data-icon="camera"></span><h3 class="feat-h3">Tournament Gallery</h3><p class="feat-copy">Upload photos and videos from your event — shared directly with all participants through the app. Build lasting memories and promote your next event.</p></div>
   </div>
 </section>
 
@@ -350,10 +352,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="support-right">
       <div class="support-cards">
-        <div class="support-card"><div class="support-card-icon" aria-hidden="true">🚀</div><div><div class="support-card-h3">Onboarding &amp; Setup Support</div><div class="support-card-copy">Our team sets up your first tournament with you — categories, draw formats, payment setup, and venue display configuration. You're never figuring it out alone.</div></div></div>
-        <div class="support-card"><div class="support-card-icon" aria-hidden="true">📅</div><div><div class="support-card-h3">Tournament Day Live Support</div><div class="support-card-copy">From 5 AM on your tournament morning, the SportsGenX team is on standby via WhatsApp. Draw issues, scoring problems, payment queries — resolved in minutes, not hours.</div></div></div>
-        <div class="support-card"><div class="support-card-icon" aria-hidden="true">📞</div><div><div class="support-card-h3">Dedicated Account Manager</div><div class="support-card-copy">Regular organisers get a dedicated point of contact who understands your event format, preferences, and venue — so every tournament runs smoother than the last.</div></div></div>
-        <div class="support-card"><div class="support-card-icon" aria-hidden="true"></div><div><div class="support-card-h3">Training &amp; Documentation</div><div class="support-card-copy">Video walkthroughs, step-by-step guides, and live training sessions available for you and your team. Get tournament-ready in under an hour.</div></div></div>
+        <div class="support-card"><div class="support-card-icon" aria-hidden="true" data-icon="rocket"></div><div><div class="support-card-h3">Onboarding &amp; Setup Support</div><div class="support-card-copy">Our team sets up your first tournament with you — categories, draw formats, payment setup, and venue display configuration. You're never figuring it out alone.</div></div></div>
+        <div class="support-card"><div class="support-card-icon" aria-hidden="true" data-icon="calendar"></div><div><div class="support-card-h3">Tournament Day Live Support</div><div class="support-card-copy">From 5 AM on your tournament morning, the SportsGenX team is on standby via WhatsApp. Draw issues, scoring problems, payment queries — resolved in minutes, not hours.</div></div></div>
+        <div class="support-card"><div class="support-card-icon" aria-hidden="true" data-icon="phone"></div><div><div class="support-card-h3">Dedicated Account Manager</div><div class="support-card-copy">Regular organisers get a dedicated point of contact who understands your event format, preferences, and venue — so every tournament runs smoother than the last.</div></div></div>
+        <div class="support-card"><div class="support-card-icon" aria-hidden="true" data-icon="file"></div><div><div class="support-card-h3">Training &amp; Documentation</div><div class="support-card-copy">Video walkthroughs, step-by-step guides, and live training sessions available for you and your team. Get tournament-ready in under an hour.</div></div></div>
       </div>
     </div>
   </div>
@@ -367,16 +369,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="sports-sub">From racket sports to team sports — SportsGenX works for any sport that runs structured competitions and tournaments.</p>
     </div>
     <div class="sports-grid">
-      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🏸</span><div class="sport-name">Badminton</div><div class="sport-note">Singles · Doubles · Mixed</div></div>
-      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🏏</span><div class="sport-name">Cricket</div><div class="sport-note">T20 · Box · League</div></div>
-      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">⚽</span><div class="sport-name">Football</div><div class="sport-note">7-a-side · 11-a-side</div></div>
-      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🎾</span><div class="sport-name">Tennis</div><div class="sport-note">ITF · Club · Open</div></div>
-      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🏓</span><div class="sport-name">Table Tennis</div><div class="sport-note">Ranking · Club</div></div>
-      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🥒</span><div class="sport-name">Pickleball</div><div class="sport-note">Singles · Doubles</div></div>
-      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🎱</span><div class="sport-name">Squash</div><div class="sport-note">Singles · Team</div></div>
-      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🏀</span><div class="sport-name">Basketball</div><div class="sport-note">3x3 · 5-a-side</div></div>
-      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🏐</span><div class="sport-name">Volleyball</div><div class="sport-note">Indoor · Beach</div></div>
-      <div class="sport-card"><span class="sport-emoji" aria-hidden="true">🏊</span><div class="sport-name">Swimming</div><div class="sport-note">Age Group · Open</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true" data-icon="activity"></span><div class="sport-name">Badminton</div><div class="sport-note">Singles · Doubles · Mixed</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true" data-icon="activity"></span><div class="sport-name">Cricket</div><div class="sport-note">T20 · Box · League</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true" data-icon="activity"></span><div class="sport-name">Football</div><div class="sport-note">7-a-side · 11-a-side</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true" data-icon="activity"></span><div class="sport-name">Tennis</div><div class="sport-note">ITF · Club · Open</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true" data-icon="activity"></span><div class="sport-name">Table Tennis</div><div class="sport-note">Ranking · Club</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true" data-icon="activity"></span><div class="sport-name">Pickleball</div><div class="sport-note">Singles · Doubles</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true" data-icon="activity"></span><div class="sport-name">Squash</div><div class="sport-note">Singles · Team</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true" data-icon="activity"></span><div class="sport-name">Basketball</div><div class="sport-note">3x3 · 5-a-side</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true" data-icon="activity"></span><div class="sport-name">Volleyball</div><div class="sport-note">Indoor · Beach</div></div>
+      <div class="sport-card"><span class="sport-emoji" aria-hidden="true" data-icon="activity"></span><div class="sport-name">Swimming</div><div class="sport-note">Age Group · Open</div></div>
     </div>
     <p class="sports-more"><strong>And many more.</strong> If your sport runs structured tournaments, SportsGenX can manage it.</p>
   </div>
@@ -390,12 +392,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="section-sub">SportsGenX supports more tournament formats than any other platform — choose the right format and the platform builds everything automatically.</p>
     </div>
     <div class="formats-grid">
-      <div class="format-card"><span class="format-icon" aria-hidden="true">⚔️</span><div class="format-label">Knockout</div><div class="format-desc">Classic single-elimination bracket. Seeded or random draws. BYEs handled automatically.</div><div class="format-tags"><span class="format-tag">Singles</span><span class="format-tag">Doubles</span><span class="format-tag">Seeded</span><span class="format-tag">Random</span></div></div>
-      <div class="format-card"><span class="format-icon" aria-hidden="true">🔄</span><div class="format-label">Round Robin / League</div><div class="format-desc">Every player or team faces every other. Points table, standings, and head-to-head records updated live after every match.</div><div class="format-tags"><span class="format-tag">Points Table</span><span class="format-tag">Head-to-Head</span><span class="format-tag">Auto Standings</span></div></div>
-      <div class="format-card"><span class="format-icon" aria-hidden="true">🥇</span><div class="format-label">Premier League</div><div class="format-desc">Full team-based league with player auction, skill-based categorization, custom match formats, pool management, and semi-finals.</div><div class="format-tags"><span class="format-tag">Live Auction</span><span class="format-tag">Team Pools</span><span class="format-tag">Trump Matches</span></div></div>
-      <div class="format-card"><span class="format-icon" aria-hidden="true">🏊</span><div class="format-label">Group + Knockout</div><div class="format-desc">Pool/group stage followed by knockout rounds. Top teams auto-qualify based on pool standings.</div><div class="format-tags"><span class="format-tag">Pool Stage</span><span class="format-tag">Auto Qualify</span><span class="format-tag">Knockout Finals</span></div></div>
-      <div class="format-card"><span class="format-icon" aria-hidden="true">🍀</span><div class="format-label">Lucky Doubles</div><div class="format-desc">Players register individually and are randomly paired into doubles teams on the day. Great for social and fun events.</div><div class="format-tags"><span class="format-tag">Random Pairing</span><span class="format-tag">Doubles</span><span class="format-tag">Social Events</span></div></div>
-      <div class="format-card"><span class="format-icon" aria-hidden="true">🎲</span><div class="format-label">Knockout League</div><div class="format-desc">Hybrid format combining league-stage group play with a knockout elimination bracket. Teams play multiple matches before the knockout rounds begin.</div><div class="format-tags"><span class="format-tag">Hybrid</span><span class="format-tag">More Matches</span><span class="format-tag">Group + Bracket</span></div></div>
+      <div class="format-card"><span class="format-icon" aria-hidden="true" data-icon="swords"></span><div class="format-label">Knockout</div><div class="format-desc">Classic single-elimination bracket. Seeded or random draws. BYEs handled automatically.</div><div class="format-tags"><span class="format-tag">Singles</span><span class="format-tag">Doubles</span><span class="format-tag">Seeded</span><span class="format-tag">Random</span></div></div>
+      <div class="format-card"><span class="format-icon" aria-hidden="true" data-icon="refresh"></span><div class="format-label">Round Robin / League</div><div class="format-desc">Every player or team faces every other. Points table, standings, and head-to-head records updated live after every match.</div><div class="format-tags"><span class="format-tag">Points Table</span><span class="format-tag">Head-to-Head</span><span class="format-tag">Auto Standings</span></div></div>
+      <div class="format-card"><span class="format-icon" aria-hidden="true" data-icon="medal"></span><div class="format-label">Premier League</div><div class="format-desc">Full team-based league with player auction, skill-based categorization, custom match formats, pool management, and semi-finals.</div><div class="format-tags"><span class="format-tag">Live Auction</span><span class="format-tag">Team Pools</span><span class="format-tag">Trump Matches</span></div></div>
+      <div class="format-card"><span class="format-icon" aria-hidden="true" data-icon="activity"></span><div class="format-label">Group + Knockout</div><div class="format-desc">Pool/group stage followed by knockout rounds. Top teams auto-qualify based on pool standings.</div><div class="format-tags"><span class="format-tag">Pool Stage</span><span class="format-tag">Auto Qualify</span><span class="format-tag">Knockout Finals</span></div></div>
+      <div class="format-card"><span class="format-icon" aria-hidden="true" data-icon="star"></span><div class="format-label">Lucky Doubles</div><div class="format-desc">Players register individually and are randomly paired into doubles teams on the day. Great for social and fun events.</div><div class="format-tags"><span class="format-tag">Random Pairing</span><span class="format-tag">Doubles</span><span class="format-tag">Social Events</span></div></div>
+      <div class="format-card"><span class="format-icon" aria-hidden="true" data-icon="dice"></span><div class="format-label">Knockout League</div><div class="format-desc">Hybrid format combining league-stage group play with a knockout elimination bracket. Teams play multiple matches before the knockout rounds begin.</div><div class="format-tags"><span class="format-tag">Hybrid</span><span class="format-tag">More Matches</span><span class="format-tag">Group + Bracket</span></div></div>
     </div>
   </div>
 </section>
@@ -410,9 +412,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="pricing-pillars">
       <div class="pricing-pillar"><div class="pricing-pillar-icon" aria-hidden="true">🆓</div><div><div class="pricing-pillar-h3">First Tournament Free</div><div class="pricing-pillar-copy">Run your entire first tournament at zero cost — full features, full support, no strings attached.</div></div></div>
-      <div class="pricing-pillar"><div class="pricing-pillar-icon" aria-hidden="true">📋</div><div><div class="pricing-pillar-h3">Per-Event Pricing</div><div class="pricing-pillar-copy">Pay only when you run an event. No monthly subscriptions, no annual lock-ins.</div></div></div>
-      <div class="pricing-pillar"><div class="pricing-pillar-icon" aria-hidden="true">🚫</div><div><div class="pricing-pillar-h3">No Commission on Entry Fees</div><div class="pricing-pillar-copy">Every rupee your players pay goes to you. SportsGenX does not take a cut of your entry fee revenue — ever.</div></div></div>
-      <div class="pricing-pillar"><div class="pricing-pillar-icon" aria-hidden="true">📊</div><div><div class="pricing-pillar-h3">Volume Discounts Available</div><div class="pricing-pillar-copy">Running multiple events per year? Associations and regular organisers get preferential rates.</div></div></div>
+      <div class="pricing-pillar"><div class="pricing-pillar-icon" aria-hidden="true" data-icon="clipboard"></div><div><div class="pricing-pillar-h3">Per-Event Pricing</div><div class="pricing-pillar-copy">Pay only when you run an event. No monthly subscriptions, no annual lock-ins.</div></div></div>
+      <div class="pricing-pillar"><div class="pricing-pillar-icon" aria-hidden="true" data-icon="ban"></div><div><div class="pricing-pillar-h3">No Commission on Entry Fees</div><div class="pricing-pillar-copy">Every rupee your players pay goes to you. SportsGenX does not take a cut of your entry fee revenue — ever.</div></div></div>
+      <div class="pricing-pillar"><div class="pricing-pillar-icon" aria-hidden="true" data-icon="chart"></div><div><div class="pricing-pillar-h3">Volume Discounts Available</div><div class="pricing-pillar-copy">Running multiple events per year? Associations and regular organisers get preferential rates.</div></div></div>
     </div>
   </div>
 </section>
@@ -423,13 +425,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="wl-card">
         <div class="wl-card-banner"><div class="wl-card-banner-title">Your Brand. Your Platform.</div><div class="wl-card-banner-sub">Powered by SportsGenX</div></div>
         <ul class="wl-includes">
-          <li><div class="wi-icon" aria-hidden="true">📱</div>Android App — your branding</li>
-          <li><div class="wi-icon" aria-hidden="true">🍎</div>iOS App — your branding</li>
-          <li><div class="wi-icon" aria-hidden="true">🌐</div>Web Portal — your custom domain</li>
-          <li><div class="wi-icon" aria-hidden="true">💳</div>Payment Gateway Integration</li>
-          <li><div class="wi-icon" aria-hidden="true">🎨</div>Custom Colors, Logo &amp; Identity</li>
-          <li><div class="wi-icon" aria-hidden="true">📊</div>Dedicated Dashboards for your users</li>
-          <li><div class="wi-icon" aria-hidden="true">🔄</div>All future updates included</li>
+          <li><div class="wi-icon" aria-hidden="true" data-icon="smartphone"></div>Android App — your branding</li>
+          <li><div class="wi-icon" aria-hidden="true" data-icon="apple"></div>iOS App — your branding</li>
+          <li><div class="wi-icon" aria-hidden="true" data-icon="globe"></div>Web Portal — your custom domain</li>
+          <li><div class="wi-icon" aria-hidden="true" data-icon="creditcard"></div>Payment Gateway Integration</li>
+          <li><div class="wi-icon" aria-hidden="true" data-icon="palette"></div>Custom Colors, Logo &amp; Identity</li>
+          <li><div class="wi-icon" aria-hidden="true" data-icon="chart"></div>Dedicated Dashboards for your users</li>
+          <li><div class="wi-icon" aria-hidden="true" data-icon="refresh"></div>All future updates included</li>
         </ul>
         <div class="wl-card-tagline">Launch in weeks · Zero dev cost</div>
       </div>
@@ -445,7 +447,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="wl-pill">Federations</span>
         <span class="wl-pill">Sports Communities</span>
       </div>
-      <a href="index.html#contact" class="btn-primary">Talk to Us About White Label →</a>
+      <a href="#contact" class="btn-primary">Talk to Us About White Label →</a>
     </div>
   </div>
 </section>
@@ -457,8 +459,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 class="section-h2">What Organisers <span>Say About Us</span></h2>
     </div>
     <div class="testi-grid">
-      <div class="testi-card"><span class="testi-quote" aria-hidden="true">"</span><p class="testi-body">We have used SportsGenX for 3 tournaments — 2 badminton and 1 pickleball. All 3 were extremely smooth. SportsGenX has incorporated all aspects of gameplay and scoring with clear access control mechanisms.</p><p class="testi-highlight">Their team is available 24x7. We had tournaments beginning at 6 AM and were surprised to get follow-ups at 5:45 AM. Overall, it's a top experience!</p><div class="testi-author"><div class="testi-avatar" aria-hidden="true">MP</div><div><div class="testi-name">Manan Podar</div><div class="testi-org">Goregaon Sports Club, Mumbai</div></div></div><div class="testi-stars" aria-label="5 stars">★★★★★</div></div>
-      <div class="testi-card"><span class="testi-quote" aria-hidden="true">"</span><p class="testi-body">SportsGenX has been a game-changer for tournament organisers as well as participants. Real-time updates, player insights, tournament points and many more — I'm thrilled with the efficiency this app brings.</p><p class="testi-highlight">Any format you think of — league, knockout, round robin — they made it ready and customised for you. An excellent app that I highly recommend!</p><div class="testi-author"><div class="testi-avatar" aria-hidden="true">PG</div><div><div class="testi-name">Parag Gupta</div><div class="testi-org">SportsWhizz Foundation, Indore</div></div></div><div class="testi-stars" aria-label="5 stars">★★★★★</div></div>
+      <div class="testi-card"><span class="testi-quote" aria-hidden="true">"</span><p class="testi-body">We have used SportsGenX for 3 tournaments — 2 badminton and 1 pickleball. All 3 were extremely smooth. SportsGenX has incorporated all aspects of gameplay and scoring with clear access control mechanisms.</p><p class="testi-highlight">Their team is available 24x7. We had tournaments beginning at 6 AM and were surprised to get follow-ups at 5:45 AM. Overall, it's a top experience!</p><div class="testi-author"><div class="testi-avatar" aria-hidden="true">MP</div><div><div class="testi-name">Manan Podar</div><div class="testi-org">Goregaon Sports Club, Mumbai</div></div></div><div class="testi-stars" aria-label="5 stars"><span class="ui-icon ui-icon--sm" data-icon="star" aria-hidden="true"></span><span class="ui-icon ui-icon--sm" data-icon="star" aria-hidden="true"></span><span class="ui-icon ui-icon--sm" data-icon="star" aria-hidden="true"></span><span class="ui-icon ui-icon--sm" data-icon="star" aria-hidden="true"></span><span class="ui-icon ui-icon--sm" data-icon="star" aria-hidden="true"></span></div></div>
+      <div class="testi-card"><span class="testi-quote" aria-hidden="true">"</span><p class="testi-body">SportsGenX has been a game-changer for tournament organisers as well as participants. Real-time updates, player insights, tournament points and many more — I'm thrilled with the efficiency this app brings.</p><p class="testi-highlight">Any format you think of — league, knockout, round robin — they made it ready and customised for you. An excellent app that I highly recommend!</p><div class="testi-author"><div class="testi-avatar" aria-hidden="true">PG</div><div><div class="testi-name">Parag Gupta</div><div class="testi-org">SportsWhizz Foundation, Indore</div></div></div><div class="testi-stars" aria-label="5 stars"><span class="ui-icon ui-icon--sm" data-icon="star" aria-hidden="true"></span><span class="ui-icon ui-icon--sm" data-icon="star" aria-hidden="true"></span><span class="ui-icon ui-icon--sm" data-icon="star" aria-hidden="true"></span><span class="ui-icon ui-icon--sm" data-icon="star" aria-hidden="true"></span><span class="ui-icon ui-icon--sm" data-icon="star" aria-hidden="true"></span></div></div>
     </div>
   </div>
 </section>

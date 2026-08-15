@@ -59,8 +59,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .screen-card-num{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(200,0,26,.4);margin-bottom:8px}
 .screen-card-h3{font-family:var(--font-display);font-size:17px;font-weight:700;text-transform:uppercase;color:var(--black);margin-bottom:10px;line-height:1.2}
 .screen-card-list{list-style:none;display:flex;flex-direction:column;gap:7px}
-.screen-card-list li{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:#555;line-height:1.5}
-.screen-card-list li::before{content:'';flex-shrink:0;width:5px;height:5px;border-radius:50%;background:var(--red);margin-top:6px}
+.screen-card-list li{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:#555;line-height:1.55}
+.screen-card-list li::before{content:'';flex-shrink:0;width:5px;height:5px;border-radius:50%;background:var(--red);margin-top:.55em}
 .features-section{background:var(--red);padding:90px 40px;position:relative;overflow:hidden}
 .features-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,.25),transparent)}
 .feat-header{max-width:1200px;margin:0 auto 52px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
@@ -120,11 +120,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="sep">›</span>
         <span>Live Auction</span>
       </div>
-      <div class="page-hero-eyebrow">🔨 IPL-Style Auction Platform</div>
+      <div class="page-hero-eyebrow"><span class="ui-icon" data-icon="gavel" aria-hidden="true"></span> IPL-Style Auction Platform</div>
       <h1 class="page-hero-h1">Live Player <span>Auction</span> Software for Any Sports League</h1>
       <p class="page-hero-sub">Give your premier league the excitement it deserves. SportsGenX runs real-time IPL-style player auctions — live bidding on a big screen, budget tracking, lucky wheel tie-breakers, and instant team allocation. All from one mobile dashboard.</p>
       <div class="hero-ctas">
-        <a href="#" class="btn-primary"><svg class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
+        <a href="#contact" class="btn-primary"><svg class="icon" style="margin-right:4px;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Book Free Demo</a>
         <a href="#screens" class="btn-outline-red">See How It Works ↓</a>
       </div>
     </div>
@@ -140,7 +140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="auction-player">
           <div class="auction-player-name">Rahul Sharma</div>
           <div class="auction-player-cat">Category</div>
-          <div class="auction-cat-badge">🥇 Gold</div>
+          <div class="auction-cat-badge"><span class="ui-icon" data-icon="medal" aria-hidden="true"></span> Gold</div>
         </div>
         <div class="auction-bids">
           <div class="auction-base">
@@ -185,7 +185,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="screens-grid">
       <div class="screen-card">
-        <div class="screen-card-top"><span>📱</span></div>
+        <div class="screen-card-top"><span data-icon="smartphone"></span></div>
         <div class="screen-card-body">
           <div class="screen-card-num">01 — Admin</div>
           <h3 class="screen-card-h3">Mobile Dashboard to Control Auction</h3>
@@ -199,7 +199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="screen-card">
-        <div class="screen-card-top"><span></span></div>
+        <div class="screen-card-top"><span data-icon="zap"></span></div>
         <div class="screen-card-body">
           <div class="screen-card-num">02 — Controller</div>
           <h3 class="screen-card-h3">Quick Pad for Instant Bidding</h3>
@@ -213,7 +213,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="screen-card">
-        <div class="screen-card-top"><span>🎡</span></div>
+        <div class="screen-card-top"><span data-icon="target"></span></div>
         <div class="screen-card-body">
           <div class="screen-card-num">03 — Tie-Breaker</div>
           <h3 class="screen-card-h3">Lucky Wheel for Equal Highest Bids</h3>
@@ -227,7 +227,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="screen-card">
-        <div class="screen-card-top"><span>📲</span></div>
+        <div class="screen-card-top"><span data-icon="smartphone"></span></div>
         <div class="screen-card-body">
           <div class="screen-card-num">04 — Players</div>
           <h3 class="screen-card-h3">Live Auction Screen for Players</h3>
@@ -241,7 +241,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="screen-card">
-        <div class="screen-card-top"><span>📺</span></div>
+        <div class="screen-card-top"><span data-icon="monitor"></span></div>
         <div class="screen-card-body">
           <div class="screen-card-num">05 — Venue Display</div>
           <h3 class="screen-card-h3">Live Auction Screen at the Venue</h3>
@@ -255,7 +255,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="screen-card">
-        <div class="screen-card-top"><span>🏟️</span></div>
+        <div class="screen-card-top"><span data-icon="building"></span></div>
         <div class="screen-card-body">
           <div class="screen-card-num">06 — Team Overview</div>
           <h3 class="screen-card-h3">Team Position Detail Screen</h3>
@@ -281,43 +281,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="features-grid">
     <div class="feat-card">
-      <span class="feat-icon"></span>
+      <span class="feat-icon" data-icon="users"></span>
       <h3 class="feat-h3">Add Teams &amp; Players Easily</h3>
       <p class="feat-copy">Create and manage unlimited teams and players with bulk upload or manual entry options — set up your entire auction in minutes.</p>
     </div>
     <div class="feat-card">
-      <span class="feat-icon">🗂️</span>
+      <span class="feat-icon" data-icon="folder"></span>
       <h3 class="feat-h3">Create Player Categories</h3>
       <p class="feat-copy">Define custom categories (Platinum, Gold, Silver, etc.) and assign minimum and maximum bid prices for each category.</p>
     </div>
     <div class="feat-card">
-      <span class="feat-icon">💰</span>
+      <span class="feat-icon" data-icon="wallet"></span>
       <h3 class="feat-h3">Team Budget &amp; Auto Calculation</h3>
       <p class="feat-copy">Set total team budgets — the system automatically calculates the minimum required purse based on player slots and category rules.</p>
     </div>
     <div class="feat-card">
-      <span class="feat-icon">📲</span>
+      <span class="feat-icon" data-icon="smartphone"></span>
       <h3 class="feat-h3">Mobile Bidding for Team Owners</h3>
       <p class="feat-copy">Team owners can securely log in and place live bids directly from their mobile devices — no laptop, no hassle.</p>
     </div>
     <div class="feat-card">
-      <span class="feat-icon">↩️</span>
+      <span class="feat-icon" data-icon="undo"></span>
       <h3 class="feat-h3">Revert Wrong Sold Player</h3>
       <p class="feat-copy">Quickly revert any mistakenly sold player and reopen bidding without disturbing the overall auction flow — one tap to fix.</p>
     </div>
     <div class="feat-card">
-      <span class="feat-icon">📋</span>
+      <span class="feat-icon" data-icon="clipboard"></span>
       <h3 class="feat-h3">Sold, Unsold &amp; Remaining Lists</h3>
       <p class="feat-copy">Track real-time lists of sold, unsold, and remaining players along with complete team budget tracking throughout the auction.</p>
     </div>
     <div class="feat-card">
-      <span class="feat-icon">📄</span>
+      <span class="feat-icon" data-icon="file"></span>
       <h3 class="feat-h3">Final PDF Allocation Report</h3>
       <p class="feat-copy">Generate a downloadable PDF with complete team-wise player allocation, sold prices, and remaining purse details after auction completion.</p>
-    </div>
-    <div class="feat-card" style="background:rgba(200,0,26,.03);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;">
-      <div style="font-size:36px;opacity:.2">🔨</div>
-      <div style="font-family:var(--font-display);font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:rgba(0,0,0,.15);font-weight:700">More Coming<br>Soon</div>
     </div>
   </div>
 </section>
@@ -331,22 +327,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="why-grid">
       <div class="why-card">
-        <span class="why-card-icon">📺</span>
+        <span class="why-card-icon" data-icon="monitor"></span>
         <h3 class="why-card-h3">Big-Screen Venue Experience</h3>
         <p class="why-card-copy">The auction isn't just a back-office exercise — it's a <strong>live event</strong>. SportsGenX projects the auction on your venue screen or projector. Players, owners, and spectators watch bids fly in real time. The energy is electric.</p>
       </div>
       <div class="why-card">
-        <span class="why-card-icon">🎡</span>
+        <span class="why-card-icon" data-icon="target"></span>
         <h3 class="why-card-h3">Fair Lucky Wheel Tie-Breaker</h3>
         <p class="why-card-copy">When two or more teams place the <strong>exact same highest bid</strong>, the lucky wheel spins automatically — selecting the winner fairly and transparently in front of everyone. No disputes, no confusion.</p>
       </div>
       <div class="why-card">
-        <span class="why-card-icon">💰</span>
+        <span class="why-card-icon" data-icon="wallet"></span>
         <h3 class="why-card-h3">Real-Time Budget Intelligence</h3>
         <p class="why-card-copy">Every team's <strong>total budget, spent amount, and remaining purse</strong> is tracked live. The platform enforces budget caps automatically — no team can overbid, and no calculation errors slip through.</p>
       </div>
       <div class="why-card">
-        <span class="why-card-icon">📲</span>
+        <span class="why-card-icon" data-icon="smartphone"></span>
         <h3 class="why-card-h3">Mobile-First for Every Stakeholder</h3>
         <p class="why-card-copy">Organisers control from their phone. Team owners bid from their phones. Players watch from their phones. <strong>No laptops required</strong> — the entire auction runs on mobile, from setup to final allocation.</p>
       </div>

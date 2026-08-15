@@ -315,14 +315,21 @@ select.hero-form-input option {
   align-items: flex-start;
   gap: 12px;
   font-size: 14.5px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 .comp-col.excel .comp-list li { color: #666; }
 .comp-col.sgx .comp-list li { color: rgba(255,255,255,0.92); }
-.comp-list li .c-icon {
+.comp-list li .c-icon,
+.comp-list li .comp-icon,
+.comp-list li > svg {
   font-size: 16px;
   flex-shrink: 0;
-  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  margin-top: 0.3em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* PAIN POINT SOLUTIONS */
@@ -574,6 +581,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="hero-form-sub">Get a custom 30-minute walkthrough. Set up your first tournament today.</p>
       <form id="hero-demo-form">
         <div id="hero-form-error" class="form-error" style="background:#fef2f2; border:1px solid #fca5a5; color:#dc2626; padding:10px; border-radius:4px; margin-bottom:16px; font-size:12.5px; display:none; grid-column: 1 / -1;"></div>
+        <input type="hidden" name="page_url" class="ait-page-url" value="" />
         <div class="hero-form-row">
           <input type="text" class="hero-form-input" name="first_name" placeholder="First Name *" autocomplete="given-name" required />
           <input type="text" class="hero-form-input" name="last_name" placeholder="Last Name" autocomplete="family-name" />
@@ -626,35 +634,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <ul class="comp-list">
           <li>
-            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
             <div><strong>Manual Intake:</strong> Transcribing registrations from WhatsApp messages and PDF receipts.</div>
           </li>
           <li>
-            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
             <div><strong>Draw Mistakes:</strong> Messing up seeds, placing teammates against each other, or formatting errors.</div>
           </li>
           <li>
-            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
             <div><strong>Chasing Payments:</strong> Manually reviewing bank accounts and cross-checking transaction screenshots.</div>
           </li>
           <li>
-            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
             <div><strong>Buried Updates:</strong> Sending results on chat groups, which quickly get lost in dozens of replies.</div>
           </li>
           <li>
-            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8001A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
@@ -674,31 +682,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <ul class="comp-list">
           <li>
-            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
             <div><strong>Self-Registration:</strong> Share a single link; players register and pay instantly in-app.</div>
           </li>
           <li>
-            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
             <div><strong>1-Click Draw Engine:</strong> Automatically builds knockout, league, or pool draws with balanced seeds.</div>
           </li>
           <li>
-            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
             <div><strong>Instant Payment Tracking:</strong> Unified collection through UPI, cards, or wallets with instant ledger updates.</div>
           </li>
           <li>
-            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
             <div><strong>Real-Time Live Brackets:</strong> Everyone views dynamic scoreboards and bracket progressions live on web/app.</div>
           </li>
           <li>
-            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: top; margin-top: 4px; margin-right: 10px; flex-shrink: 0;">
+            <svg class="comp-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
             <div><strong>Mobile Scoring Panel:</strong> Umpires submit live scores on court, updating dashboards and viewers instantly.</div>
