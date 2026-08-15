@@ -543,7 +543,7 @@
   ══════════════════════════════════════════ */
   var API_URL = 'https://app.aiengagecrm.com/cback/api';
   var SLUG = 'book-your-free-demo-copy';
-  var REDIRECT_URL = 'https://sportsgenx.com/thank-you-landing.html';
+  var REDIRECT_URL = 'https://sportsgenx.com/thank-you-landing';
   var REDIRECT_TARGET = 'parent';
 
   function stampPageUrl(form) {
